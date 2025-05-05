@@ -14,12 +14,12 @@
         // define('DBPASS', 'yunus2017');
         // define('DBDRIVER', 'mysql');
 
-        define('IMAGE',"http://localhost/KiddoVille-UI_UX/Public/Assets/Images");
-        define('JS',"http://localhost/KiddoVille-UI_UX/Public/Assets/JS");
-        define('CSS',"http://localhost/KiddoVille-UI_UX/Public/Assets/CSS");
-        define('VIDEO',"http://localhost/KiddoVille-UI_UX/Public/Assets/videos");
-        define('ROOT',"http://localhost/KiddoVille-UI_UX/Public");
-        define('UPLOADS',"http://localhost/KiddoVille-UI_UX/Public/Uploads");
+        define('IMAGE',"http://localhost/DayCare/Public/Assets/Images");
+        define('JS',"http://localhost/DayCare/Public/Assets/JS");
+        define('CSS',"http://localhost/DayCare/Public/Assets/CSS");
+        define('VIDEO',"http://localhost/DayCare/Public/Assets/videos");
+        define('ROOT',"http://localhost/DayCare/Public");
+        define('UPLOADS',"http://localhost/DayCare/Public/Uploads");
     // }
     // else{
         
