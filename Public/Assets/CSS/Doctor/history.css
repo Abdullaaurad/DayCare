@@ -1,0 +1,98 @@
+.press-page{
+    border-radius: 15px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    padding: 25px;
+    margin:20px 20px;
+    
+
+}
+.press-table button{
+   
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.press-table .add-btn{
+    margin-top: 1rem;
+}
+.press-table button:hover{
+    background-color: #0056b3;
+}
+.press-table{
+    padding: 0px 20px;
+}
+.press-page-header-group{
+    display: flex;
+    align-items: center;
+    color: var(--secondary-color );
+}
+.press-page-header-group h3{
+    padding: 10px;
+}
+.press-page-header hr{
+    border: 1px solid #ccc;
+}
+.press-table-title{
+    color: var(--secondary-color);
+    margin:40px 5px 20px 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    padding: 10px 5px;
+    background-color: var(--background-white);
+}
+.press-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding:5px 0px;
+    border-bottom: 1px solid var(--border-line);
+    margin:5px 5px 5px 5px;
+    align-items: center;
+}
+
+.press-row .booked{
+    padding: 8px 8px;
+    background-color:rgba(0,128,0,0.15);
+    border-radius: 20px;
+    width: 40%;
+    color: #008000;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.appointment-row .available{
+    padding: 8px 20px;
+    background-color:#a3d0fb;
+    border-radius: 20px;
+    width: 50%;
+    color: #1172e1;
+    margin-bottom: 10px;
+}
+.press-row .actions{
+    display: flex;
+   
+    align-items: center;
+    gap: 8px;
+}
+
+.appointment-row .actions .dlt-btn{
+    background-color: #fa3c3c;
+}
+.appointment-row .actions .dlt-btn:hover{
+    background-color: #f00707;
+}
+
+.appointment-row .actions .dlt-btn-booked{
+    background-color: rgb(183, 184, 185);
+    cursor:auto;
+}
+.appointment-row .actions .edit-btn-booked{
+    background-color: rgb(183, 184, 185);
+    cursor:auto;
+}

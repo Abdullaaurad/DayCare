@@ -1,0 +1,294 @@
+@import url('../variables.css');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--body-first);
+}
+
+.main-content {
+    margin-left: 293px;
+    background-color: var(--body-second);
+    height: 100vh;
+    overflow-y: auto;
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    box-sizing: content-box;
+    position: relative;
+    margin-top: 26px;
+}
+
+.main-content .grid {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 30px;
+    margin-top: 120px;
+    box-sizing: border-box;
+    margin-left: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.main-content .grid::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+}
+
+.main-content .grid .item {
+    width: 175px;
+    height: 210px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px var(--popup-background);
+    padding: 8px 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 20px;
+}
+
+.main-content .grid .item:hover {
+    transform: translateY(-10px);
+    /* Move the item up */
+    box-shadow: 0 8px 16px var(--popup-background);
+    /* Increase shadow on hover */
+}
+
+.main-content .grid .item img,
+.main-content .grid .item video {
+    width: 164px;
+    height: 130px;
+    border-radius: 7px;
+}
+
+.main-content .grid .item h3 {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.main-content .grid .item p {
+    margin: 0px 0;
+    font-size: 14px;
+    color: #333;
+    margin-top: -8px;
+}
+
+.fa-search {
+    margin-top: -63px;
+    margin-bottom: 23px;
+    margin-left: 132px;
+    color: #333;
+}
+
+/* Container for the custom dropdown */
+.custom-select-container {
+    position: relative;
+    width: 160px;
+    font-family: Arial, sans-serif;
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
+
+/* The trigger that mimics the select box */
+.custom-select-trigger {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Custom dropdown icon */
+.custom-select-trigger i {
+    margin-left: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+}
+
+/* The hidden container for options */
+.custom-options-container {
+    position: absolute;
+    top: calc(10% + 5px);
+    left: 0;
+    width: 100%;
+    background-color: #8db4f3;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--popup-background);
+    display: none;
+    z-index: 100;
+    transition: all 0.3s ease;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: none;
+}
+
+.custom-options-container::-webkit-scrollbar {
+    width: 7px;
+    /* Width of the scrollbar */
+}
+
+.custom-options-container::-webkit-scrollbar-track {
+    background: #8db4f3;
+    /* Color of the scrollbar track */
+    border-radius: 10px;
+}
+
+.custom-options-container::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    /* Color of the scrollbar handle */
+    border-radius: 10px;
+}
+
+.custom-options-container::-webkit-scrollbar-thumb:hover {
+    background: #196df5;
+    /* Color of the scrollbar handle on hover */
+}
+
+.grid::-webkit-scrollbar {
+    width: 20px;
+    /* Width of the scrollbar */
+}
+
+.grid::-webkit-scrollbar-track {
+    background: #8db4f3;
+    /* Color of the scrollbar track */
+    border-radius: 10px;
+}
+
+.grid::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    /* Color of the scrollbar handle */
+    border-radius: 10px;
+}
+
+.grid::-webkit-scrollbar-thumb:hover {
+    background: #196df5;
+    /* Color of the scrollbar handle on hover */
+}
+
+/* Individual options */
+.custom-option {
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    background-color: #8db4f3;
+    border-radius: 8px;
+}
+
+.custom-option:last-child {
+    border-bottom: none;
+    /* Remove border for the last option */
+}
+
+/* Hover effect for options */
+.custom-option:hover {
+    background-color: #669df6;
+}
+
+/* Show the custom dropdown options when the dropdown is active */
+.custom-select-container.active .custom-options-container {
+    display: block;
+    /* Show options when dropdown is active */
+}
+
+.custom-select-container:focus {
+    transform: scale(1.1);
+    /* Grow 10% */
+}
+
+.fa-home {
+    font-size: 32px;
+    /* Set the size of the icon */
+    color: white;
+    transition: transform 0.3s ease;
+    /* Smooth transition for transform changes */
+    margin-top: -5px;
+    text-decoration: none !important;
+}
+
+.nav-link {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.nav-link p {
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.day {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    width: 95%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px var(--popup-background);
+    border-bottom: 4px solid var(--heading);
+    padding: 10px 0px;
+    margin-bottom: -120px;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.day h3 {
+    font-size: 18px;
+    /* Slightly larger font size for visibility */
+    font-weight: bold;
+    color: var(--heading);
+    /* Darker blue color for text */
+    margin: 0;
+    /* Remove margin */
+    margin-left: 20px;
+}
+
+.load-more-btn{
+    white-space:nowrap;
+    height: 40px;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 0px;
+    margin-top: 180px;
+}
+
+.search-bar{
+    margin-left: -600px; 
+    margin-right: 200px; 
+    margin-top:0px;
+}
+
+.profile-card{
+    margin-top: 200px;
+}
+
+.header2 img{
+    width: 40px; 
+    height: 40px; 
+    margin-left: 20px;
+}
+.header2 p {
+    color: white; 
+    font-size: 17px;
+}

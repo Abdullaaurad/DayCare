@@ -1,0 +1,783 @@
+@import url('../variables.css');
+
+.header2 img{
+    display: none;
+}
+
+#paperclip-btn{
+    margin-right: 10px;
+}
+
+#edit-close-btn{
+    margin-right: 10px; 
+    font-size: 20px; 
+    display: none;
+}
+
+#edit-send-btn{
+    display: none;
+}
+
+#file-input{
+    display: none;
+}
+
+#files{
+    margin-right: 100px !important;
+}
+
+.sidebar3 {
+    height: 100vh;
+    position: fixed;
+    top: 80px;
+    left: 270px;
+    width: 300px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar3 .search-bar {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    height: 40px;
+}
+.sidebar3 .search-bar input {
+    width: 250px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 0px;
+}
+.sidebar3 .chat-list {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.sidebar3 .chat-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.sidebar3 .chat-list::-webkit-scrollbar-track, .chat-window .messages::-webkit-scrollbar-track {
+    background: #8db4f3;
+    border-radius: 10px;
+}
+
+.sidebar3 .chat-list::-webkit-scrollbar-thumb, .chat-window .messages::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 10px;
+}
+
+.sidebar3 .chat-list::-webkit-scrollbar-thumb:hover, .chat-window .messages::-webkit-scrollbar-hover {
+    background: #196df5;
+}
+
+.sidebar3 .chat-list .chat-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+.sidebar3 .chat-list .chat-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.sidebar3 .chat-list .chat-item .chat-info {
+    display: flex;
+    flex-direction: column;
+}
+.sidebar3 .chat-list .chat-item .chat-info .name {
+    font-weight: bold;
+}
+.sidebar3 .chat-list .chat-item .chat-info .message {
+    color: #888;
+}
+.chat-window {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+.chat-window .header2 {
+    position: fixed;
+    border-left: 2px solid lightgrey;
+    width: 955px;
+    top: 80;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    margin-left: -20px;
+}
+.chat-window .header2 img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.chat-window .header2 .user-info {
+    display: flex; 
+    flex-direction: column;
+    flex-grow: 1;
+}
+.chat-window .header2 .user-info .name {
+    font-weight: bold;
+}
+.chat-window .header2 .user-info .status {
+    font-size: 12px;
+}
+.chat-window .header2 .icons i {
+    margin-left: 10px;
+    cursor: pointer;
+}
+.chat-window .messages {
+    position: fixed;
+    flex-grow: 1;
+    right: 0;
+    width: 62.8%;
+    height: 73%;
+    background-size: cover;
+    overflow-y: auto;
+    bottom: 54;
+}
+.chat-window .messages::-webkit-scrollbar {
+    width: 12px;
+}
+
+.chat-window .messages .message {
+    display: flex;
+    margin-bottom: 10px;
+}
+.chat-window .messages .message.sent {
+    margin-right: 15px;
+    justify-content: flex-end;
+}
+.chat-window .messages .message .text {
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+.chat-window .messages .message.sent .text {
+    background-color: #90caf9;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    border: 2px solid grey;
+}
+.chat-window .messages .message.received .text {
+    margin-left: 15px;
+    background-color: var(--pickup);
+    color: #000;
+    border: 2px solid grey;
+}
+.chat-window .messages .message .time2 {
+    font-size: 10px;
+    margin-top: 5px;
+    text-align: right;
+}
+.chat-window .input-bar {
+    display: none;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    bottom: 0;
+    position:fixed;
+    width: 61.35%;
+    right: 0;
+    border: 2px solid lightgrey;
+    height: 30px;
+}
+.chat-window .input-bar input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+.chat-window .input-bar button {
+    background-color: var(--button-blue);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.fa-paper-plane{
+    margin-left: 1px;
+    border-radius: 20px;
+}
+.sidebar .chat-info {
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Add this for positioning the badge */
+}
+.no-more-chats {
+    text-align: center;
+    margin: 20px auto; /* Center horizontally and add space above and below */
+    font-size: 18px;
+    color: #888;
+    font-weight: bold;
+    padding: 10px 5px;
+    border: 2px solid var(--button-blue);
+    border-radius: 8px;
+    background-color: #f0f8ff;
+    width: 80%; /* Adjust as needed */
+    box-shadow: 0 4px 8px var(--popup-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.upload-container {
+    position: fixed;
+    bottom: -100%;
+    left: 110px;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px var(--popup-background);
+    transition: bottom 0.5s ease;
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+    z-index: 1000;
+    width: 30%;
+    justify-content: center;
+    text-align: center;
+    margin-left: 462px;
+    margin-bottom: 56px;
+    height: 400px;
+    justify-content: center;
+}
+.upload-container.active2 {
+    bottom: 0;
+}
+#file-upload.active2{
+    display: none;
+}
+.upload-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.upload-header i {
+    font-size: 24px;
+}
+.upload-header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.fun-zone {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+.fun-zone span:nth-child(1) { color: red; }
+.fun-zone span:nth-child(2) { color: green; }
+.fun-zone span:nth-child(3) { color: yellow; }
+.fun-zone span:nth-child(4) { color: blue; }
+.upload-box {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: 200px;
+    justify-content: center;
+}
+.upload-box .icon-container {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--body-first);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+.upload-box .icon-container i {
+    font-size: 30px;
+    color: var(--p);
+}
+.upload-box p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: var(--p);
+}
+.upload-box button {
+    background-color: var(--button-blue);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.upload-box button:hover {
+    background-color: var(--secondary-color);
+}
+.upload-box small {
+    display: block;
+    margin-top: 10px;
+    color: #999;
+}
+
+#file-upload{
+    height: 280px
+}
+
+.url-input{
+    margin-bottom: 100px;
+    margin-top: -40px;
+}
+
+.url-input input {
+    flex: 1;
+    padding: -50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.url-input p {
+    margin: 0;
+    color: #999;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.upload-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 70px;
+    width: 100%;
+    margin-left: 0px;
+    padding: 0px 40px;
+}
+.upload-buttons button {
+    background-color: #fff;
+    color: var(--button-blue);
+    border: 1px solid var(--button-blue);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 0px;
+}
+.upload-buttons button:hover {
+    background-color: var(--button-blue);
+    color: #fff;
+}
+.upload-buttons .done {
+    background-color: var(--button-blue);
+    color: #fff;
+    border: none;
+}
+.upload-buttons .done:hover {
+    background-color: var(--secondary-color);
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0px 2px 4px var(--popup-background);
+}
+
+.file-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.file-item i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.file-item p {
+    font-size: 14px;
+    color: #333;
+}
+
+.file-item small {
+    font-size: 12px;
+    color: gray;
+}
+
+.file-item button {
+    font-size: 20px;
+    color: red;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.blur{
+    animation: animateBg 10s linear infinite;
+}
+/* 
+section {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 1000;
+}
+@keyframes animateBg {
+    0% {
+        filter: blur(5px);
+        opacity: 0.7;
+    }
+    100% {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+section .loader {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+section .loader span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(18deg * var(--i))) rotate(0deg);
+    transform-origin: center;
+    animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+          transform: rotate(calc(18deg * var(--i))) rotate(0deg); 
+    }
+    100% {
+          transform: rotate(calc(18deg * var(--i))) rotate(360deg);
+    }
+}
+
+section .loader span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background: #001F3F;
+    box-shadow: 
+        0 0 10px var(--button-blue),
+        0 0 20px var(--button-blue),
+        0 0 40px var(--button-blue),
+        0 0 60px var(--button-blue),
+        0 0 80px var(--button-blue),
+        0 0 100px var(--button-blue);
+    animation: animate 2s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+@keyframes animate {
+    0% {
+        transform: scale(1);
+        background: var(--button-blue);
+    }
+    50% {
+        background: #00BFFF;
+    }
+    100% {
+        transform: scale(0);
+        background: var(--button-blue);
+    }
+} */
+.sidebar .chat-list .chat-item2 {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+.sidebar .chat-list .chat-item2 img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.sidebar .chat-list .chat-item2 .chat-info {
+    display: flex;
+    flex-direction: column;
+}
+.sidebar .chat-list .chat-item2 .chat-info .name {
+    font-weight: bold;
+}
+.sidebar .chat-list .chat-item2 .chat-info .message {
+    color: #888;
+}
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: var(--button-blue)
+}
+#input-place{
+    display: flex;
+    flex-direction: row;
+    width: 1130px;
+    margin-bottom: 0px;
+}
+.date-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 200px;
+    background-color: #e1f3fb;
+    color: #0b4f71;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 1px 2px var(--popup-background);
+}
+
+.active {
+    background-color:rgb(163, 209, 237);
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    right: -10px; /* Adjust for proper alignment */
+    top: 80%;
+    display: flex;
+}
+
+.online {
+    background-color: green;
+}
+
+.offline {
+    background-color: red;
+}
+
+.last-seen-container {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Space between dot and text */
+}
+
+.message-status {
+    font-size: 12px;
+    display: inline-block;
+    margin-left: 5px;
+    color: black;
+}
+
+/* Status styles */
+.status-sent {
+    color: black; /* Single check (sent) */
+}
+
+.status-delivered {
+    color: black; /* Double checks (delivered) */
+}
+
+.status-seen {
+    color: #34b7f1; /* Blue double checks (seen) */
+}
+
+.status-deleted {
+    color: red;
+    font-weight: bold;
+}
+
+/* Deleted messages */
+.deleted-message {
+    font-style: italic;
+    color: black;
+}
+
+/* Edited messages */
+.edited {
+    font-size: 10px;
+    color: #777;
+    font-style: italic;
+    margin-left: 5px;
+}
+
+.status-seen{
+    color: black;
+}
+
+.status-seen{
+    display: flex;
+    justify-content: right;
+}
+
+.status-sent{
+    display: flex;
+    justify-content: right;
+}
+
+.time-status-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.sent .text p{
+    margin: 0px;
+    text-align: right;
+}
+
+.received .text p{
+    margin: 0px;
+    text-align: left;
+}
+
+#file-list {
+    max-height: 200px; /* Adjust the height as needed */
+    overflow-y: auto;
+}
+
+#file-list::-webkit-scrollbar {
+    display: none; /* Hides scrollbar for Chrome, Safari, and Edge */
+}
+
+.sent-file {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sent-download-btn {
+    display: flex;
+    align-items: center;
+}
+
+.sent-download-btn i {
+    font-size: 20px;  /* Adjust the icon size */
+    color: var(--button-blue);
+    margin-left: 5px;
+    margin-right: 15px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px var(--popup-background);
+}
+
+/* Received message file container: button on the right */
+.received-file {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.received-download-btn {
+    display: flex;
+    align-items: center;
+}
+
+.received-download-btn i {
+    font-size: 20px;  /* Adjust the icon size */
+    color: var(--button-blue);
+    margin-left: 15px;
+    margin-right: 5px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px var(--popup-background);
+}
+
+/* Add some styling for the download button for consistency */
+.download-btn {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-btn i {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover effect for the download button */
+.download-btn:hover i {
+    flex-grow: 1.1;
+}
+
+/* Styling for image, audio, video */
+img, audio, video {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--popup-background);
+}
+
+.sent-download-btn i:hover {
+    box-shadow: 4px 4px 10px var(--popup-background);  /* Stronger shadow on hover */
+}
+
+.received-download-btn i:hover {
+    box-shadow: 4px 4px 10px var(--popup-background);  /* Stronger shadow on hover */
+}
+
+.popup {
+    position: absolute;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px var(--popup-background);
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    width: 120px;
+}
+
+.popup button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    text-align: left;
+}
+
+.popup button:hover {
+    background: var(--body-first);
+    border-radius: 5px;
+}
+
+.popup button i {
+    font-size: 16px;
+}
+
+.fa-sync{
+    font-size: 25px;
+}

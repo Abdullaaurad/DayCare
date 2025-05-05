@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    width:100%;
+    height: 80px;
+    padding-right: 39px;
+    background: linear-gradient(to right, #3974BA, #4f4cd2);
+    justify-content: flex-start;
+    align-items: center;
+    gap: 380px;
+    display: inline-flex;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-link {
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-link:hover {
+    color: white; /* Keep text color white on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Add slight white background */
+    border-radius: 5px; /* Add slight rounding */
+}
+
+.navbar-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.navbar-logo {
+    width: 152px;
+    height: 120px;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    margin-left: 0px;
+}
+
+.navbar-logo img {
+    width: 152px;
+    height: 120px;
+}
+
+.navbar-links {
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 31px;
+    display: inline-flex;
+    margin-left: 55px;
+}
+
+.navbar-link {
+    font-size: 20px;
+    font-weight: 400;
+    word-wrap: break-word;
+    border: none;
+    cursor: pointer;
+    margin-left: 30px;
+    background: none;
+    color: white;
+}
+
+.navbar-link:hover{
+    color: black;
+    background: none;
+}
+
+.select{
+    color: aqua !important;
+}
+
+.navbar-button {
+    font-size: 20px;
+    font-weight: 400;
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #2B2A9F;
+    color: white;
+    margin-left: 20px;
+}
+.navbar-button.signup{
+    margin-left: 20px;
+}
+
+.navbar-button:hover{
+    color: black;
+    background-color: aqua;
+    cursor: pointer;
+}
+
+.navbar-profile img{
+    width: 40px;
+    border-radius: 40px;
+}
+
+.navbar-profile{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding:10px 20px;
+    border-radius: 20px;
+}
+
+.profile-name{
+    padding-top: 10px;
+    padding-left: 5px;
+}

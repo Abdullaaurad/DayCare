@@ -1,0 +1,93 @@
+
+.Profile p{
+    font-weight: 700;
+    font-size: 25px;
+    color: grey;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.ProfileContainer {
+    background-color: white;
+    padding: 10px;
+    border: none;
+    margin: 5px 10px;
+    border-radius: 20px;
+    display: flex;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+
+ 
+  
+}
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: 5px solid rgba(27, 54, 101, 1);
+    box-shadow: 0px 0px 12px rgba(72, 99, 180, 0.5);
+    transition: box-shadow 0.3s;
+    margin-top: 10px;
+    margin-left: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img:hover {
+    box-shadow: 0px 0px 20px rgba(72, 99, 180, 0.8);
+}
+
+.profile-img input[type="file"] {
+    display: none;
+}
+.leftcon{
+    
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.rightcon{
+    max-width: 600px;
+    padding: 10px;
+}
+.datafield{
+    display: flex;
+    gap: 10px;
+    margin: 15px 10px
+}
+.datafield .data{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.data input[type="text"]{
+    background-color: #F5F5F5;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #d5d5d5;
+}
+.data textarea{
+    background-color: #F5F5F5;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #d5d5d5;
+    margin-left: -5px;
+}
+.data button{
+    background-color: #F5F5F5;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #acabab;
+    cursor: pointer;
+}
+.profile-footer button{
+    color: #fff;
+    padding: 8px 20px;
+    margin: 30px 10px 0px 500px;
+    border-radius: 5px;
+    background-color: var(--button-blue);
+    outline: none;
+    border: none;
+}

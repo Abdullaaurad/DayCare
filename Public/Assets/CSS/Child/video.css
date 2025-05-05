@@ -1,0 +1,523 @@
+@import url('../variables.css');
+
+.main-content .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 10px 30px;
+    margin-top: 120px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    max-height: 80%;
+}
+
+.video-container {
+    display: flex;
+    justify-content: left;
+    width: 1198px;
+    overflow-x: hidden !important;
+    overflow-y: hidden;
+    margin-top: -10px;
+    box-shadow: 0 0 15px var(--popup-background);
+    background: #dcdcdc;
+    border-radius: 10px;
+    align-items: left;
+    text-align: left;
+}
+
+.Date-comment {
+    bottom: 0;
+    white-space: nowrap;
+    margin-right: 10px;
+    /* justify-content:flex-end;
+    align-items:flex-end; */
+}
+
+.Time-comment {
+    bottom: 0;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.action-text {
+    white-space: nowrap;
+    margin-right: 20px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--body-first);
+}
+
+
+/* Container for the custom dropdown */
+.custom-select-container {
+    position: relative;
+    width: 210px;
+    font-family: Arial, sans-serif;
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
+
+.grid::-webkit-scrollbar {
+    width: 20px;
+    /* Width of the scrollbar */
+}
+
+.grid::-webkit-scrollbar-track {
+    background: #8db4f3;
+    /* Color of the scrollbar track */
+    border-radius: 10px;
+}
+
+.grid::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    /* Color of the scrollbar handle */
+    border-radius: 10px;
+}
+
+.grid::-webkit-scrollbar-thumb:hover {
+    background: #196df5;
+    /* Color of the scrollbar handle on hover */
+}
+
+.fa-home {
+    font-size: 32px;
+    /* Set the size of the icon */
+    color: white;
+    transition: transform 0.3s ease;
+    /* Smooth transition for transform changes */
+    margin-top: -5px;
+}
+
+.fa-home:hover {
+    transform: scale(1.2);
+    /* Scale the icon to 120% of its original size */
+}
+
+.nav-link {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+.nav-link p {
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+
+/* video container */
+.video-content {
+    width: 70%;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px var(--popup-background);
+    border-radius: 10px;
+    overflow-x: hidden;
+}
+
+.audio-player, .image-display {
+    width: 100%;
+    height: 430px;
+    background-color: #000;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-display{
+    width: 100%;
+    height: 410px;
+    background-color: #000;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-player{
+    width: 100%;
+    height: 400px;
+    background-color: #000;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-player .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.video-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+    background-color: #94a4b4;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: -7px;
+}
+
+.video-controls .left-controls,
+.video-controls .right-controls {
+    display: flex;
+    align-items: center;
+}
+
+.video-controls .left-controls i,
+.video-controls .right-controls i {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.video-details {
+    margin-top: 20px;
+    background: #fff;
+}
+
+.video-details .title {
+    margin-top: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.video-details .description {
+    font-size: 16px;
+    color: var(--p);
+}
+
+.comments {
+    margin-top: 20px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 320px
+}
+
+.comment {
+    background-color: #f1f1f1;
+    display: flex;
+    margin-bottom: 10px;
+    padding: 7px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.comment .avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment .text {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.related-sidebar {
+    width: 30%;
+    padding-left: 20px;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+.related-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--popup-background);
+}
+
+.related-video .thumbnail {
+    width: 100%;
+    height: 130px;
+    border: 2px solid lightgray;
+    padding: 10px 0px;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.related-video .thumbnail img{
+    width: 100%;
+    height: 130px;
+}
+
+.related-video .thumbnail .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.related-video .details {
+    flex: 1;
+}
+
+.related-video .details .title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.related-video .details .description {
+    font-size: 14px;
+    color: var(--p);
+}
+
+.video-player .play-button {
+    display: none;
+    /* Remove or hide the play button from here */
+}
+
+.video-player .pause-button {
+    display: none;
+    /* Remove or hide the pause button from here */
+}
+
+.video-player:hover .play-button {
+    display: none;
+    /* Ensure it's hidden on hover */
+}
+
+.video-player:hover .pause-button {
+    display: none;
+    /* Ensure it's hidden on hover */
+}
+
+.progress-container {
+    flex: 1;
+    padding: 0 10px;
+}
+
+#progressBar {
+    width: 95%;
+    height: 5px;
+    background: #ddd;
+    outline: none;
+    cursor: pointer;
+}
+
+#progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #333;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+#progressBar::-moz-range-thumb {
+    background: #333;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.video-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.action-button:hover {
+    background-color: #155a9e;
+    box-shadow: 0 4px 8px var(--popup-background);
+}
+
+.action-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(1, 87, 155, 0.5);
+}
+
+.video-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    /* Adjust spacing as needed */
+    padding: 10px;
+    /* Add padding if needed */
+    background-color: #f9f9f9;
+    /* Optional: background color */
+    border-radius: 8px;
+    /* Optional: rounded corners */
+    box-shadow: 0 0 5px var(--popup-background);
+    /* Optional: shadow */
+    background-color: #94a4b4;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.video-actions i {
+    font-size: 24px;
+    /* Adjust icon size as needed */
+    color: #333;
+    /* Default icon color */
+    margin-right: 8px;
+    /* Space between icon and text */
+    transition: color 0.3s, transform 0.3s;
+    /* Smooth transition */
+}
+
+.video-actions .action-text {
+    display: flex;
+    align-items: center;
+}
+
+.video-actions .action-text span {
+    margin-left: 8px;
+    /* Space between icon and text */
+    font-size: 16px;
+    /* Adjust text size as needed */
+}
+
+.video-actions i {
+    font-size: 24px;
+    /* Adjust icon size as needed */
+    color: #333;
+    /* Default icon color */
+    margin-right: 8px;
+    /* Space between icon and text */
+    transition: color 0.3s, transform 0.3s;
+    /* Smooth transition */
+}
+
+.video-actions i.liked,
+.video-actions i.added {
+    color: #1d61c4;
+    /* Color when liked or added */
+}
+
+.video-actions i:hover {
+    transform: scale(1.2);
+    /* Slight scale effect on hover */
+}
+
+#commentSection {
+    margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+    /* White background for comment section */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#commentInput {
+    width: 97%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#submitCommentButton,
+#cancelCommentButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1d61c4;
+    color: #fff;
+    cursor: pointer;
+}
+
+#submitCommentButton:hover,
+#cancelCommentButton:hover {
+    background-color: #155a9e;
+}
+
+.resource-img{
+    width: auto;
+    height: 380px;
+    object-fit: contain;
+}
+
+.Book-controls {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.Book-button {
+    background-color: var(--button-blue);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+.Book-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.Book-download {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--button-blue);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.Book-download i {
+    font-size: 20px;
+}
+
+.Book-download:hover {
+    color: var(--secondary-color);
+}

@@ -1,0 +1,170 @@
+body {
+    font-family: 'poppins', sans-serif;
+    background: linear-gradient(to bottom right, #f7f7f7, #eaeaea);
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    padding: 20px;
+    margin-top: 20px;
+}
+.title {
+    font-size: 36px;
+    color: #3366cc;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.search-bar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.search-bar input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 2px solid #3366cc;
+    border-radius: 5px;
+}
+.navigation {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.navigation button {
+    background-color: white;
+    border: 2px solid #3366cc;
+    color: #3366cc;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.navigation button:hover {
+    background-color: #3366cc;
+    color: white;
+}
+
+.table-container {
+    display: block;
+    margin-bottom: 40px;  
+    margin-left: 23.3%; 
+    margin-top: 60px;    
+}
+table {
+    width: 80%;
+    /* Adjust the table width as needed */
+}
+
+tr {
+    height: 30px;
+    /* Adjust the row height as needed */
+}
+
+/* Optional: Adjust font size and cell padding */
+td {
+    font-size: 12px;
+    padding: 2px;
+}
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+.reset-button {
+    display: block;
+    width: 100px;
+    margin: 20px 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #3366cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;}
+.reset-button:hover{
+    cursor: pointer;
+    background-color: #7c94c5;
+}
+
+.datebutton {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid blue;
+    cursor: pointer;
+    user-select: none;
+}
+
+.datebutton:hover {
+    background-color: lightblue;
+}
+
+.date-display {
+    margin: 0 20px;
+    display: inline-block;
+    font-size: 18px;
+}
+
+select{
+    padding: 10px;
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 10px;
+    background-color:#accbf1;
+}
+
+.filters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -30%;
+    gap: 8%;
+}
+
+.content1{
+    margin-top: 10%;
+}
+
+
+#onlyTomorrow {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    width: 200%;
+    max-width: 300px;
+    margin-top: -15%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #onlyTomorrow:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+  }
+  #onlyTomorrow_1 {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    width: 200%;
+    max-width: 300px;
+    margin-top: -15%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #onlyTomorrow_1:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+  }
+
+  
+  
+

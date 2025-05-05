@@ -1,0 +1,193 @@
+.datacon {
+    display: flex;
+    flex-direction: row;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+}
+
+.data select {
+    background-color: #dcdcdc;
+    border-radius: 5px;
+    border: 2px solid grey;
+    width: 304px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.days {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.day {
+    background-color: #dcdcdc;
+    border-radius: 5px;
+    border: 2px solid grey;
+    padding: 5px 0px;
+    width: 70px;
+    margin-left: 23px;
+    cursor: pointer;
+}
+
+.selectk {
+    background-color: rgba(58, 99, 223, 0.8);
+    border: 2px solid darkblue;
+    color: white;
+}
+
+.Save-con {
+    margin-top: -10px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: -10px;
+}
+
+.Save {
+    padding: 10px 40px;
+    font-size: 20px;
+    background: lightskyblue;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 2px solid darkblue;
+    border-left: 2px solid darkblue;
+    border-right: 2px solid darkblue;
+    transition: transform 0.3s ease;
+}
+
+.selectday {
+    background-color: var(--primary-color);
+    border: 2px solid darkblue;
+    color: white;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.terms input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    accent-color: #1e88e5;
+}
+
+.terms a {
+    color: #1e88e5;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+.package {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    background-color: #f9fafb;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.payment-option input[type="checkbox"] {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+}
+
+/* display package details */
+.package {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    background-color: #f0f8ff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px var(--popup-background);
+}
+
+.package::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome, Safari, Edge */
+}
+
+.package div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.package div:last-child {
+    border-bottom: none;
+}
+
+.package label {
+    font-weight: bold;
+    color: #333;
+}
+
+span {
+    color: #555;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    background-color: #f9fafb;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.toggle{
+    z-index: 100;
+    margin-left: -30px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 220px;
+    font-family: Arial, sans-serif;
+    background: var(--primary-color);
+    border-radius: 0px 8px 8px 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hi-btn {
+    color: white;
+    position: relative;
+    font-size: 18px;
+    z-index: 100;
+    padding: 10px 30px;
+}
+
+.up-btn {
+    color: white;
+    position: relative;
+    font-size: 18px;
+    z-index: 100;
+    background-color: var(--secondary-color);
+    padding: 10px 27px;
+}

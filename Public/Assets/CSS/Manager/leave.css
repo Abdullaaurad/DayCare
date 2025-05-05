@@ -1,0 +1,117 @@
+/* Overall Form Styling */
+
+body{
+  background: linear-gradient(to bottom right, #f7f7f7, #eaeaea);}
+.header {
+    left: 280px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -20px;
+    margin-left: -10px;
+    width: 140%;
+    max-height: 40px;
+    width: calc(100% - 300px);
+    z-index: 1000;
+}
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.name h1 {
+    margin-top: 15px;
+}
+.name p {
+    margin-top: 2px;
+    color: rgb(61, 61, 61);
+}
+
+.header .profile {
+    display: flex;
+    align-items: center;
+}
+.header .profile i {
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+
+
+.leave-form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px var(--popup-background);
+    width: 180%;
+    margin-left: 230%;
+    margin-top: 52%;
+    color:black;
+  }
+  
+  /* Form Styling */
+  .leave-form {
+    width: 100%; /* Adjust width as needed */
+  }
+  
+  /* Form Group Styling */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-top: 5%;
+  }
+  
+  /* Input and Textarea Styling */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  textarea.form-control {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  /* Button Styling */
+  .button-group {
+    text-align: right;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: var(--button-blue);
+    color: white;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--button-blue);
+  }
+  
+  .btn-secondary {
+    background-color: #ccc;
+    color: black;
+    border: 1px solid #ccc;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #ddd;
+  }
+
+
+

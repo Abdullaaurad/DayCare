@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Inter';
+
+}
+
+.wrapper-1 {
+
+    z-index: 1000;
+    padding: 8px 7rem;
+    height: 1000px;
+    backdrop-filter: 50px;
+}
+
+.navbar {
+    z-index: 1;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+
+}
+
+.sign-up-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.navbar-logo img {
+    width: 170px;
+    height: 120px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: var(--primary-color) !important;
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    position: relative;
+    transition: color 0.2s ease;
+
+}
+
+.navbar-link {
+    transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+    /* Keep text color white on hover */
+    color: var(--secondary-color);
+    /* Add slight white background */
+}
+
+.navbar-links a::after {
+    content: '';
+    /* Pseudo-element for the underline */
+    position: absolute;
+    bottom: -2px;
+    /* Position the line slightly below the text */
+    right: 100%;
+    /* Start the line from the right */
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    /* Match underline color with hover color */
+    transition: all 0.3s ease;
+    /* Smooth transition */
+}
+
+.navbar-links a:hover::after {
+    right: 0;
+    /* Move the line to start from the left */
+    width: 100%;
+    /* Extend the line to full width */
+}
+
+.navbar-link.active {
+    color: rgba(35, 83, 167, 1);
+
+}
+
+.sign-up-buttons a {
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar-link-login,
+.navbar-link-signup {
+    border: 2px solid rgba(35, 83, 167, 1);
+    border-radius: 25px;
+    padding: 6px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-link-signup {
+    background-color: var(--secondary-color);
+    color: #fff;
+
+}
+
+.navbar-link-signup:hover {
+    background-color: #fff;
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+
+}
+
+.navbar-link-login {
+    font-weight: 500;
+    color: rgba(35, 83, 167, 1);
+    transition: 0.3s ease-out;
+}
+
+.navbar-link-login:hover {
+    background-color: rgba(35, 83, 167, 1);
+    color: #fff;
+    border-color: rgba(25, 65, 131, 1);
+}

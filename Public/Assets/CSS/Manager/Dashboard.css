@@ -1,0 +1,748 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    
+}
+/* Sidebar styles */
+.sidebar {
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    padding-left: 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-bottom: 0;
+    overflow-y: auto;
+    box-sizing: border-box;
+    width: 270px;
+    padding-left: 20px;
+}
+
+.sidebar h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    color: #2353A7;
+}
+
+.sidebar ul {
+    font-weight: bold;
+    list-style: none;
+    padding: 5px;
+    margin-left: 10px;
+    margin-top: 5px; /* Remove margin-left to ensure dropdown aligns with sidebar */
+}
+
+.sidebar ul li {
+    margin-bottom: 20px; /* Remove negative margin */
+    position: relative;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+.sidebar ul li a:hover {
+    color: #007bff;
+}
+
+
+.sidebar ul li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #007bff;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+.sidebar ul li a:hover::before {
+    transform: scaleX(1);
+}
+
+
+
+.selected {
+    background-color: #2353A7;
+    border-radius: 10px;
+    width: 90%;
+}
+
+.unselected a {
+    padding: 1px 10px;
+}
+
+.selected a {
+    color: white !important;
+    margin-top: 5px !important;
+    margin-bottom: -15px !important;
+    padding: 15px 10px;
+}
+
+/* Dropdown styles */
+.dropdown {
+    display: none;
+    margin-left: 20px;
+    padding-left: 10px;
+    background-color: #f9f9f9;
+    list-style-type: none;
+    border-radius: 15px;
+}
+
+
+
+.dropdown li a {
+    text-decoration: none;
+    color: black;
+    padding: 1px; /* Add padding inside links if needed */
+}
+/* ul li:hover > .dropdown {
+    display: block;
+} */
+
+.dropdown li:hover {
+    background-color: #ddd;
+    color: #0056b3;
+    border-radius: 3px;
+}
+
+
+
+/* Ensure dropdown stays visible */
+li:hover .dropdown {
+    display: block;
+}
+
+.dropdown:hover {
+    display: block; /* Ensure the dropdown stays visible when hovering over it */
+}
+
+/* Additional spacing for dropdown */
+.hover-effect.unselected {
+    position: relative;
+    display: inline-block; /* Ensure relative positioning for child dropdown */
+}
+
+.main-content {
+    background-color:#e0e0e0;
+    padding: 20px;
+    position: relative;
+    background-image: url('../Assets/dashboardbackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 120vh;
+    margin-left: 270px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.header {
+    position: fixed;
+    left: 280px;
+    background: linear-gradient(135deg, #60a6ec, #10639a);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -20px;
+    margin-left: -10px;
+    width: 140%;
+    max-height: 40px;
+    width: calc(100% - 300px);
+    z-index: 1000;
+}
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.header .search-bar {
+    align-items: center;
+    position: relative;
+    display: inline-block;
+}
+.header .search-bar .clear-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.header .search-bar input {
+    padding: 10px;
+    border: 3px solid rgba(107, 106, 106, 0.4);
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: rgba(179, 179, 179, 0.4);
+    width: 430px;
+    padding: 10px 40px 10px 10px;
+    border-radius: 15px;
+    font-size: 16px;
+    margin-left: -160px;
+}
+.header .search-bar input::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 20px;
+}
+.bell-con {
+    width: 38px !important;
+    background-color: rgba(179, 179, 179, 0.4);
+    border-radius: 20px;
+    margin-left: -200px;
+    height: 38px;
+    justify-content: center;
+    border: 3px solid rgba(107, 106, 106, 0.4);
+}
+.bellbtn{
+    font-size: 25px;
+    color: white;
+    background-color:#2877B3 ;
+    border:none;
+    margin-left: -100px;
+    cursor: pointer;
+}
+.bellbtn:hover{
+    color:black ;
+}
+.name h1 {
+    margin-top: 15px;
+}
+.name p {
+    margin-top: 2px;
+    color: rgb(61, 61, 61);
+}
+.bell-icon {
+    margin-left: 12px !important;
+    margin-top: 10px;
+}
+.fa-search {
+    margin-right: 30px;
+}
+.message-numbers {
+    color: white;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin-left: -258px;
+    margin-top: -30px;
+}
+.message-numbers p {
+    margin-left: 6px;
+    margin-top: 1px;
+}
+.header .search-bar i {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.header .profile {
+    display: flex;
+    align-items: center;
+}
+.header .profile i {
+    font-size: 30px;
+    margin-left: 20px;
+}
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 85px;
+}
+.stats .stat:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+.stats .stat {
+    background-color:white;
+    color: #2877B3;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    flex-grow: 1;
+    margin-right: 20px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+    width: 45px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.stats .stat:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
+}
+.stats .stat:last-child {
+    margin-right: 0;
+}
+.stats .stat h3 {
+    margin: 0;
+    font-size: 18px;
+    color: white;
+}
+.stats .stat h2 {
+    margin-top: 10px;
+    font-size: 40px;
+    color: white;
+}
+
+.stats .stat p {
+    font-size: 15px;
+    margin: 10px 0 0;
+    color: #00C7F4;
+}
+.stats .stat span {
+    font-size: 16px;
+    color: white;
+}
+.activity-schedule {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+    width: 1180px;
+    margin-left:15%;
+}
+.activity-schedule h2 {
+    font-size: 24px;
+    color: #233E8D;
+    margin: 0 0 20px;
+    width: 75%;
+    padding-bottom: 10px;   
+}
+.activity-schedule .filters {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: -10.5%;
+}
+.activity-schedule .filters input,
+.activity-schedule .filters select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #4d4c4c16;
+
+}
+.activity-schedule .filters input[type="date"] {
+    width: 250px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 100px;
+    font-family: cursive, sans-serif;
+}
+.activity-schedule .filters select {
+    width: 130px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    text-align: center;
+    justify-content: center;
+    font-family: cursive;
+}
+.activity-schedule .filters select option {
+    text-align: center;
+}
+.activity-schedule table {
+    width: 90%;
+    border-collapse: collapse;
+}
+.activity-schedule table th,
+.activity-schedule table td {
+   
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    width: 100px;
+}
+.activity-schedule table tr{
+    width: 50px;
+}
+/* .activity-schedule table th {
+    background-color: white;
+    color: #233E8D;
+} */
+ /* .activity-schedule table tr:nth-child(even) {
+    background-color: white;
+    border-bottom: 4px solid ;
+    color: white;
+} */
+/* .activity-schedule table tr:nth-child(odd) {
+    border-bottom: 3px solid #eee;
+}
+ .activity-schedule table tr:nth-child(even):hover {
+    background-color: #e0e0e0;
+}  */
+/* .activity-schedule table tr:hover:not(:nth-child(0)) {.activity-schedule .description p {
+    margin: 0;
+}
+    background-color: #e0e0e0;
+} */
+.table_headings {
+    background-color:white;
+}
+
+/* .activity-schedule .description {
+    margin-top: 20px;
+} */
+/* .activity-schedule .description h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+} */
+
+/* .right-sidebar {
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    background-image: url('../Assets/dashboardbackground.png');
+    background-size: cover;
+    background-position: center;
+    margin-top: 80px;
+    height: 109vh;
+}
+.right-sidebar .box {
+    background: linear-gradient(135deg, #e0e0e0, #ffffff);
+    padding: 20px 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+    backface-visibility: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    border: 2px solid #007bff;
+}
+.right-sidebar .box .button {
+    position: relative;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.right-sidebar .box .button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+.right-sidebar .box-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+.right-sidebar .box:hover .box-inner {
+    transform: rotateY(180deg);
+}
+.right-sidebar .box:hover {
+    transform: translateY(-7px);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.5);
+}
+.right-sidebar .box h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+.right-sidebar .box p {
+    margin: 0;
+}
+.right-sidebar .box .button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #3a8dde;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.right-sidebar .box .button:hover {
+    background-color: #357ac9;
+} */
+.chatbox {
+    position: fixed;
+    bottom: 75px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.chatbox i {
+    font-size: 24px;
+    color: white;
+}
+   .profilebtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: #3a8dde;
+        z-index: 1000;
+        margin-left: 20px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .profilebtn i {
+        font-size: 24px;
+        color: inherit;
+        margin-right: 10px;
+        margin-top: 1px;
+    }
+    .profile-card {
+        position: fixed;
+        right: -400px;
+        width: 280px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: right 0.7s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border: 5px solid #3a8dde;
+        
+        z-index: 1000;
+        
+    }
+    .profile-card.show {
+        display: flex;
+        right: 0;
+        
+    }
+    .profile-card .profile {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        border: 5px solid  #3a8dde;
+        margin-top: -1px !important;
+    }
+    .profile-card h2 {
+        font-size: 18px;
+        margin: 10px 0 5px;
+    }
+    .profile-card p {
+        color: #666;
+        font-size: 14px;
+        margin: 5px 0;
+    }
+    .back {
+        margin-left: -270px;
+        margin-top: -15px;
+        margin-bottom: -10px;
+        cursor: pointer;
+        background-color: white;
+        color: #00C7F4;
+        border: none;
+        font-size: 35px;
+    }
+    .profile-card.show {
+        right: 0;
+    }
+    .profile-card .profile-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 10px;
+        border: 1px solid #cccccc;
+        background-color: #ffffff;
+        color: #333333;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .profile-card .profile-button:hover {
+        background-color: #3a8dde;
+        color: white;
+    }
+    .profile-card .secondary-button:hover {
+        background-color: #3a8dde;
+        color: white;
+    }
+    .profile-card .secondary-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #cccccc;
+        border-radius: 10px;
+        background-color: #ffffff;
+        color: #333333;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .profile-card .logout-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #cccccc;
+        border-radius: 10px;
+        background-color: rgb(255, 127, 127);
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .logout-button:hover {
+        background-color: red;
+    }
+    .message-dropdown {
+        position: absolute;
+        top: 100%; 
+        left: 68%; 
+        width: 200px;
+        background-color: white;
+        border: 1px solid #00C7F4;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: opacity 0.7s ease, visibility 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000; 
+        margin-top: -20px;
+    }
+
+    .message-dropdown.show {
+        opacity: 1; 
+        visibility: visible; 
+    }
+
+    .message-dropdown ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .message-dropdown ul li {
+        border-bottom: 1px solid #bdbcbc;
+        padding: 10px;
+        color: black;
+        transition: background-color 0.3s ease;
+    }
+
+    .message-dropdown ul li:last-child {
+        border-bottom: none;
+    }
+
+    .message-dropdown ul li:hover {
+        background-color: #60a6ec;
+        border-radius: 15px;
+    }
+
+    .message-dropdown ul li p {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .message-dropdown ul li p:hover {
+        color: white;
+    }
+
+    .fa-paper-plane {
+        margin-left: 10px;
+        border: 2px solid #0056b3;
+        background-color: #f0f4fb;
+        border-radius: 10px;
+        padding: 6px;
+        color: #1A73E8;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .message-dropdown ul li:hover .fa-paper-plane {
+        color: #ffffff;
+        background-color: #1A73E8;
+    }
+
+    .content {
+        color: gray;
+        margin-top: -37px;
+    }
+
+    .message-dropdown ul li:hover .content {
+        color: black;
+    }
+
+
+   .styled-select {
+  width: 200px;
+  /* padding: 8px; */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+  /* Removes default arrow for custom styling */
+}
+
+/* Optional: Add a custom arrow */
+.styled-select {
+  background-image: url('arrow-down-icon.png'); /* Add your icon path */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+.resetbtn{
+    background-color: #abd6e0;
+    border: none;
+    border-radius: 10px;
+    width: 5%;
+    height: 30px; 
+    margin-top:10px;
+    margin-left:90%;
+}
+
+.resetbtn:hover{
+    background-color: #1A73E8;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+

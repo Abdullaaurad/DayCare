@@ -1,0 +1,185 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #f7f7f7, #eaeaea);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  h1 {
+    color: #2c3e50;
+    margin-top: 20px;
+    font-size: 40px;
+  }
+
+  .header {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+
+  .header h1 {
+    color: #2c3e50;
+  }
+
+  .illustration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+
+  .illustration img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .filter {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .filter select {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background-color: #b2dfdb;
+    border-radius: 20px;
+    margin: 20px auto;
+    width: 80%;
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 5px solid #2c3e50;
+  }
+
+  .card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #2c3e50;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: #2c3e50;
+    margin: 10px 0;
+  }
+
+  .fill {
+      border: 5px solid black;
+      margin: 50px;
+      margin-top: 50px;
+      padding-bottom: 30px;
+      border-radius: 30px;
+      background-color: rgba(144, 224, 239, 0.2);
+      padding: 20px;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .pagination {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .pagination a {
+    color: #8136F3 !important;
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .pagination a.active {
+    text-decoration: underline;
+  }
+
+  .back-button {
+    display: block;
+    width: 100px;
+    margin: 20px 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #2b3a67;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 30px;
+  }
+
+  .search-container {
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .search-container input,
+  .search-container select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 40%;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .cards .card {
+    flex-basis: calc(33.333% - 20px);
+    max-width: 200px;
+  }
+
+  .card-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px; /* Space between buttons */
+  }
+
+  .card button {
+      flex: 1;
+      padding: 10px;
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+  }
+
+  .card button:hover {
+      background-color: #1565c0;
+  }

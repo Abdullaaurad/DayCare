@@ -1,0 +1,240 @@
+@import url('../variables.css');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.header img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.header .details {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.header .details h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.header .details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.footer-total,
+.cost-details {
+    margin-top: 20px;
+}
+
+.footer-total {
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: right;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}
+
+.cost-details {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    width: 600px;
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+.cost-details::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
+}
+
+.cost-details h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cost-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cost-details li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cost-details li:last-child {
+    border-bottom: none;
+}
+
+.cost-details .date {
+    flex: 1;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.cost-details .description {
+    flex: 2;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.cost-details .child {
+    flex: 2;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.cost-details .amount {
+    flex: 1;
+    text-align: right;
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.cost .amount {
+    flex: 1;
+    text-align: right;
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.cost .description {
+    flex: 0;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+    margin-left: -30px;
+}
+
+.cost-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cost {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.cost h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cost li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cost li:last-child {
+    border-bottom: none;
+}
+
+.red {
+    color: red !important;
+}
+
+#main {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card img {
+        margin-bottom: 15px;
+    }
+}
+
+.back-con {
+    background-color: var(--button-blue);
+    z-index: 10000;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    margin-left: -21px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.fa-chevron-left {
+    margin-left: 40px;
+    cursor: pointer;
+    color: white !important;
+}

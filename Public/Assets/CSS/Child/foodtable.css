@@ -1,0 +1,95 @@
+@import url('../variables.css');
+
+.foodtable {
+    width: 520px;
+    margin-right: 1%; 
+    width: 395px; 
+    vertical-align: top;
+}
+
+.foodtable h3{
+    margin-top: 10px !important; 
+    margin-bottom: 4px; 
+    top:0;
+}
+
+.foodtable .filters {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.foodtable .filters input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #4d4c4c16;
+}
+
+.foodtable .filters input[type="date"] {
+    width: 250px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.foodtable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.foodtable th{
+    color: var(--heading); 
+    background-color:transparent; 
+    padding-right: 4%;
+}
+
+.table-body-container::-webkit-scrollbar {
+    display: none;
+}
+
+.foodtable table th,
+.activity-schedule table td {
+    padding: 10px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.foodtable table th {
+    background-color: var(--input-field-background);
+    color: var(--heading);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.foodtable table tr {
+    border-bottom: 4px solid lightgray;
+}
+
+.foodtable .description {
+    margin-top: 20px;
+}
+
+.foodtable .description h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.foodtable .description p {
+    margin: 0;
+}
+
+.foodtable input[type="date"] {
+    width: 250px;
+    text-align: center;
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 100px;
+    margin-bottom: 10px;
+    background-color: var(--body-first);
+}

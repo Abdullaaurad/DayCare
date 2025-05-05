@@ -1,0 +1,235 @@
+
+.visitor{
+    background-color: #3974ba;
+    color: #fff; 
+}
+
+.make_background{
+    height:95%;
+    width:80%;
+
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    margin:20px;
+  
+}
+.form_section{
+    width:57%;
+    height:94%;
+    background-color: #fff;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0px 0px 4px 0.001px rgba(0, 0, 0, 0.2);
+}
+.detail_section{
+    width:41%;
+    height:94%;
+    background-color: #fff;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0px 0px 4px 0.001px rgba(0, 0, 0, 0.2);
+}
+.detail_section hr{
+    width:85%;
+    
+    background-color: #dbd7d2;
+    border:0.03px solid #dbd7d2;
+    height:0.03px;
+}
+.combine{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card_topic{
+    width:80%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 45px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.rules_regulations{
+    width:80%
+}
+.rules_regulations .description{
+    width:95%;
+}
+.rules_regulations .description  ul li{
+    font-size: 14.5px;
+    font-weight: 500;
+    color: #696969;
+    margin-bottom: 3.5px;
+    line-height: 21.5px;
+   
+}
+
+.rules_regulations .topic{
+    color:#555555;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 25px;;
+}
+.latest_updates{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.last_marked{
+    width:90%;
+    height:100%;
+    background-color:#f5f5f5;
+    border-radius: 18px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.last_marked_topic{
+    margin: 18px;
+    font-weight: 500;
+    width:90%;
+    color: #696969;
+}
+.lastmarkedchilds{
+    margin-right: 20px;
+    margin-left: 20px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    width:90%;
+    align-items: center;
+}
+.lastmarkedtime{
+    position: relative;
+    right:0px;
+}
+.name_position_time{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:90%;
+    font-size: 13.3px;
+    font-weight: 500;
+    color:#555555;
+}
+.profile_image img{
+    width:15%;
+    height:35px;
+    width:35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.last_marked hr{
+    width:90%;
+}
+
+.form_section .form_topic{
+   
+    width:78%;
+    margin-top:50px;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 500;
+}
+.form_input_section{
+    margin-top: 40px;
+    margin-left:25px;
+    width:70%;
+    height:60%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    margin-bottom: 35px;
+}
+.section_main{
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between ;
+}
+.section{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width:50%;
+}
+.section input{
+    width:75%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 7px 0px;
+    
+    background-color: #fff;
+    border:2.2px solid #dbd7d2;
+    border-radius: 3px;
+    padding-left: 30px;
+    
+}
+.section input::placeholder{
+   
+    color:#91a3b0;
+    font-size: 13.5px;
+    font-weight: 540;
+    letter-spacing: 0.4px; 
+}
+.section_main .purpose{
+    width:100%;
+}
+.section_main .purpose input{
+    width:87.7% ;
+}
+.section label{
+    margin-bottom: 7px;
+    font-size: 13px;
+    color:#696969;
+    font-weight: 500;
+}
+.form_button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width:70%;
+}
+.form_button button{
+    width:100%;
+    margin-left:7.4px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 19px;
+    background-color:rgba(0,115,246,0.78);
+    border:2.2px solid #dbd7d2;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color:#fff;
+    
+}

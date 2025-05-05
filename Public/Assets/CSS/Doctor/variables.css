@@ -1,0 +1,24 @@
+:root{
+    --primary-color:#3974ba;
+    --primary-hover:#285d9d;
+    --secondary-color:#2353A7;
+    --light-color:#B3B3B3 ;  /*opacity 36%*/  
+    --font-color-black:#333333;
+    --background-white:#E3E3E3; /*opacity 65%*/
+    --light-black:#2b2b2b;
+    --light-text-black:#656464;
+    --background-opacity:rgba(204,204,204,0.36);
+    --border-line:rgba(204,204,204,0.56);
+    --background-hover:rgba(204,204,204,0.56);
+    --input-field-backgorund:#F2F2F2;
+    --icon-background:#E4EAF4;
+    --button-blue:#1051E4;
+    --button-blue-hover:#0d44c4;
+    --popup-background:rgba(51,51,51,0.5);
+}
+
+:root {
+    --font-size-body: 16px;
+    --font-size-mainHeading: 28px;
+    --font-size-subHEading: 18px;
+  }

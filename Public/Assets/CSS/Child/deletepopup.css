@@ -1,0 +1,59 @@
+/* Delete Popup Overlay */
+@import url('../variables.css');
+.delete-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Delete Popup Box */
+.delete-popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--popup-background);
+    text-align: center;
+    width: 300px;
+}
+
+/* Delete Popup Buttons */
+.delete-popup-buttons {
+    margin-top: 15px;
+}
+
+.delete-popup-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 14px;
+    transition: background 0.2s ease-in-out;
+}
+
+/* Confirm (Yes) Button */
+.delete-popup-confirm {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.delete-popup-confirm:hover {
+    background-color: #d43f3f;
+}
+
+/* Cancel (No) Button */
+.delete-popup-cancel {
+    background-color: #ccc;
+    color: black;
+}
+
+.delete-popup-cancel:hover {
+    background-color: #b3b3b3;
+}

@@ -1,0 +1,155 @@
+@import url('../variables.css');
+
+.Table1 {
+    background-color: white;
+    box-shadow: 8px 0px 12px -2px var(--background-opacity), 8px 0 12px -2px var(--background-opacity);
+    border-radius: 12px;
+    padding: 10px 30px;
+    width: 90%;
+    box-shadow: 4px 4px 15px var(--popup-background);
+    transition: transform 0.3s ease;
+    margin-top: 10px;
+}
+.Table1 h1 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.Table1 .filters{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.Table1 input[type="date"] {
+    width: 250px;
+    text-align: center;
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 100px;
+    margin-bottom: 10px;
+    background-color: var(--body-first);
+}
+.Table1 .table-container {
+    max-height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.Table1 table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px var(--popup-background);
+}
+
+.Table1 thead {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.Table1 th, .Table1 td {
+    padding: 15px;
+    text-align: center;
+    font-size: 15px;
+    border-right: 1px solid var(--body-second);
+}
+
+.Table1 th {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-weight: 800;
+    white-space: nowrap;
+    padding: 10px;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.Table1 tbody {
+    display: block;
+    max-height: 270px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.Table1 tbody:hover {
+    overflow-y: auto;
+}
+
+.Table1 tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.Table1 td {
+    color: #333;
+    background-color: var(--td);
+}
+
+.Table1 tr:nth-child(even) td {
+    background-color: var(--td2);
+}
+
+.Table1 tbody::-webkit-scrollbar {
+    width: 8px;
+    background: transparent; 
+}
+
+.Table1 tbody:hover::-webkit-scrollbar {
+    background: transparent;
+}
+
+.Table1 tbody::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+}
+
+.Table1 tbody::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.up-hi{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    width: 100%;
+}
+
+
+.toggle{
+    z-index: 100;
+    margin-left: -30px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 250px;
+    font-family: Arial, sans-serif;
+    background: var(--primary-color);
+    border-radius: 8px;
+    border: 4px solid white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hi-btn {
+    color: white;
+    position: relative;
+    font-size: 18px;
+    z-index: 100;
+    padding: 10px 30px;
+}
+
+.up-btn {
+    color: white;
+    position: relative;
+    font-size: 18px;
+    z-index: 100;
+    background-color: var(--primary-hover);
+    padding: 10px 26px;
+}

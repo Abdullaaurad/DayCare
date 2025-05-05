@@ -1,0 +1,135 @@
+
+:root{
+    --primary-color:#3974BA;
+    --secondary-color:#2353A7;
+    --light-color:#B3B3B3 ;  /*opacity 36%*/  
+    --font-color-black:#333333;
+    --background-white:#E3E3E3; /*opacity 65%*/
+    --light-black:#2b2b2b;
+    --background-opacity:rgba(204,204,204,0.36);
+    --background-hover:rgba(204,204,204,0.56)
+}
+
+:root {
+    --font-size-body: 16px;
+    --font-size-mainHeading: 28px;
+    --font-size-subHEading: 18px;
+  }
+
+.leave_history_list_header hr{
+            border:none;
+            height: 1.5px;
+            background-color:#333333; 
+            width:100%;
+            
+            
+} 
+.leave_history_box{
+   
+    display:flex;
+    flex-direction: column;
+    width:95%;
+    height:70%;
+    justify-content:flex-start;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.leave_history_box_header{
+    background-color: #eaeaea;
+    display:flex;
+    flex-direction: row;
+    padding:0px 5px;
+    margin-bottom:10px;
+    align-items: center;
+    justify-content: center;
+    color:#2353A7;
+    width:100%;
+}
+.leave_type_h,
+.start_date_h,
+.end_date_h,
+.duration_h,
+.status_h{
+    flex:1;
+    margin:0px;
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    align-items:center;
+    padding:0px 5px;
+}
+.leave_type_h h4,
+.start_date_h h4,
+.end_date_h h4,
+.duration_h h4,
+.status_h h4{
+    padding:7px;
+    margin:0px;
+}
+.status_h h4{
+    margin-left:12px;
+}
+
+.leave_history_box_annual,
+.leave_history_box_sick,
+.leave_history_box_compassionate,
+.leave_history_box_sick2,
+.leave_history_box_annual2{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    margin:0px;
+    align-items: center;
+}
+ .leave_type,
+.start_date,
+.end_date,
+.duration,
+.status
+{
+    flex:1;
+    margin:0px;
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    align-items:center;
+    margin-left:15px;
+}
+.hr_reset{
+    width:98.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.state_approve{
+    color:#008000;
+   padding:3px 7px;
+   border-radius:50%;
+    border-radius: 20px;
+    background-color:rgba(0,128,0,0.15);
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+}
+.state_decline{
+    color:#FF0000;
+   padding:3px 9px;
+   border-radius:50%;
+    border-radius: 20px;
+    background-color:rgba(255,0,0,0.15);
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+}
+a{
+    text-decoration: none;
+    color:#000;
+}

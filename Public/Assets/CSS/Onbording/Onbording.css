@@ -1,0 +1,522 @@
+@import url('../variables.css');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.Profilecard {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    margin: 50px;
+    justify-content: center;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px var(--popup-background);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: row;
+}
+
+.Profile {
+    font-weight: 700;
+    font-size: 30px;
+    color: grey
+}
+
+.ProfileContainer {
+    background-color: white;
+    padding: 10px;
+    border: 2px solid grey;
+    border-radius: 0px 20px 20px 0px;
+    display: flex;
+    flex-direction: row;
+    height: 578px;
+    width: 700px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: 5px solid  var(--secondary-color);
+    box-shadow: 0px 0px 12px rgba(72, 99, 180, 0.5);
+    transition: box-shadow 0.3s;
+    margin-top: 10px;
+    margin-left: 250px;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img:hover {
+    box-shadow: 0px 0px 20px rgba(72, 99, 180, 0.8);
+}
+
+.profile-img input[type="file"] {
+    display: none;
+}
+
+.add{
+    cursor: pointer;
+    font-size: 40px;
+    color:  var(--secondary-color); 
+}
+
+.leftcon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 700px;
+    align-items: center;
+}
+
+.rightcon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 700px;
+}
+
+.datacon {
+    display: flex;
+    flex-direction: column;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+}
+
+label{
+    margin-bottom: 10px;
+}
+
+/* style input tags */
+.data input[type='text'],
+.data input[type='password'],
+.data input[type='email'],
+.data input[type='date'],
+.data textarea,
+.add-btn
+{
+    background-color: #dcdcdc;
+    border-radius: 5px;
+    border: 2px solid grey;
+    width: 300px;
+    height: 35px;
+    font-size: 20px;
+    box-shadow: 0px 4px 6px var(--popup-background);
+    transition: box-shadow 0.3s ease;
+    padding-left: 10px;
+}
+
+.data input[type='text']:hover,
+.data input[type='password']:hover,
+.data input[type='email']:hover,
+.data input[type='date']:hover,
+.data textarea:hover,
+.data select:hover {
+    box-shadow: 0px 8px 12px var(--popup-background);
+}
+
+.data select {
+    background-color: #dcdcdc;
+    border-radius: 5px;
+    border: 2px solid grey;
+    width: 304px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.cardcon {
+    background-color: #dcdcdc;
+    border-radius: 5px;
+    border: 2px solid grey;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+    align-items: center;
+}
+
+.card {
+    width: 40px;
+    height: 40px;
+    padding: 5px 20px;
+}
+
+.divider {
+    height: auto;
+    width: 2px;
+    background-color: #ccc;
+    margin: 0 15px;
+    align-self: stretch;
+    margin-left: -10px;
+    margin-right: 10px;
+}
+.refresh-con{
+    background-color:  var(--secondary-color);
+    z-index: 10000;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    margin-top: -55px;
+    margin-left: 1387px;
+    margin-right: -21px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 30px;
+    position: absolute;
+}
+
+.fa-refresh{
+    margin-left: 10px; 
+    cursor: pointer;
+    margin-top: -20px;
+    font-size: 20px;
+    color: white !important;
+}
+
+#editprofileleft{
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    color: white;
+    font-size: 35px;
+    margin-top: -20px;
+}
+
+.heading{
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.text{
+    color: white;
+    padding: 20px;
+}
+
+p{
+    margin-top: -20px;
+}
+
+.circle{
+    padding: 10px;
+    background-color:#ccc;
+    border-radius: 15px;
+    border: 2px solid black;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.circle:hover{
+    transform: scale(1.2);
+    box-shadow: 0px 6px 12px var(--popup-background);
+}
+
+.select{
+    background-color: white;
+}
+
+.circles{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0px 100px;
+    margin-bottom: 0px;
+    position: relative;
+    margin-top: 90px;
+    margin-bottom: 0px;
+}
+
+h2{
+    color:  var(--secondary-color);
+    margin-left: 30px;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.hori{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.imagecon{
+    background-image: url('http://127.0.0.1/MVC/Public/Assets/Images//face.jpeg');
+    margin-top:20px; 
+    margin-right: 20px;
+    padding: 0px !important; 
+    background-size: cover; 
+    border: 5px solid  var(--secondary-color);
+    border-radius: 90px; 
+    width: 150px; 
+    height: 150px; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.red-star {
+    color: red;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+.hidden{
+    display: none;
+}
+
+.add-btn{
+    background-color:  var(--secondary-color) !important;
+    color: white !important;
+}
+
+/* prescription */
+.prescription-view{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    margin: 50px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px var(--popup-background);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    display: none;
+    position: absolute;
+    z-index: 10000;
+}
+
+.prescription-img{
+    width: 500px;
+    height: 550px;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.move{
+    background-color: white;
+    padding: 10px 14px;
+    border-radius: 30px ;
+    margin: 0px 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+.move:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px var(--popup-background);
+}
+
+
+.top-con {
+    color: black;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -20px;
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.back-con{
+    background-color:  var(--secondary-color);
+    z-index: 10000;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    margin-left: -21px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.refresh-con{
+    background-color:  var(--secondary-color);
+    z-index: 10000;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    margin-right: -21px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.fa-refresh{
+    margin-left: 10px; 
+    cursor: pointer;
+    margin-top: -20px;
+    color: white !important;
+}
+
+#backforprescription, #backfordocument{
+    margin-left: 40px;
+    cursor: pointer;
+    color: white !important;
+}
+
+/* input for files */
+#fileListContainer {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+    position: relative;
+}
+
+.file-entry {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    justify-content: space-between;
+}
+
+.view-link {
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.download-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    right: 0;
+}
+
+.download-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    right: 0;
+}
+
+.delete-button:hover {
+    background-color: #45a049;
+}
+
+#documentModal{
+    flex-direction: column;
+    position: fixed;
+    display: none;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 8px var(--popup-background);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    z-index: 10000;
+    max-height: 300px;
+    padding: 20px;
+    margin: 50px;
+    border-radius: 30px;
+    margin-top: 200px;
+    width: 300px;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.add-files{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer !important;
+    right: 0;
+}
+
+.Save-con{
+    margin-top: -10px;
+    display: flex;
+    justify-content:flex-start;
+    margin-left: -10px;
+}
+.Save{
+    padding: 10px 40px;
+    font-size: 20px;
+    background: lightskyblue;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 2px solid  var(--secondary-color);
+    border-left: 2px solid  var(--secondary-color);
+    border-right: 2px solid  var(--secondary-color);
+}
+.selectday{
+    background-color: rgba(58, 99, 223, 0.8);
+    border: 2px solid  var(--secondary-color);
+    color: white;
+}
+
+.error{
+    color: red !important; 
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: left;
+    align-items: left;
+    justify-content: start;
+    margin-left: -25px;
+}
+
+.home-contain {
+    margin-top: -30px; 
+    color: black;
+    z-index: 10000;
+    display: flex;
+    position: absolute; 
+    background-color:  var(--secondary-color);
+    padding: 12px;
+    border-radius: 0px 19px 0px 0px;
+    margin-left: 644px ;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.fa-home {
+    margin: 0px; 
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.home-contain:hover{
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.edit{
+    position: absolute;
+    margin-top: 40px;
+    margin-right: -200px;
+    margin-left: 200px;
+    color: rgb(2, 77, 205);
+    font-weight: 600;
+}

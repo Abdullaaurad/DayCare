@@ -1,0 +1,224 @@
+@import url('../variables.css');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #3a3a3a;
+}
+
+body::-webkit-scrollbar {
+    display: none; /* This hides the scrollbar in Webkit-based browsers like Chrome and Safari */
+}
+.container {
+    display: flex;
+}
+.selected a {
+    color: white !important;
+    margin-top: 5px !important;
+    margin-bottom: -15px !important;
+    padding: 15px 10px;
+}
+.main-content {
+    padding: 20px;
+    position: relative;
+    height: 110vh !important;
+    margin-left: 270px;
+    box-shadow: 0 4px 8px var(--popup-background);
+    width: 100%;
+}
+
+.content{
+    color: gray !important;
+    margin-top: -37px !important;
+}
+
+.table-holder{
+    display: flex; 
+    flex-direction: row; 
+    width: 100%; 
+    justify-content:flex-start;
+}
+
+.container-food {
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: 80px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px var(--popup-background);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.t1{
+    margin-left: 20px; 
+    top:0; 
+    vertical-align: top;
+}
+
+.t2{
+    margin-left: 20px;
+}
+
+.t3{
+    margin-left: 20px; 
+    width: 180px;
+}
+
+.t3 h3{
+    margin-top: 10px !important; 
+    margin-bottom: 4px; 
+    margin-right: 60px;
+}
+
+.t3 hr{
+    width: 190px;
+}
+
+.t3 button{
+    margin-top: 20px;
+    width: 160px;
+}
+
+.pickup-section {
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: 2px solid var(--pickup-border);
+    position: relative;
+    margin-bottom: 5px;
+    margin-top: 20px; 
+    width: 160px;
+}
+
+.container2{
+    margin-left: 40px; 
+    margin-top: 20px; 
+    align-items: left; 
+    width: 1060px; 
+    justify-content: space-between;
+}
+
+.container2 h3{
+    margin-top: 0px !important; 
+    margin-bottom: 4px; 
+    margin-right: 900px;
+}
+
+.container2 p{
+    margin-left: -50px;
+    margin-top: 0px;
+}
+
+.conatiner2 hr{
+    width: 1070px;
+}
+
+.Snackdata{
+    width: 1070px;
+    margin-left: 0px;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#Form2{
+    width: 360px; 
+    margin-left: 50px;
+}
+
+.edit-con{
+    display: flex; 
+    flex-direction: column; 
+    margin-right: 50px;
+}
+
+.edit-con h3{
+    white-space: nowrap;
+}
+
+.edit-con hr{
+    width: 360px;
+}
+
+.edit-con .pickup-section{
+    margin-top: 20px;
+    width: 325px;
+}
+
+.edit-con button{
+    margin-top: 15px; margin-left:200px;
+    width: 150px;   
+}
+
+.verticle-line{
+    width: 3px; 
+    background-color: lightgray; 
+    margin-left: -30px;
+    margin-right: -30px;
+}
+
+.foodtable .filters{
+    justify-content:flex-start !important;
+    align-items: left;
+}
+
+.Snackdata .foodtable{
+    margin-left: -40px;
+    margin-right: 50px;
+}
+
+.pickup-section label {
+    display: block;
+    font-size: 16px;
+    color: #4380D1;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.pickup-section input[type="text"],
+.pickup-section input[type="date"],
+.pickup-section select {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 15px var(--popup-background);
+}
+
+.pickup-section select {
+    width: 150px;
+}
+
+.pickup-section input[type="date"]{
+    width: 130px;
+}
+
+.pickup-section input:focus {
+    border-color: #1e88e5;
+    outline: none;
+}
+
+button {
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1565c0;
+}
+
+.editsnack {
+    width: 300px !important;
+}
+
+.editsnacksel {
+    width: 320px !important;
+}

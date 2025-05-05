@@ -1,0 +1,284 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #f7f7f7, #eaeaea);
+    margin: 0;
+    padding: 0;
+}
+
+.alltables {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 150px; /* Space between items */
+    padding: 5%;
+    justify-content: center;
+}
+
+.publish-events {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Takes full column width */
+    max-width: 400px; /* Prevents overflow */
+    margin-left: 70%;
+    margin-top: 25%;
+    height: 78%;
+}
+
+.publish-events h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #233E8D;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: border 0.3s ease, background 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #1a237e;
+    background-color: #ffffff;
+}
+textarea.form-control {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.button-group {
+    margin-top: 15px;
+    margin-left: 80%;
+}
+
+
+.btn-primary {
+    background-color: #233E8D;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition:  0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: green;
+    transform: scale(1.05);
+}
+
+.Display-events{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 180%; /* Takes full column width */
+    max-width: 400px; /* Prevents overflow */
+    margin-left: 70%;
+    margin-top: 25%;
+    height: 78%;
+}
+
+.event-list{
+  max-height: 300px; /* Adjust the height as needed */
+  overflow-y: auto;  /* Enable vertical scrolling */
+  padding-right: 10px; 
+}
+
+.publish-events h1, .Display-events h2 {
+    color: #233E8D;
+    text-align: center;
+}
+
+.lists{
+    background-color:#f0f8ff;
+    border-radius: 10px;
+    background: 75%;
+    padding-left: 2%;
+    padding-bottom: 2%;
+    margin-left: 10%;
+    border: 1px solid #eee;
+    margin-bottom: 4%;
+}
+
+.lists h3{
+    color: #233E8D;
+}
+.del-btn{
+    background-color: #023e8a;
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+    margin-right: 3%;
+    cursor: pointer;
+  }
+  .del-btn:hover{
+    background-color: red;
+    cursor: pointer;
+  }
+
+  /* Custom scrollbar for Webkit browsers (Chrome, Safari, etc.) */
+.event-list::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  
+  .event-list::-webkit-scrollbar-track {
+    background-color: #f0f8ff; /* Track (background of the scrollbar) */
+    border-radius: 10px; /* Rounded corners for track */
+  }
+  
+  .event-list::-webkit-scrollbar-thumb {
+    background-color: #023e8a; /* Scrollbar thumb (the part that moves) */
+    border-radius: 10px; /* Rounded corners for thumb */
+    border: 2px solid #f0f8ff; /* Optional: adds a border around the thumb */
+  }
+  
+  .event-list::-webkit-scrollbar-thumb:hover {
+    background-color: #0056b3; /* Darker color on hover */
+  }
+
+  /* Modal Background */
+.modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Buttons */
+.modal-buttons {
+    margin-top: 20px;
+}
+
+.confirm-btn, .cancel-btn {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.confirm-btn {
+    background-color: #d9534f;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #5bc0de;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background-color: #c9302c;
+}
+
+.cancel-btn:hover {
+    background-color: #31b0d5;
+}
+
+
+
+.update-btn{
+    background-color: #023e8a;
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+    margin-left: 0.5%;
+    cursor: pointer;
+  }
+  .buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+  }
+  .update-btn:hover{
+    background-color: green;
+    cursor: pointer;
+  } 
+
+
+
+
+
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    position: relative;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.popup p {
+    color: #666;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+}
+
+.close-btn:hover {
+    color: #333;
+}

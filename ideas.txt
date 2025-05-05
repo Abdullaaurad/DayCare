@@ -1,0 +1,82 @@
+Quill.js: 
+A lightweight and modular rich text editor.
+Website
+Features: Simple to use, customizable themes, and works well for web applications.
+
+Quill.js provides an easy way to export content as HTML, which is widely supported and can be directly rendered in web pages.
+
+Steps to Store HTML Content:
+Get the HTML content:
+Use quill.root.innerHTML to retrieve the editor content in HTML format.
+
+javascript
+Copy code
+const htmlContent = quill.root.innerHTML;
+console.log(htmlContent);  // Outputs the HTML string
+Store in SQL Database:
+Use a TEXT or LONGTEXT column to store the HTML string.
+
+Example SQL Table:
+
+sql
+Copy code
+CREATE TABLE blog_posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255),
+    content TEXT,  -- Store HTML content here
+    author VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+To implement a comprehensive inventory management system for your daycare, you'll need to design a set of web pages that allow all roles (manager, teachers, receptionist) to interact with the inventory seamlessly. Below is a list of the key web pages and forms you might need for each user type:
+
+1. Manager Pages:
+Dashboard (Manager's Home Page):
+Overview of the entire inventory (e.g., current stock, items issued, items returned, restocking status, etc.).
+Quick links to common tasks such as viewing reports, adding new items, and managing stock.
+Inventory Management Page:
+Table of Inventory: Displays all items in the system, with columns like item name, category, quantity in stock, and status (available/used/ordered for restock).
+Action Buttons: Options to add new items, edit existing items, and delete items.
+Inventory Usage Report:
+Table of Usage: Shows details of items issued (to teachers, etc.), the quantity taken, and who took them.
+Form to View Usage History: Filter by date, teacher, item category, etc., to track usage patterns.
+Restocking Page:
+Table of Low Stock Items: Alerts or highlights items that need to be restocked based on inventory levels.
+Form to Restock Items: Option to input restocking quantities and update stock.
+2. Teacher Pages:
+A summary of their own usage of items (e.g., what they have taken, if it's still in use, and if it needs to be returned).
+Alerts about low stock or items that they have requested but are not available.
+Inventory Checkout Page (for Teachers):
+Item List with Checkout Option: Teachers can select from a list of available items, mark the quantity they are taking, and confirm.
+Mark as Taken: Button to mark an item as taken and add a note if it's for a specific use.
+Return Items Form: Teachers can return items they no longer need, specifying the items and quantities.
+Usage History:
+A view of all items previously taken by the teacher with the ability to view history and mark items as "returned" when they’re done using them.
+3. Receptionist Pages:
+Receptionist Dashboard:
+A basic overview of inventory, showing current stock levels and an alert system for items that are low in stock.
+Add New Items Page (for Receptionist):
+Form to Add Items: Fields to enter item details such as name, description, category, quantity, price, and any other relevant details.
+Option to upload images or labels for each item.
+Restocking Items Page:
+Form to Update Stock Levels: Option to restock existing items with updated quantities.
+Low Stock Alerts: Receptionists can see which items are nearing depletion and take action accordingly.
+4. Common Pages/Functionalities:
+Login Page:
+User authentication for different roles (manager, teacher, receptionist) with role-based access control to ensure users see only relevant pages.
+User Profile/Settings Page:
+A personal profile page where each user can update their contact information and preferences.
+Search and Filter Pages:
+Option for all users to search and filter through inventory based on categories, availability, and usage.
+Audit/History Log Page:
+Displays a log of all inventory changes, including who added items, who took items, restocking activities, and returns.
+5. Tables and Forms:
+Inventory Table:
+Columns might include: Item ID, Item Name, Category, Quantity in Stock, Quantity Issued, Reorder Level, Last Restocked Date, etc.
+Item Usage Table:
+Columns for tracking who took what items, when, quantity, and any specific remarks on usage.
+Restock Table:
+Displays restock requests or low-stock items that need to be replenished, with columns like Item Name, Current Stock, Minimum Stock Level, etc.
+Return/Replacement Table:
+For teachers or users to mark returned or replaced items, including the item name, quantity, and reason for return.

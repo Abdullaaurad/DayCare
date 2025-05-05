@@ -1,0 +1,567 @@
+
+body{
+    background: linear-gradient(to bottom right, #f7f7f7, #eaeaea);
+}
+
+.filter {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .filter select {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    border:1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 5px solid #2c3e50;
+  }
+
+  .card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #2c3e50;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: #2c3e50;
+    margin: 10px 0;
+  }
+
+  .heading{
+    display: flex;
+    margin-top: 80%;
+    margin-left: 3%;
+    color:rgb(54, 74, 184);
+    font-size: 20px;
+    padding-top: 20px;
+  }
+  .heading h2{
+   margin-top: 80%;
+   z-index: 1000;
+  }
+
+  .fill {
+      border: none;
+      margin: 50px;
+      padding-bottom: 30px;
+      border-radius: 30px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      margin-left: 7.5%;
+      margin-top: -80%;
+  }
+
+  .pagination {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .pagination a {
+    color: #8136F3 !important;
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .pagination a.active {
+    text-decoration: underline;
+  }
+
+  .back-button {
+    display: block;
+    width: 100px;
+    margin: 20px 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #2b3a67;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 30px;
+  }
+
+  .search-container {
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .search-container input,
+  .search-container select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 35%; 
+    background-color: white;
+  }
+  .search-container select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 35%; 
+    margin-left: 30%;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 100%;
+    padding: 20px;
+    margin-top: -5%;
+  }
+
+  .cards .card {
+    flex-basis: calc(33.333% - 20px);
+    max-width: 200px;
+  }
+
+  .card-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px; /* Space between buttons */
+  }
+
+  .card button {
+      flex: 1;
+      padding: 10px;
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+  }
+
+  .card button:hover {
+      background-color: #1565c0;
+  }
+
+  .sidebar {
+    overflow-y: scroll;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar {
+    -ms-overflow-style: none; /* IE 10+ */
+    scrollbar-width: none;    /* Firefox */
+}
+
+.report-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10%;
+    align-items: center;
+    gap: 2px;
+    transition: 0.5s ease;
+}
+.report-card .card-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    border-radius: 15px;
+    position: relative;
+    padding: 10px 0px 20px 0px;
+    gap: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+    border: 1px solid #ccceeb97;
+    width: 250px;
+}
+
+.card-content .profile-img img{
+    position: absolute;
+    background-color: var(--icon-background);
+    top:-70px;
+    right:50px;
+    margin-bottom: 50px;
+    border-radius: 25px;
+    width: 150px;
+    height: 150px;
+    box-shadow: 2px 2px 20px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+   
+}
+.card-content .card-details{
+    margin-top: 40px;
+    text-align: center;
+}
+.card-details p{
+    font-size: 14px;
+    margin: 5px 0px;
+    color: #a5a5a5;
+}
+.card-footer{
+  width: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    margin: 0px 10%;
+  
+}
+.card-footer h3{
+    color: var(--font-color-black);
+    font-size: 18px;
+}
+.card-footer a{
+    text-decoration: none;
+    color:#fff;
+}
+.card-footer button{
+    padding: 8px 16px;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background-color:rgb(16,81,228);
+    transition: 0.3s ease;
+    color: #fff;
+}
+
+.card-footer .del:hover{
+  background-color: red;
+}
+.card-footer button:hover{
+    background-color:rgb(124, 181, 201) ;
+}
+.report-card:hover img{
+    transform: translateY(5px); /* Float the image up by 10px */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    
+}
+
+.view-user,.view-teacher{
+   width: 35%;
+   border: 1px solid black;
+   padding-bottom: 3%;
+   border-radius: 5%;
+
+}
+.view-user,.view-teacher h1{
+  color: #0f509a;
+  text-align: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 50%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.content {
+  margin: 10px 0;
+}
+
+
+
+
+
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+/* Popup styling */
+.adduser {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  width: 350px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1001;
+}
+
+/* Popup content */
+.popup-content {
+  position: relative;
+}
+
+/* Close button */
+/* Style for the close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: red;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Hover effect */
+.close-btn:hover {
+  background: darkred;
+  transform: scale(1.1);
+}
+
+
+/* Button styling */
+.addbtn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.addbtn:hover {
+  background: darkblue;
+}
+
+
+h2 {
+  text-align: center;
+  color: #0056b3;
+}
+
+.labeltag {
+  display: block;
+  margin-top: 10px;
+}
+
+input{
+  width: 95%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+select {
+  background-color: white;
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.addbtn {
+  margin-top: 15px;
+  width: 100%;
+  background-color: #007BFF;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+ /* Modal Background */
+ .modal {
+  display: none; /* Initially hidden */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Buttons */
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.confirm-btn, .cancel-btn {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.confirm-btn {
+  background-color: #d9534f;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #5bc0de;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #c9302c;
+}
+
+.cancel-btn:hover {
+  background-color: #31b0d5;
+}
+
+
+/* CSS for blocked users */
+.blocked-user {
+  opacity: 0.8;
+  position: relative;
+  border: 1px solid #ff4d4d !important;
+  background-color: #fff5f5;
+}
+
+.blocked-status {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.unblock-btn {
+  background-color: #4CAF50 !important;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.unblock-btn:hover {
+  background-color: #45a049 !important;
+}
+
+.del-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.del-btn:hover {
+  background-color: #ff3333;
+}
+
+
+ /* Basic Popup Styling */
+.viewuser {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.viewuser-content {
+  margin-top: 20px;
+}

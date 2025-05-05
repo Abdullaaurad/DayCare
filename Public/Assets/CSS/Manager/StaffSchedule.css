@@ -1,0 +1,148 @@
+    /* Updated CSS for better alignment */
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f3f3f3;
+    }
+
+    .allocation {
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 500px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin-top: 600px;
+        margin-left: -2%;
+    }
+    .allocation h1{
+        text-align: center;
+    }
+
+    .allocation h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        flex: 0.75;
+        font-size: 15px;
+        color: #333;
+        height: 23px;
+        padding-top:7px ;
+        padding-left: 20px;
+        border-radius: 10px;
+        background-color: #60a6ce;
+        color: white;
+    }
+
+    .styled-select {
+        width: 250px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        font-size: 16px;
+        color: #333;
+        margin-left: 30px;
+    }
+.buttons{
+    margin-left: 300px;
+    display: flex;
+    justify-content: space-around  ;
+}
+.buttons button{
+    height: 30px;
+    width: 70px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3c60cb;
+    color: white;
+}
+.buttons button:hover{
+    cursor: pointer;
+    background-color: #3c60cb;
+    color:white;
+}
+
+a button{
+    background-color: #3c60cb;
+    height: 30px;
+    width: 80px;
+    border: none;
+    border-radius: 10px;
+    color:white;
+}
+a button:hover{
+    cursor: pointer;
+    background-color: #3c60cb;
+    color:white;
+}
+
+/* Toast styles */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color:rgb(26, 109, 109);
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 16px;
+}
+
+.toast.show {
+    visibility: visible;
+    animation: fadeInOut 3s ease;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+.container{
+    overflow-y: scroll;
+    display: flex;
+}
+
+.table-div {
+    max-height: 380px; /* Adjust as needed */
+    overflow-y: auto; /* Enables vertical scroll */
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    width: 100%; /* Ensures it takes full container width */
+}
+
+.table-div::-webkit-scrollbar{
+    display: none;
+}
+
+.table-div table {
+    width: 100%; /* Ensures table does not exceed container width */
+    border-collapse: collapse;
+    table-layout: fixed; /* Prevents columns from expanding */
+}
+
+.table-div th, .table-div td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Optional: adds row separation */
+    word-wrap: break-word; /* Prevents text overflow */
+}

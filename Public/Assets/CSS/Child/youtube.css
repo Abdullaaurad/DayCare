@@ -1,0 +1,14 @@
+@import url('../variables.css');
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    width: 1200px;
+    overflow-x: hidden !important;
+    overflow-y: hidden;
+    margin-top: -10px;
+    box-shadow: 0 0 15px var(--popup-background);
+    background: #dcdcdc;
+    border-radius: 10px;
+    margin-right: -60px;
+}

@@ -1,0 +1,209 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--pickup);
+}
+.heading {
+    background-color: #3b82f6;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+.heading h1 {
+    margin: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+}
+/* Starting of the content design */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding:10px 50px;
+    background-color: white;
+    box-shadow: 0 2px 4px var(--popup-background);
+    margin: 50px 300px;
+    background-image: url('../Assets/help-background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    border-radius: 10px;
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    width: 100%;
+}
+.card {
+    background-color: #e0f2ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--popup-background);
+    margin: 20px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    width: 200px !important;
+    flex: 1 1 calc(33.333% - 40px);
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    height: 280px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card:hover{
+    background-color: #d0eaff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--popup-background);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card i {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: black !important;
+}
+.card h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: black !important;
+}
+.card p {
+    color: var(--p);
+    font-size: 0.9em;
+    margin-bottom: auto;
+}
+
+a.card-link {
+    text-decoration: none;
+    color: inherit;            
+}
+
+.box{
+    width: 100%;
+}
+
+.Learn {
+    background-color: var(--button-blue);
+    color: white;
+    padding: 12px 12px;
+    border: none;
+    border-radius: 25px; 
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-right: 60px;
+    box-shadow: 0 4px 8px var(--popup-background);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Learn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--popup-background);
+}
+
+.Learn:active {
+    background-color: #00408d; 
+    transform: translateY(1px);
+    box-shadow: 0 3px 6px var(--popup-background);
+}
+
+.popup-container {
+    display: none;
+    width: 800px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px var(--popup-background);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-left: 360px;
+    margin-top: 160px;
+    z-index: 100000;
+}
+
+/* left side and righ side of the popup */
+
+.left-panel {
+    background-color: #a2b9c0;
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #1A1A1A;
+}
+
+.right-panel {
+    background-color: #B3E5FC;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #5ec8fa;
+}
+
+.right-panel img {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+.header {
+    font-size: 24px;
+    color: #030457;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-info img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.contact-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #1A1A1A;
+}
+/* Form to input data */
+.form-group {
+    margin-bottom: 20px;
+}
+
+#message {
+    height: 100px;
+    resize: none;
+}
+
+.back-con {
+    background-color: var(--button-blue);
+    position: absolute;
+    z-index: 10000;
+    height: 40px;
+    width: 60px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: -440px;
+    margin-right: -335px;
+}
+
+.fa-chevron-left {
+    margin-top: 10px;
+    margin-left: 13px;
+    color: white;
+    cursor: pointer;
+}

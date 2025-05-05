@@ -1,0 +1,342 @@
+
+
+.leaverequest{
+    margin-top:-20%;
+    margin-left: 22%;
+    width: 40%;
+    height: 500px;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding-bottom: 2%;
+    padding-left: 2%;
+    background-color: white;
+    overflow-y: auto;
+    margin-top: -15%;
+  }
+
+  .request:last-child {
+    margin-bottom: 0; /* Remove margin from the last request */
+  }
+
+  .scroll-container::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scroll-container::-webkit-scrollbar-thumb {
+    background: #888; /* Scrollbar color */
+    border-radius: 4px;
+  }
+
+  .scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Scrollbar hover color */
+  }
+
+  
+  .request {
+    border: 1px solid #ddd;
+    margin: 20px auto; /* Center horizontally in the container */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Make the width responsive to fit smaller screens */
+    max-width: 60%; /* Limit maximum width */
+    padding: 3%;
+  }
+  
+  .viewbtn {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .viewbtn:hover {
+    background-color: #0056b3;
+  }
+  
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 20px;
+    width: 90%; /* Make popup responsive */
+    max-width: 400px; /* Limit popup width */
+    box-sizing: border-box; /* Ensure padding does not add to width */
+  }
+  
+  .popup h3 {
+    margin-top: 0;
+  }
+  
+  .popup .form-field {
+    margin-bottom: 15px;
+  }
+  
+  .popup .form-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .popup .form-field input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Prevent horizontal overflow due to padding */
+  }
+  
+  .popup .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .popup .approve-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .popup .approve-btn:hover {
+    background-color: #218838;
+  }
+  
+  .popup .reject-btn {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .popup .reject-btn:hover {
+    background-color: #c82333;
+  }
+  
+  .close-btn {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007BFF;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover {
+    text-decoration: underline;
+  }
+  
+
+  .resize{
+    width: 50px;
+    height: 50px;
+  }
+
+  .l_name{
+    margin-left: 18%;
+    margin-top: -14%;
+    color: #233E8D;
+  }
+  
+
+  .leaverequest::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  
+  .leaverequest::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded edges for the scrollbar thumb */
+  }
+  
+  .leaverequest::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color on hover */
+  }
+  
+
+  .leavecards {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 500px;
+}
+
+.leavecards p {
+    margin: 10px 0;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+}
+
+.leavecards p span {
+    flex: 1;
+    padding: 6px 0;
+}
+
+.leavecards p[name="LeaveType"] {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 12px;
+}
+
+.leavecards p[name="Description"] {
+    color: #555;
+    line-height: 1.5;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.leavecards p[name="Duration"] {
+    color: #666;
+    font-weight: 500;
+}
+
+.leavecards p[name="atus"] span {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Pending (Yellow) */
+.leavecards p[name="atus"] span[data-status="pending"],
+.leavecards p[name="atus"] span:contains("Pending") {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* Approved (Green) */
+.leavecards p[name="atus"] span[data-status="approved"],
+.leavecards p[name="atus"] span:contains("Approved") {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Rejected (Red) */
+.leavecards p[name="atus"] span[data-status="rejected"],
+.leavecards p[name="atus"] span:contains("Rejected") {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.leavecards > p:last-child {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
+
+/* Container for all leave cards */
+.leavecard-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Individual leave card styling */
+.leavecard {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 250px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover effect for leave cards */
+.leavecard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for paragraphs inside the card */
+.leavecard p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333333;
+}
+
+/* Styling for the status span */
+.leavecard span[data-status] {
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+/* Specific colors for different statuses */
+.leavecard span[data-status="approved"] {
+  background-color: #28a745;
+}
+
+.card span[data-status="pending"] {
+  background-color: #ffc107;
+  color: #000000;
+}
+
+.leavecard span[data-status="rejected"] {
+  background-color: #dc3545;
+}
+
+
+.container{
+  display: flex;
+  gap: -10px;
+  margin-top:22%;
+  margin-left:-4.5%;
+}
+
+.status-container {
+  margin: 10px 0;
+}
+
+.action-buttons {
+  margin-top: 8px;
+}
+
+.accept-btn,
+.decline-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin-left:4%;
+}
+
+.accept-btn {
+  background-color: #4CAF50;
+  margin-right: 8px;
+}
+
+.decline-btn {
+  background-color: #f44336;
+}

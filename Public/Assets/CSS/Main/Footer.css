@@ -1,0 +1,279 @@
+.Footer {
+    width: 100%;
+    height: 380px;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(90deg, #144A78 34%, #2589DE 91%);
+}
+
+.KiddoVille {
+    width: 279px;
+    left: 135px;
+    top: 107px;
+    position: absolute;
+    color: #6DD3EA;
+    font-size: 40px;
+    font-family: Cherry Bomb;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Group4 {
+    width: 134px;
+    height: 200px;
+    left: 415px;
+    top: 32px;
+    position: absolute;
+}
+
+.Home,
+.AboutUs,
+.ContactUs,
+.Features {
+    color: #6DD3EA;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Home {
+
+    width: 79px;
+    height: 53.90px;
+    position: absolute;
+    top: 0px;
+}
+
+.AboutUs {
+    width: 104px;
+    height: 53.90px;
+    position: absolute;
+    top: 36.70px;
+}
+
+.ContactUs {
+    width: 134px;
+    height: 53.90px;
+    position: absolute;
+    top: 73px;
+}
+
+.Features {
+    width: 121px;
+    height: 53.90px;
+    position: absolute;
+    top: 109.70px;
+}
+
+.Group5,
+.Group6 {
+    width: 121px;
+    margin-top: 20px;
+    position: absolute;
+}
+
+.Group5 {
+    left: 599px;
+    top: 12px;
+}
+
+.Group6 {
+    left: 792px;
+    top: 15px;
+}
+
+.Address {
+    width: 121px;
+    height: 20px;
+    color: #6DD3EA;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Contact {
+    width: 121px;
+    height: 35px;
+    color: #6DD3EA;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Group7 {
+    height: 120px;
+    left: 965px;
+    top: 27px;
+    position: absolute;
+}
+
+.Join {
+    margin-top: 100px;
+    padding: 15px 90px;
+    text-align: center;
+    background-color: #2B2A9F;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    transition: transform 0.3s ease
+}
+
+.Enrol {
+    width: 340px;
+    height: 70px;
+    left: 0px;
+    top: 10px;
+    position: absolute;
+    color: #CEECF7;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Line6 {
+    width: 1170px;
+    height: 0px;
+    left: 135px;
+    top: 214px;
+    position: absolute;
+    border: 1px #A2DCE8 solid;
+}
+
+.Group8 {
+    width: 434px;
+    height: 42px;
+    left: 503px;
+    top: 245px;
+    position: absolute;
+}
+
+.Join:hover {
+    transform: scale(1.1);
+}
+
+a {
+    color: #6DD3EA !important;
+    text-decoration: none;
+}
+
+.Footer-logo {
+    width: 110px;
+    margin-top: -260px;
+    margin-left: 120px;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    -webkit-box-reflect: below 5px linear-gradient(transparent, #00000055);
+    justify-content: center;
+    position: relative;
+    margin-left: 370px;
+    margin-top: 150px;
+}
+
+.social-login-icons svg {
+    width: 40px;
+}
+
+.social-icon-1,
+.social-icon-1-1,
+.social-icon-2,
+.social-icon-2-2,
+.social-icon-3,
+.social-icon-3-3,
+.social-icon-4,
+.social-icon-4-4 {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    margin: 20px 0 0px 0;
+}
+
+.icon svg {
+    fill: #111;
+}
+
+.socialcontainer {
+    height: 80px;
+    overflow: hidden;
+}
+
+.social-icon-1 {
+    transition-duration: 0.4s;
+    background-color: rgb(0, 0, 0);
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+}
+
+.social-icon-1 svg,
+.social-icon-2 svg,
+.social-icon-3 svg,
+.social-icon-4 svg {
+    opacity: 0;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+}
+
+.social-icon-1-1 {
+    transition-duration: 0.4s;
+    background-color: rgb(0, 0, 0, 0);
+}
+
+.socialcontainer:hover .social-icon-1 {
+    transform: translateY(-70px);
+}
+
+.socialcontainer:hover .social-icon-1 svg,
+.socialcontainer:hover .social-icon-2 svg,
+.socialcontainer:hover .social-icon-3 svg,
+.socialcontainer:hover .social-icon-4 svg {
+    opacity: 1;
+}
+
+.social-icon-2 {
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+    background: linear-gradient(72.44deg,
+            #ff7a00 11.92%,
+            #ff0169 51.56%,
+            #d300c5 85.69%);
+}
+
+.socialcontainer:hover .social-icon-2 {
+    transform: translateY(-70px);
+}
+
+.social-icon-3 {
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+    background: #316ff6;
+}
+
+.socialcontainer:hover .social-icon-3 {
+    transform: translateY(-70px);
+}
+
+.social-icon-4 {
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+
+    background: red;
+}
+
+.socialcontainer:hover .social-icon-4 {
+    transform: translateY(-70px);
+}

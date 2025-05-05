@@ -1,0 +1,275 @@
+@import url('../variables.css');
+
+.main-content {
+    padding: 20px;
+    position: relative;
+    height: 140vh;
+    margin-left: 270px;
+    width: 100%;
+    height: 100% !important;
+    overflow: hidden;
+}
+
+.saperate{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+    margin-bottom: -30px;
+}
+
+.icon {
+    color: var(--icon);
+    font-size: 18px;
+    cursor: pointer;
+}
+.checked {
+    color: var(--icon);
+}
+
+.custom-checkbox {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.custom-checkbox input {
+    display: none; /* Hide the default checkbox */
+}
+
+.checkmark {
+    width: 20px; /* Increase the size as needed */
+    height: 20px; /* Increase the size as needed */
+    background-color: #eee; /* Background color when unchecked */
+    border: 2px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    display: inline-block;
+    position: relative;
+}
+
+.custom-checkbox input:checked + .checkmark {
+    background-color: var(--icon); /* Background color when checked */
+    border-color: var(--icon); /* Border color when checked */
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+    display: block;
+}
+
+.checkmark::after {
+    left: 8px; /* Adjust as needed */
+    top: 4px; /* Adjust as needed */
+    width: 6px; /* Width of the checkmark */
+    height: 12px; /* Height of the checkmark */
+    border: solid white; /* Color of the checkmark */
+    border-width: 0 2px 2px 0; /* Create a checkmark shape */
+    transform: rotate(45deg); /* Rotate to form a checkmark */
+}
+
+.sidebar ul{
+    margin-top: -16px !important;
+}
+
+.sidebar.minimized ul {
+    margin-top: -35px !important;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease-in-out;
+}
+
+.modal .header2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+.modal .header2 i {
+    margin-right: 10px;
+    color: var(--button-blue);
+}
+.header2 h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--body-second);
+    margin-bottom: 20px;
+}
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--p);
+    transition: color 0.3s, border-bottom 0.3s;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group2 {
+    margin-top: 20px;
+}
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--body-second);
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--button-blue);
+    outline: none;
+}
+.form-group textarea {
+    resize: none;
+    height: 100px;
+}
+.form-group .date-input {
+    display: flex;
+    align-items: center;
+}
+.form-group .date-input input {
+    flex: 1;
+    margin-right: 10px;
+}
+.form-group .date-input i {
+    font-size: 18px;
+    color: var(--p);
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.buttons button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.buttons .cancel {
+    background-color: #fff;
+    border: 1px solid var(--body-second);
+    color: #333;
+}
+.buttons .cancel:hover {
+    background-color: var(--body-first);
+}
+.buttons .done {
+    background-color: var(--button-blue);
+    color: #fff;
+}
+.buttons .done:hover {
+    background-color: var(--secondary-color);
+}
+.View-Report{
+    background-color: white;
+    box-shadow: 0 0 15px var(--popup-background);
+    padding: 20px;
+    border: 1px solid #ccc;
+    animation: popupSlideIn 0.5s ease;
+    position: relative;
+    border: 4px solid #0000ff;
+    border-radius: 10px;
+    width: 320px;
+    height: 500px;
+    animation: popupSlideIn 0.5s ease;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease-in-out;
+}
+.line{
+    background-color: var(--button-blue-hover);
+    width: 160px;
+    height: 3px;
+    color: var(--button-blue-hover);
+    margin-top: -22px;
+    position: absolute;
+    z-index: 10000;
+    transition: transform 1s ease;
+    margin-top: -235px;
+    margin-left: -160px;
+}
+.Behavioural{
+    display: none;
+}
+#history{
+    display: none;
+}
+#datePicker{
+    width: 200px;
+    margin-right: 20px;
+}
+.report-container hr{
+    margin-bottom: 30px;
+}
+.report-container h2{
+    margin-top: -10px !important;
+    margin-bottom: 5px;
+}
+.Table1{
+    width: 1200px !important;
+}
+.togglediv{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    margin-bottom: 7px; 
+    margin-top: 20px;
+    margin-left: 7px;
+}
+.togglediv h2{
+    margin-top: -10px;
+}
+.togglediv hr{
+    margin-top: -20px;
+}
+.profile-cartd{
+    margin-top: -720px;
+}
+#Bahavior-con{
+    display: none;
+}
+#Mediacl-con{
+    display: block;
+}
+.up-btn{
+    padding-left: 50px !important; 
+    padding-right: 40px !important;
+}

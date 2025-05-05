@@ -1,0 +1,415 @@
+@import url('../variables.css');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--body-first);
+}
+
+.main-content {
+    margin-left: 250px;
+    background-color: var(--body-second);
+    height: 100vh;
+    overflow-y: auto;
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    box-sizing: content-box;
+    position: relative;
+}
+
+.main-content .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 10px 30px;
+    margin-top: 120px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.grid::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+}
+
+.main-content .grid .item {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 8px var(--popup-background);
+    padding: 10px 10px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-content .grid .item:hover {
+    transform: translateY(-10px);
+    /* Move the item up */
+    box-shadow: 0 8px 16px var(--popup-background);
+    /* Increase shadow on hover */
+}
+
+.icon-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.icon-btn {
+    background-color: var(--body-first);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px var(--popup-background);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #196df5;
+}
+
+.icon-btn:hover {
+    background-color: var(--body-second);
+    transform: scale(1.2);
+    /* Enlarge the button */
+    box-shadow: 0 8px 16px var(--popup-background);
+    /* Increase shadow on hover */
+}
+
+.watch-btn {
+    color: #333;
+}
+
+.remove-btn {
+    color: #e74c3c;
+}
+
+.fa-clock {
+    font-size: 20px;
+}
+
+.fa-trash {
+    font-size: 20px;
+}
+
+.date-time {
+    margin-top: 7px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.format {
+    margin-top: 7px !important;
+    text-align: left;
+    color: #888;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.item .date-time {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #888;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.main-content .grid .item img {
+    width: 100%;
+    height: 200px;
+    border-radius: 7px;
+}
+
+.main-content .grid .item h3 {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.main-content .grid .item p {
+    margin: 0px 0;
+    font-size: 14px;
+    color: #333;
+    margin-top: -8px;
+}
+
+.fa-search {
+    margin-top: -63px;
+    margin-bottom: 23px;
+    margin-left: 132px;
+    color: #333;
+}
+
+/* Container for the custom dropdown */
+.custom-select-container {
+    position: relative;
+    width: 160px;
+    font-family: Arial, sans-serif;
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
+
+/* The trigger that mimics the select box */
+.custom-select-trigger {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Custom dropdown icon */
+.custom-select-trigger i {
+    margin-left: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+}
+
+/* The hidden container for options */
+.custom-options-container {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background-color: #8db4f3;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--popup-background);
+    display: none;
+    z-index: 100;
+    transition: all 0.3s ease;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: none;
+}
+
+.custom-options-container::-webkit-scrollbar {
+    width: 7px;
+    /* Width of the scrollbar */
+}
+
+.custom-options-container::-webkit-scrollbar-track {
+    background: #8db4f3;
+    /* Color of the scrollbar track */
+    border-radius: 10px;
+}
+
+.custom-options-container::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    /* Color of the scrollbar handle */
+    border-radius: 10px;
+}
+
+.custom-options-container::-webkit-scrollbar-thumb:hover {
+    background: #196df5;
+    /* Color of the scrollbar handle on hover */
+}
+
+.grid::-webkit-scrollbar {
+    width: 20px;
+    /* Width of the scrollbar */
+}
+
+.grid::-webkit-scrollbar-track {
+    background: #8db4f3;
+    /* Color of the scrollbar track */
+    border-radius: 10px;
+}
+
+.grid::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    /* Color of the scrollbar handle */
+    border-radius: 10px;
+}
+
+.grid::-webkit-scrollbar-thumb:hover {
+    background: #196df5;
+    /* Color of the scrollbar handle on hover */
+}
+
+/* Individual options */
+.custom-option {
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    background-color: #8db4f3;
+    border-radius: 8px;
+}
+
+.custom-option:last-child {
+    border-bottom: none;
+    /* Remove border for the last option */
+}
+
+/* Hover effect for options */
+.custom-option:hover {
+    background-color: #669df6;
+}
+
+/* Show the custom dropdown options when the dropdown is active */
+.custom-select-container.active .custom-options-container {
+    display: block;
+    /* Show options when dropdown is active */
+}
+
+.custom-select-container:focus {
+    transform: scale(1.1);
+    /* Grow 10% */
+}
+
+.fa-home {
+    font-size: 32px;
+    /* Set the size of the icon */
+    color: white;
+    transition: transform 0.3s ease;
+    /* Smooth transition for transform changes */
+    margin-top: -5px;
+}
+
+.fa-home:hover {
+    transform: scale(1.2);
+    /* Scale the icon to 120% of its original size */
+}
+
+.nav-link {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+.nav-link p {
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.reminder-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.reminder-text {
+    margin-left: 0px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    font-style: italic;
+}
+
+/* Toggle switch container */
+.switch-reminder {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-left: 30px;
+}
+
+/* Hide the default checkbox */
+.switch-reminder input {
+    display: none;
+}
+
+/* Slider styling */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+/* Slider circle (toggle knob) */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* When checkbox is checked, move the slider */
+input:checked+.slider {
+    background-color: #4CAF50;
+}
+
+/* Move the knob to the right when checked */
+input:checked+.slider:before {
+    transform: translateX(18px);
+}
+
+/* Add focus shadow */
+input:focus+.slider {
+    box-shadow: 0 0 1px #4CAF50;
+}
+
+.reminder-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Date and Time styling */
+.reminder-date,
+.reminder-time {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Add spacing between icon and text */
+.reminder-date i,
+.reminder-time i {
+    margin-right: 6px;
+    color: #333;
+}
+
+/* Optional: style the icons */
+.reminder-date i {
+    color: #4CAF50;
+    /* Date icon color */
+}
+
+.reminder-time i {
+    color: #FF9800;
+    /* Time icon color */
+}
+
+.reminder-date {
+    margin-right: 40px;
+}
+
+.reminder-time {
+    margin-left: 40px;
+}

@@ -1,0 +1,51 @@
+@import url('../variables.css');
+
+.main-content {
+    height: 90vh !important;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.saperate{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 0px;
+    margin-bottom: -30px;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.sidebar.minimized ul {
+    margin-top: -20px !important;
+}
+
+.saperate{
+    height: 520px;
+    margin-top: -12px;
+}
+
+.Table1 hr{
+    margin-top: -16px !important;
+}
+
+.Table1{
+    width: 760px !important; 
+    height: 420px; 
+    margin-top: 0px;
+}
+
+.Table h2{
+    margin-top: 10px !important;
+    margin-bottom: 2px;
+}
+
+#datePicker{
+    width: 200px; 
+    margin-right: 20px;
+}
+

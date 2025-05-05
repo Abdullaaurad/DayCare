@@ -1,0 +1,103 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--pickup);
+}
+.heading {
+    background-color: #3b82f6;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+.heading h1 {
+    margin: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+}
+/* Search bar of content */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.search-box input:focus {
+    box-shadow: 0 0 5px #4facfe;
+    transition: box-shadow 0.3s ease;
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff; 
+    border-radius: 25px;
+    box-shadow: 0 2px 4px var(--popup-background);
+    padding: 10px 20px;
+    width: 50%;
+    border: 1px solid #ccc; 
+}
+.search-box input {
+    border: none;
+    outline: none;
+    font-size: 1em;
+    flex: 1;
+    margin-left: 10px;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding:20px 50px;
+    background-color: white;
+    box-shadow: 0 2px 4px var(--popup-background);
+    margin: 30px 300px;
+    background-image: url('../Assets/help-background.jpeg');    
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    border-radius: 10px;
+}
+/* Each card for diiferent details */
+.card {
+    background-color: #e0f2ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--popup-background);
+    margin: 20px;
+    padding: 20px;
+    padding-top: 30px;
+    text-align: center;
+    width: 200px;
+    flex: 1 1 calc(33.333% - 40px);
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover{
+    background-color: #d0eaff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--popup-background);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card i {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: black !important;
+}
+.card h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: black !important;
+}
+.card p {
+    color: var(--p);
+    font-size: 0.9em;
+}
+
+a.card-link {
+    text-decoration: none;
+    color: inherit;            
+}
+
+.box{
+    width: 100%;
+}

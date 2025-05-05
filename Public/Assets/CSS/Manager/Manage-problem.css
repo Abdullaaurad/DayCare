@@ -1,0 +1,347 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #f7f7f7, #eaeaea);}
+.navbar{
+    width: 100%;
+    height: 10%;
+    background-color: #3974BA;
+}
+
+.container {
+    padding: 20px;
+    display: inline;
+}
+.title-image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+}
+.title {
+    font-size: 72px;
+    color: #2B2A9F;
+}
+.image-container {
+    text-align: center;
+    padding: 0px;
+    margin: -30px;
+    margin-top: -30px;
+    height: 450px;
+}
+.image-container img {
+    width: 800px;
+    height: 400px;
+}
+.filter-container {
+    display: flex;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-top: 50px;
+    gap:20px;
+}
+.filter-container select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-top: -4%;
+}
+.problem-list {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 40px 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.problem-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 3px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+.problem-item:last-child {
+    border-bottom: none;
+}
+.problem-item .details {
+    flex: 1;
+    margin:10px 30px;
+    padding: 15px; 
+    width: 90%;
+    max-width: 900px;  
+}
+.problem-item .details h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #2B2A9F;
+}
+.problem-item .details p {
+    margin: 5px 0;
+    color: #555;
+}
+.problem-item .details .date {
+    color: #999;
+    font-size: 14px;
+}
+.problem-item .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 150px; 
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.problem-item .actions img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+    border: 3px solid  #2b3a67;
+}
+.problem-item .actions .user-name {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 5px;
+}
+.problem-item .actions .add-solution {
+    color: #8136F3;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: -15px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+.pagination a {
+    color: #8136F3 !important;
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: bold;
+    font-size: 30px;
+}
+.pagination a.active {
+    text-decoration: underline;
+}
+.back-button {
+    display: block;
+    width: 100px;
+    margin: 20px 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #2b3a67;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.uprofile{
+    margin-top: 10%;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.fill{
+    background-color: white;
+    margin: 50px;
+    margin-top: 80px;
+    padding-bottom: 30px;
+    border-radius: 30px;
+    margin-left: 22%;
+    width: 75%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup form {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 450px;
+    max-width: 90%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.solution-container {
+    margin-bottom: 20px;
+}
+
+.solution-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #233E8D;
+    font-size: 18px;
+}
+
+.solution-textarea {
+    width: 100%;
+    height: 180px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.but {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.publish {
+    padding: 10px 20px;
+    background-color: #233E8D;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cancel {
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-solution {
+    padding: 8px 15px;
+    background-color: #233E8D;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-solution:hover {
+    background-color: #1a2f6a;
+}
+
+ /* Custom Alert Box */
+ .custom-alert {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000; /* Higher than the popup */
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-alert-content {
+    background-color: white;
+    width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.custom-alert-header {
+    background-color: #233E8D;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-alert-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.custom-alert-close {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.custom-alert-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.custom-alert-body p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.custom-alert-footer {
+    padding: 10px 20px 20px;
+    text-align: center;
+}
+
+.custom-alert-button {
+    background-color: #233E8D;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 25px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.custom-alert-button:hover {
+    background-color: #1a2f6a;
+}

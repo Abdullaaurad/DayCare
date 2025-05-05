@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #e0f7fa;
+}
+
+.navbar {
+    width:100%;
+    height: 80px;
+    padding-right: 39px;
+    background: linear-gradient(to right, #3974BA, #4f4cd2);
+    justify-content: flex-start;
+    align-items: center;
+    gap: 385px;
+    display: inline-flex;
+}
+
+.navbar-logo {
+    width: 152px;
+    height: 120px;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+}
+
+.navbar-logo img {
+    width: 152px;
+    height: 120px;
+}
+
+.navbar-links {
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 31px;
+    display: inline-flex;
+    margin-left: 55px;
+}
+
+.navbar-link {
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    word-wrap: break-word;
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 30px;
+}
+.navbar-link:hover{
+    color: black;
+}
+
+
+.navbar-button {
+    font-size: 20px;
+    font-weight: 400;
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #2B2A9F;
+    color: white;
+    margin-left: 20px;
+}
+.navbar-button.signup{
+    margin-left: 20px;
+}
+
+.navbar-button:hover{
+    color: black;
+    background-color: aqua;
+    cursor: pointer;
+}
+
+
+
+.content {
+    background-color: white;
+    margin: 0px auto;
+    padding: 20px 30px;
+    max-width: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-bottom: 50px !important;
+}
+.content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.content h1 {
+    color: #3f51b5;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 32px !important;
+    text-align: center
+}
+.content p {
+    color: #333;
+    line-height: 1.6;
+}
+.content .section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 0px 20px;
+    border-radius: 10px;
+    margin: 20px 0px;
+}
+.content .section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.content .section img {
+    width: 50px;
+    margin-right: 20px;
+}
+.content .section:last-child {
+    margin-bottom: 0;
+}
+.content .main-content {
+    display: flex;
+    justify-content: space-between;
+}
+.content .text-content {
+    flex: 1;
+    margin-right: 20px;
+}
+.content .image-content {
+    flex: 1;
+    text-align: center;
+}
+.content .image-content img {
+    max-width: 100%;
+    height: auto;
+}
+.content .footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.content .footer div {
+    text-align: center;
+}
+.content .footer div i {
+    font-size: 24px;
+    color: #1e88e5;
+}
+.content .footer div p {
+    margin: 5px 0 0;
+    color: #333;
+}
+.content .footer div p span {
+    display: block;
+    font-weight: bold;
+}
+.content .footer-text {
+    text-align: center;
+    color: #3f51b5;
+    font-weight: bold;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content .footer-text img {
+    margin-right: 10px;
+}
+
+.buttons .btn{
+    width: 100px;
+    height: 40px;
+    text-decoration: none;
+    background-color: #2B2A9F;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.buttons .btn:hover{
+    background-color: aqua;
+    cursor: pointer;
+    color:black;
+}
+
