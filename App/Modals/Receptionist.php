@@ -12,7 +12,14 @@
             'Last_Name',
             'First_Name',
             'Image',
-            'ImageType'
+            'ImageType',
+            "Phone_Number",
+            "Address",
+            "Email",
+            "NID",
+            "Gender",
+            "Language",
+            "Last_Seen",
         ];
 
         public function validate($data){

@@ -337,3 +337,40 @@ input[type="date"]{
     outline:none;
     padding:0px;  
 }
+
+.visitor-table-container {
+    max-height: 280px; /* adjust height as needed */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: -10px;
+    width: 600px;
+}
+
+.visitor-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+}
+
+.visitor-table thead {
+    background-color: #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.visitor-table th,
+.visitor-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.visitor-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.visitor-table-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
