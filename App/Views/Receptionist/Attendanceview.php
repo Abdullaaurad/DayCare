@@ -33,45 +33,43 @@
                        </p>
                 </div>
             </div>
-            <div class="directions">
-                <div class="direction-items">
-                <a href="<?=ROOT?>/Receptionist/Home"><div class="dashboard">
-                    
-                    <i class="fas fa-tachometer-alt">
-                    </i>
-                    <span>&nbsp;&nbsp; Dashboard</span>
-                  
-                </div> </a>
-                 <a href="<?=ROOT?>/Receptionist/Attendance"><div class="mark_attendance">
-                    <i class="fas fa-check-circle">
-                    </i>
-                   <span>&nbsp;&nbsp; Attendance</span>
-                    
-                 </div></a>
-                 
-                 <a href="<?=ROOT?>/Receptionist/Payment"><div class="payment">
-                    <i class="fas fa-money-bill-wave">
-                    </i>
-                    <span>&nbsp;&nbsp; Payment</span>
-                </div></a>
-                <a href="<?=ROOT?>/Receptionist/Visitor"><div class="visitor">
-                    <i class="fas fa-users">
-                    </i>
-                    <span>&nbsp;&nbsp; visitort</span>
-                </div></a>
-                <a href="<?=ROOT?>/Receptionist/Leaves"><div class="leaves">
-                    <i class="fas fa-calendar-check">
-                    </i>
-                   <span>&nbsp;&nbsp; Leaves</span>
-                 </div></a>
-                <hr>
-                <div class="help">
-                    <i class="fas fa-question-circle">
-                    </i>
-                    <span>&nbsp;&nbsp; Help</span>
-                </div>
-                </div>
-            </div>
+            <ul>
+                <li class="hover-effect unselected first">
+                    <a href="<?= ROOT ?>/Receptionist/Home">
+                        <i class="fas fa-home"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Attendance">
+                        <i class="fas fa-history"></i> <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Payment">
+                        <i class="fa fa-user-shield"></i> <span>Payment</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/visitor">
+                        <i class="fas fa-calendar-check"></i> <span>Visitor</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Inventory/Dashboard">
+                        <i class="fas fa-boxes"></i> <span>Inventory</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Leave">
+                        <i class="fas fa-utensils"></i> <span>Leave</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Leave">
+                        <i class="fas fa-dollar-sign"></i> <span>Salary</span>
+                    </a>
+                </li>
+            </ul>
         </div>
         <div class="content">
             <div class="header">
