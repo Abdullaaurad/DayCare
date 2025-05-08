@@ -250,6 +250,7 @@ a{
     background-color: var(--button-blue);
     transform: scaleX(0);
     transition: transform 0.3s;
+    width: 200px;
 }
 
 .side_bar ul li a:hover::before {

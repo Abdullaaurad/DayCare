@@ -2,138 +2,142 @@
 
     namespace Controller;
     use App\Helpers\ChildHelper;
+
     defined('ROOTPATH') or exit('Access denied');
 
-    class Attendance{
+    class Attendance
+    {
         use MainController;
-        
+
         public function index(){
-            $childModel = new \Modal\Child();
-            $pickup = new \Modal\Pickup();
-            $attend = new \Modal\Attendance();
-            $lastSunday = date('Y-m-d', strtotime('last Sunday'));
-            $sun = count($attend->where_norder(['Start_Date'=>$lastSunday],[]));
-        
-            if($_SERVER['REQUEST_METHOD'] === 'POST'){
-                $childHelper= new ChildHelper();
-                $datas['childrens'] =  $childModel->findall();
-                foreach($datas['childrens'] as $child){
-                    $child->ageGroup = $childHelper->getAgeGroup($child->DOB);
-                }
-                
-                // Initialize empty array to hold filtered children
-                $data['children'] = [];
-                
-                // Filter children by selected age group
-                foreach($datas['childrens'] as $child) {
-                    if($child->ageGroup === $_POST['ageGroup']){
-                        // Add this child to the filtered array
-                        $data['children'][] = $child;
-                    }
-                }
+            $session = new \core\Session;
+            $session->check_login();
 
-                foreach($data['children'] as $child){   
-                    $pickups = null;
-                    $attends = $attend->where_norder(['ChildID' => $child->ChildID, 'Start_Date' => date('Y-m-d')],[]);
+            $data['Profile'] = $this->Profile();
+            $data['graph'] = $this->graph();
+            $data['checkin'] = $this->checkins();
 
-                    $pickups = $pickup->first(['ChildID' => $child->ChildID, 'Date' => date('Y-m-d')]);
-                    
-                    
-                    
-
-                    
-                    if(isset($attends[0])){
-                    $child->Start_Time = $attends[0]->Start_Time;
-                    $child->End_Time = $attends[0]->End_Time;
-                    }
-                    $childPic =  $child->Image;
-                    $base64Image = base64_encode($childPic);
-                    $child->Image = 'data:image/jpg;base64,' . $base64Image;
-                    if(!empty($pickups)){
-                        $child->pickups = (array)$pickups;
-                    }
-                }
-                //show($data);
-                
-                $this->view('Receptionist/attendance',$data);
-            }else{
-            
-                
-                $data['children'] =  $childModel->findall();
-                foreach($data['children'] as $child){
-                    $attends = $attend->where_norder(['ChildID' => $child->ChildID, 'Start_Date' => date('Y-m-d')],[]);
-                   
-
-                    //  show($pickups);
-                    //  exit();
-                    if(isset($attends[0])){
-                    $child->Start_Time = $attends[0]->Start_Time;
-                    $child->End_Time = $attends[0]->End_Time;
-                    }
-                    $childPic =  $child->Image;
-                    $base64Image = base64_encode($childPic);
-                    $child->Image = 'data:image/jpg;base64,' . $base64Image;
-                    
-                    
-                   
-                    //   var_dump($child);
-                    //  exit();
-                    // $child->End_Time = $attends[0]->End_Time;
-
-                }
-                
-                // var_dump($data['children']);
-                // exit();
-          $this->view('Receptionist/attendance',$data); 
-        }  
-           
-        }
-        public function markAttendance(){
-            $AttendanceModel = new \Modal\Attendance();
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Directly take input from the form
-                
-                $data = [
-                    'ChildID'   => $_POST['childID'],
-                    'Start_Date'    => date('Y-m-d'),
-                    'Start_Time'        => date('H:i:s'),
-                    'Status'        => 'Present',
-                ];
-               
-                if ($AttendanceModel->validate($data)) {
-                    // Insert the data into the database
-                    $AttendanceModel->insert($data);
-                    // Redirect to success page or display a success message
-                    redirect('Receptionist/attendance');
-                } 
-        }
-        //    $this->view('Receptionist/attendance');
-        }
-        public function finAttendance(){
-            $AttendanceModel = new \Modal\Attendance();
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Directly take input from the form
-                
-                $data = [
-                    
-                    'End_Time'        => date('H:i:s'),
-                    'Status'        => 'Departed',
-                    
-                ];
-
-                
-                if ($AttendanceModel->validate($data)) {
-                    // Insert the data into the database
-                    $AttendanceModel->update_withid($_POST['childID'],$data,'ChildID');
-                    // Redirect to success page or display a success message
-                    redirect('Receptionist/attendance');
-                }
-                 
+            $this->view('Receptionist/attendance', $data);
         }
 
-        
-    }
-   
-}
+        private function checkins(){
+            $AttendanceModel = new \Modal\Attendance;
+            $ChildModal = new \Modal\Child;
+
+            $today = date('Y-m-d');
+            $data = $AttendanceModel->where_order_desc(["Start_Date" => $today],[], "Start_Time");
+
+            foreach ($data as $value){
+                $Child = $ChildModal->first(["ChildID" => $value->ChildID]);
+                $value->ChildName = $Child->First_Name . ' ' . $Child->Last_Name;
+
+                $imageData = $Child->Image;
+                $imageType = $Child->ImageType;
     
-    ?>
+                $base64Image = (!empty($imageData) && is_string($imageData)) 
+                    ? 'data:' . $imageType . ';base64,' . base64_encode($imageData) 
+                    : null
+                ;
+
+                $value->Image = $base64Image;
+            }
+
+            return $data;
+        }
+
+        private function Profile(){
+            $session = new \core\Session;
+            $session->set('USERID', 24);
+            $UserID = $session->get('USERID');
+
+            $ReceptionistModal = new \Modal\Receptionist;
+            $data = $ReceptionistModal->first(["UserID" => $UserID]);
+            if(!empty($data)){
+                $imageData = $data->Image;
+                $imageType = $data->ImageType;
+                $base64Image = (!empty($imageData) && is_string($imageData)) 
+                    ? 'data:' . $imageType . ';base64,' . base64_encode($imageData) 
+                    : null
+                ;
+                $data->Image = $base64Image;
+                $data->EmployeeID = 'EMP' . str_pad($data->UserID, 5, '0', STR_PAD_LEFT);
+            }
+
+            return $data;
+        }
+
+        private function graph() {
+            $AttendanceModel = new \Modal\Attendance;
+        
+            $today = date('Y-m-d');
+            $lastMonday = date('Y-m-d', strtotime('monday last week', strtotime($today)));
+        
+            $attendanceCounts = [];
+            for ($i = 0; $i < 7; $i++) {
+                $date = date('Y-m-d', strtotime("+$i days", strtotime($lastMonday)));
+                $dayName = date('l', strtotime($date));
+                $entries = $AttendanceModel->where_norder(['Start_Date' => $date], []);
+                $attendanceCounts[$dayName] = !empty($entries) ? count($entries) : 0;
+            }
+
+            $total = array_sum($attendanceCounts);        
+            return [
+                "data" => $attendanceCounts,
+                "All" => $total
+            ];
+        }        
+
+        public function Logout(){
+            $session = new \core\Session();
+            $session->logout();
+    
+            echo json_encode(["success" => true]);
+            exit;
+        }
+
+        public function Rows(){
+            header('Content-Type: application/json');
+            $requestData = json_decode(file_get_contents("php://input"), true);
+            $Filter = isset($requestData['Filter'])? $requestData['Filter'] : null;
+
+            $AttendanceModel = new \Modal\Attendance;
+            $ChildModal = new \Modal\Child;
+            $PickupModal = new \Modal\Pickup;
+
+            $today = date('Y-m-d');
+
+            // Fetch children based on filter
+            if ($Filter) {
+                $Children = $ChildModal->where_norder(['ChildID' => $Filter]);
+            } else {
+                $Children = $ChildModal->findall();
+            }
+
+            $Present = [];
+            $Absent = [];
+
+            foreach ($Children as $Child) {
+                $Child->ChildIDEdited = 'SRD' . str_pad($Child->ChildID, 5, '0', STR_PAD_LEFT);
+                $Child->ChildName = $Child->First_Name . ' ' . $Child->Last_Name;
+                $Attendance = $AttendanceModel->first(["ChildID" => $Child->ChildID, "Start_Date" => $today]);
+                
+                $imageData = $Child->Image;
+                $imageType = $Child->ImageType;
+                $base64Image = (!empty($imageData) && is_string($imageData)) 
+                    ? 'data:' . $imageType . ';base64,' . base64_encode($imageData) 
+                    : null;
+                $Child->Image = $base64Image;
+
+                if ($Attendance) {
+                    $Child->Pickup = ($Attendance->Pickup !== "Parent") ? 1 : 0;
+                    $Present[] = $Child;
+                } else {
+                    $Absent[] = $Child;
+                }
+            }
+
+            $Data = array_merge($Present, $Absent);
+            echo json_encode($Data);
+        }
+    }
+?>
