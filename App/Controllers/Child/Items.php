@@ -9,7 +9,7 @@
         public function index(){
 
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \Core\Session;
             $session->check_login();
             $session->check_child('Parent');
@@ -44,7 +44,7 @@
 
         private function store($children, $pre){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $data = [];
 
             // Retrieve the parent's profile image
@@ -68,7 +68,7 @@
 
         private function selectedchild($selectedchild, $pre){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $data = [];
 
             // Retrieve the specific child's profile image and details
@@ -87,7 +87,7 @@
 
         public function setchildsession(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
 
             defined('ROOTPATH') or define('ROOTPATH', __DIR__); // Define the root if not already defined
 
@@ -121,7 +121,7 @@
 
         public function removechildsession(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
 
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();

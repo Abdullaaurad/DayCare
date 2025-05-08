@@ -11,7 +11,7 @@
         public function index(){
 
             $session = new \Core\Session;
-            // $session->set("USERID", 1);
+            //  
             $session->check_login();
 
             $data = [];
@@ -33,7 +33,7 @@
 
         public function SeenNotification(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
             $NotificationModal = new \Modal\ChildNotification;
     
@@ -49,7 +49,7 @@
     
         private function Notifications() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $NotificationModal = new \Modal\ChildNotification;
             $ChildHelper = new ChildHelper();
             $Children = $ChildHelper->store_child();
@@ -94,7 +94,7 @@
         private function store_stats(){
 
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $today = new \DateTime();
             $today = $today->format("Y-m-d");
             $session = new \Core\Session;
@@ -192,7 +192,7 @@
 
         private function store_payment(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $data = [];
             $FeesModal = new \Modal\Fees;
             $Childhelper = new ChildHelper();
@@ -249,7 +249,7 @@
 
         public function deletePickup(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
             $requestData = json_decode(file_get_contents("php://input"), true);
 
@@ -271,7 +271,7 @@
 
         public function deleteMeeting(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
             $requestData = json_decode(file_get_contents("php://input"), true);
 
@@ -291,7 +291,7 @@
 
         private function store_meeting_times() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \Core\Session;
             $UserID = $session->get("USERID");
             $MeetingModal = new \Modal\Meeting;
@@ -331,7 +331,7 @@
 
         public function handlemeetings(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json'); // Important for AJAX
         
             $session = new \Core\Session;
@@ -394,7 +394,7 @@
         
         public function handlePickups(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
         
             $session = new \Core\Session;
@@ -459,7 +459,7 @@
 
         private function store_reminders() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $reminderModal = new \Modal\Reminder;
             $ChildHelper = new ChildHelper();
             $childrens = $ChildHelper->store_child();
@@ -485,7 +485,7 @@
         
         private function store_attendance($ChildID) {   
             $session = new \Core\Session;
-            $session->set("USERID", 1);     
+                  
             $today = new \DateTime();
             $todayFormatted = $today->format("Y-m-d");
         
@@ -523,7 +523,7 @@
 
         private function store_child_details($children) {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             foreach ($children as &$child) {
                 $AttendanceModal = new \Modal\Attendance;
                 $row = $AttendanceModal->first(["ChildID" => $child['Id'], "Status" => 'Present']);
@@ -615,7 +615,7 @@
 
         public function setchildsession(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
 
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
@@ -638,7 +638,7 @@
 
         public function Logout(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \core\Session();
             $session->logout();
 
@@ -648,7 +648,7 @@
 
         public function minimize() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \Core\Session();
             $minimized = $session->get("MINIMIZE");
             $session->set("MINIMIZE", !$minimized);

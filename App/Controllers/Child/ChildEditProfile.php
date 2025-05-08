@@ -10,7 +10,7 @@ class ChildEditProfile
     public function index()
     {
         $session = new \Core\Session;
-        $session->set("USERID", 1);
+         
         $data = [];
 
         $session = new \core\Session;
@@ -74,7 +74,7 @@ class ChildEditProfile
 
     public function Savedetails() {
         $session = new \Core\Session;
-        $session->set("USERID", 1);
+         
         $postData = $_POST;
     
         $images = isset($postData['images']) ? json_decode($postData['images'], true) : [];

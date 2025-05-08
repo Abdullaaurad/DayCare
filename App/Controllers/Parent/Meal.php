@@ -12,7 +12,7 @@
         public function index(){
 
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \Core\Session;
             $session->check_login();
 
@@ -29,7 +29,7 @@
 
         public function Snack_request(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             show($_POST);
             $requestModal = new \Modal\SnackRequest;
             $SnackModal = new \Modal\SnackPlan;
@@ -47,7 +47,7 @@
 
         public function delete_snack_request(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
             
             // Get the JSON body data
@@ -62,7 +62,7 @@
 
         public function Snack_request_edit(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
 
             show($_POST);
             if(isset($_POST)){
@@ -73,7 +73,7 @@
 
         public function store_food() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
             
             // Get the JSON body data
@@ -115,7 +115,7 @@
         
         public function get_snacks(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
             
             // Get the JSON body data
@@ -135,7 +135,7 @@
 
         public function store_snack() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
             
             // Get the JSON body data
@@ -177,7 +177,7 @@
         
         public function store_request() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
         
             // Get the JSON body data
@@ -234,7 +234,7 @@
         
         public function setchildsession(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
@@ -256,7 +256,7 @@
 
         public function Logout(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \core\Session();
             $session->logout();
 

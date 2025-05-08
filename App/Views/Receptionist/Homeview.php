@@ -122,32 +122,46 @@
             <div class="detailed_content">
                 <div class="main-contents">
                     <div class="navigation-card-content">
+                        <!-- Attendance Card -->
                         <div class="card">
-                            <span class="card-topic"><i class="fas fa-clipboard-check" title="Mark Attendance"></i>&nbsp; Attendance</span>
-                            <span class="mini-topic">Present Count</span>
+                            <span class="card-topic">
+                                <i class="fas fa-user-check" title="Children Present"></i>&nbsp; Children Attendance
+                            </span>
+                            <span class="mini-topic">Present Today</span>
                             <div class="count-percentage">
-                                <span class="count">35</span>
-                                <span class="percentage1">Absent 42.66&#37</span>
+                                <span class="count"><?= $data['stats']['presentCount'] ?></span>
+                                <span class="percentage1" style="position: relative; left: 100px;">
+                                    Absent <?= $data['stats']['absentPercentage'] ?>
+                                </span>
                             </div>
-
                         </div>
-                        <div class="card">
-                            <span class="card-topic"><i class="fas fa-calendar-plus" title="Mark Attendance"></i>&nbsp; Resevation</span>
-                            <span class="mini-topic">Available Slots</span>
-                            <div class="count-percentage">
-                                <span class="count">15</span>
-                                <span class="percentage">Availbale Slots 42.66&#37</span>
-                            </div>
 
+                        <!-- Reservation Slots Card -->
+                        <div class="card">
+                            <span class="card-topic">
+                                <i class="fas fa-door-open" title="Available Childcare Slots"></i>&nbsp; Slots Overview
+                            </span>
+                            <span class="mini-topic">Available Capacity</span>
+                            <div class="count-percentage">
+                                <span class="count"><?= $data['stats']['availableSlots'] ?></span>
+                                <span class="percentage1" style="position: relative; left: 100px;">
+                                    Filled <?=$data['stats']['availableSlotPercentage'] ?>
+                                </span>
+                            </div>
                         </div>
-                        <div class="card">
-                            <span class="card-topic"><i class="fas fa-credit-card" title="Mark Attendance"></i>&nbsp; Payment</span>
-                            <span class="mini-topic">Confirmed Enrollments</span>
-                            <div class="count-percentage">
-                                <span class="count">35</span>
-                                <span class="percentage1">Payment Due 42.66&#37</span>
-                            </div>
 
+                        <!-- Staff Attendance Card -->
+                        <div class="card">
+                            <span class="card-topic">
+                                <i class="fas fa-user-nurse" title="Staff Attendance"></i>&nbsp; Staff Attendance
+                            </span>
+                            <span class="mini-topic">Present Today</span>
+                            <div class="count-percentage">
+                                <span class="count"><?= $data['stats']['totalEmployeePresent'] ?></span>
+                                <span class="percentage1" style="position: relative; left: 100px;">
+                                    Absent <?= $data['stats']['totalEmployee'] - $data['stats']['totalEmployeePresent'] ?>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="other_details">
@@ -181,42 +195,46 @@
                                 </div>
 
                             </div>
-                            <div class="graphcontainer"><canvas id="piechart" class="animatepiechart" width="300" height="300" style="display: flex; justify-content: center; align-items: center;">
-                                </canvas></div>
-
+                            <div class="graphcontainer">
+                                <h1 id="percentage" style="position: fixed; color: #003396; font-size: 40px; text-align: center; margin-top: -80px; margin-bottom: 0px;">
+                                    10%
+                                </h1>
+                                <canvas id="piechart" class="animatepiechart" width="300" height="300" style="display: flex; justify-content: center; align-items: center;">
+                                </canvas>
+                            </div>
                         </div>
                         <div class="today_visitors">
-    <div class="today_visitors_header">
-        <span><i class="fas fa-door-open"></i>&nbsp; Today Visitors</span>
-    </div>
+                            <div class="today_visitors_header">
+                                <span><i class="fas fa-door-open"></i>&nbsp; Today Visitors</span>
+                            </div>
 
-    <div class="visitor-table-container">
-        <table class="visitor-table">
-            <thead>
-                <tr>
-                    <th>NAME</th>
-                    <th>POSITION</th>
-                    <th>PURPOSE</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (!empty($data['Visitors'])): ?>
-                    <?php foreach ($data['Visitors'] as $visitor): ?>
-                        <tr>
-                            <td><?= $visitor->FirstName ?> <?= $visitor->LastName ?></td>
-                            <td><?= $visitor->Role ?></td>
-                            <td><?= $visitor->Purpose ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="3" style="text-align:center; color: gray;">No visitors for today.</td>
-                    </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
-    </div>
-</div>
+                            <div class="visitor-table-container">
+                                <table class="visitor-table">
+                                    <thead>
+                                        <tr>
+                                            <th>NAME</th>
+                                            <th>POSITION</th>
+                                            <th>PURPOSE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (!empty($data['Visitors'])): ?>
+                                            <?php foreach ($data['Visitors'] as $visitor): ?>
+                                                <tr>
+                                                    <td><?= $visitor->FirstName ?> <?= $visitor->LastName ?></td>
+                                                    <td><?= $visitor->Role ?></td>
+                                                    <td><?= $visitor->Purpose ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <tr>
+                                                <td colspan="3" style="text-align:center; color: gray;">No visitors for today.</td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -234,12 +252,8 @@
         </div>
     </div>
 
-    <script src="<?= JS ?>/Receptionist/Dashboard.js"></script>
-    <script src="<?= JS ?>/Receptionist/test.js"></script>
-    <script src="<?= JS ?>/Receptionist/receptionist_attendance.js"></script>
 </body>
 <script>
-
     function logoutUser() {
         fetch("<?= ROOT ?>/Receptionist/Home/Logout", {
                 method: "POST",
@@ -248,13 +262,69 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    window.location.href = "<?= ROOT ?>/Main/Login"; // Redirect after logout
+                    window.location.href = "<?= ROOT ?>/Main/Login";
                 } else {
                     alert("Logout failed. Try again.");
                 }
             })
             .catch(error => console.error("Error:", error));
     }
+
+    const attendanceData = <?= json_encode($data['graph']) ?>;
+    const percentage = document.getElementById("percentage");
+
+    function showPieChart(ageGroup = "All") {
+        console.log("Updating pie chart for:", ageGroup);
+        console.log("Attendance Data:", attendanceData);
+        let present = 0, absent = 0;
+
+        if (ageGroup === "All") {
+            present = attendanceData["3-5"].Present + attendanceData["6-9"].Present + attendanceData["10-13"].Present;
+            absent = attendanceData["3-5"].Absent + attendanceData["6-9"].Absent + attendanceData["10-13"].Absent;
+        } else {
+            present = attendanceData[ageGroup].Present;
+            absent = attendanceData[ageGroup].Absent;
+        }
+
+        percentage.innerText = Math.round((present / (present + absent)) * 100) + "%";
+
+        document.querySelector(".in-students .att-number").innerText = present;
+        document.querySelector(".out-students .att-number").innerText = absent;
+
+        const canvas = document.getElementById("piechart");
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear previous chart
+
+        const values = [present, absent];
+        const total = values.reduce((acc, val) => acc + val, 0);
+        let startAngle = Math.PI;
+        const outerRadius = canvas.width / 2;
+        const innerRadius = canvas.width * 3 / 8;
+
+        values.forEach((value, index) => {
+            const angle = (value / total) * Math.PI;
+            ctx.beginPath();
+            ctx.moveTo(canvas.width / 2, canvas.height / 2);
+            ctx.arc(canvas.width / 2, canvas.height / 2, outerRadius, startAngle, startAngle + angle);
+            ctx.arc(canvas.width / 2, canvas.height / 2, innerRadius, startAngle + angle, startAngle, true);
+            ctx.closePath();
+            ctx.fillStyle = index === 0 ? "#003396" : "#17b9ee"; // Present : Absent
+            ctx.fill();
+            startAngle += angle;
+        });
+    }
+
+    // Trigger on dropdown change
+    document.getElementById("age").addEventListener("change", function () {
+        const selectedAge = this.value;
+        showPieChart(selectedAge);
+    });
+
+    // Initial render
+    document.addEventListener("DOMContentLoaded", function () {
+        showPieChart("All");
+    });
+
 </script>
 
 </html>

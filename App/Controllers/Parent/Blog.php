@@ -11,7 +11,7 @@
         public function index(){
 
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \Core\Session;
             $session->check_login();
 

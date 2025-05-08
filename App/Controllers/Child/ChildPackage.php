@@ -8,7 +8,7 @@
     
         public function index() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \Core\Session;
             $session->check_login();
             $UserID = $session->get("USERID");
@@ -28,7 +28,7 @@
 
         public function getcurrent(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
 
             $child = new \Modal\Child;
             $PackageModal = new \Modal\Package;
@@ -44,7 +44,7 @@
         public function handleFormSubmission() {    
             
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
 
             $child = new \Modal\Child;
             $session = new \Core\Session;
@@ -61,7 +61,7 @@
 
         public function store_package() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
         
             // Get the selected dates (days) from the request
