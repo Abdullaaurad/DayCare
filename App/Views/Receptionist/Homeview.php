@@ -196,6 +196,9 @@
 
                             </div>
                             <div class="graphcontainer">
+                                <h1 id="percentage" style="position: fixed; color: #003396; font-size: 40px; text-align: center; margin-top: -80px; margin-bottom: 0px;">
+                                    10%
+                                </h1>
                                 <canvas id="piechart" class="animatepiechart" width="300" height="300" style="display: flex; justify-content: center; align-items: center;">
                                 </canvas>
                             </div>
@@ -268,6 +271,7 @@
     }
 
     const attendanceData = <?= json_encode($data['graph']) ?>;
+    const percentage = document.getElementById("percentage");
 
     function showPieChart(ageGroup = "All") {
         console.log("Updating pie chart for:", ageGroup);
@@ -281,6 +285,8 @@
             present = attendanceData[ageGroup].Present;
             absent = attendanceData[ageGroup].Absent;
         }
+
+        percentage.innerText = Math.round((present / (present + absent)) * 100) + "%";
 
         document.querySelector(".in-students .att-number").innerText = present;
         document.querySelector(".out-students .att-number").innerText = absent;
