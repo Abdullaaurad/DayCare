@@ -12,7 +12,7 @@
         public function index(){
             
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \Core\Session;
             $session->check_login();
 
@@ -29,7 +29,7 @@
 
         public function setchildsession(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }

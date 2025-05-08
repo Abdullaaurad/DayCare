@@ -11,7 +11,7 @@
             $session = new \Core\Session;
             $session->check_login();
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
 
             $data = [];
             $SidebarHelper = new SidebarHelper();
@@ -22,7 +22,7 @@
 
         public function store_tasks() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
             $requestData = json_decode(file_get_contents("php://input"), true);
             
@@ -114,7 +114,7 @@
         public function setchildsession()
         {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
@@ -136,7 +136,7 @@
 
         public function Logout(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \core\Session();
             $session->logout();
 

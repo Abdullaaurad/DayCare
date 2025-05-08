@@ -8,7 +8,7 @@
         use MainController;
         public function index(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \Core\Session;
             $ChildModal = new \Modal\Child;
 

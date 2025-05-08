@@ -10,7 +10,7 @@
         use MainController;
         public function index(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \Core\Session;
             $session->check_login();
             $SidebarHelper = new SidebarHelper;
@@ -33,7 +33,7 @@
 
         private function description($month, $year) {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $groupedExpenses = [];
             
             $ChildHelper = new ChildHelper;
@@ -92,7 +92,7 @@
 
         private function CostBreakdown($month, $year) {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $ChildHelper = new ChildHelper;
             $children = $ChildHelper->store_child();
             $CostBreakdown = [];

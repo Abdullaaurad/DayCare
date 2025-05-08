@@ -10,14 +10,14 @@
         public function index(){
 
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $data = $this->store_data();
             $this->view('Parent/parentprofile', $data);
         }
 
         private function store_data(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $data = [];
             $session = new \core\Session;
             $ParentModal = new \Modal\ParentUser;

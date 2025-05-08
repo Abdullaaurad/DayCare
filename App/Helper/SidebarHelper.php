@@ -8,9 +8,6 @@ class SidebarHelper
 {
     public function store_sidebar()
     {
-
-        $session = new \Core\Session;
-        $session->set("USERID", 1);
         $childHelper = new ChildHelper();
         $parentHelper = new ParentHelper();
 

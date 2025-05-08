@@ -9,7 +9,7 @@
         use MainController;
         public function index(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
 
             $session = new \Core\Session;
             $session->check_login();
@@ -36,7 +36,7 @@
 
         private function selectedchild($selectedchild){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $data = [];
 
             // Retrieve the specific child's profile image and details
@@ -64,7 +64,7 @@
 
         private function store_Stats(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $upcomingEvent = null;
             $enrolledEvents = 0;
             $newEvent = null;
@@ -133,7 +133,7 @@
 
         public function store_data() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
             $requestData = json_decode(file_get_contents("php://input"), true);
             $filterDate = isset($requestData['date']) ? new \DateTime($requestData['date']) : null;
@@ -206,7 +206,7 @@
 
         public function setchildsession(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
 
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
@@ -229,7 +229,7 @@
 
         public function lol(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
     
             // Parse incoming JSON request
@@ -260,7 +260,7 @@
     
         public function leaveEvent(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
     
             // Parse incoming JSON request
@@ -278,7 +278,7 @@
         public function removechildsession(){
 
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
@@ -301,7 +301,7 @@
 
         public function Logout(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \core\Session();
             $session->logout();
 

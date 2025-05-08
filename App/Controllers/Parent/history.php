@@ -13,7 +13,7 @@ class History
     public function index(){
 
         $session = new \Core\Session;
-        $session->set("USERID", 1);
+         
         $session = new \Core\Session;
         $session->check_login();
 
@@ -32,7 +32,7 @@ class History
 
     private function store_graph() {
         $session = new \Core\Session;
-        $session->set("USERID", 1);
+         
         $ChildHelper = new ChildHelper();
         $children = $ChildHelper->store_child();
     
@@ -78,7 +78,7 @@ class History
     
     public function store_history(){
         $session = new \Core\Session;
-        $session->set("USERID", 1);
+         
         // Set the response content type to JSON
         header('Content-Type: application/json');
     
@@ -167,7 +167,7 @@ class History
     private function set_states()
     {
         $session = new \Core\Session;
-        $session->set("USERID", 1);
+         
         $ChildHelper = new ChildHelper();
         $children = $ChildHelper->store_child(); // Get the list of children
 
@@ -223,7 +223,7 @@ class History
 
     public function setchildsession(){
         $session = new \Core\Session;
-        $session->set("USERID", 1);
+         
 
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
@@ -246,7 +246,7 @@ class History
     
     public function Logout(){
         $session = new \Core\Session;
-        $session->set("USERID", 1);
+         
         $session = new \core\Session();
         $session->logout();
 

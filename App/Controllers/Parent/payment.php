@@ -15,7 +15,7 @@ use DateTime;
         use MainController;
         public function index(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \Core\Session;
             $session->check_login();
 
@@ -299,7 +299,7 @@ use DateTime;
 
         public function AmountPurpose(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $input = json_decode(file_get_contents('php://input'), true);
             if (isset($input['total']) && isset($input['purpose'])) {
 
@@ -318,7 +318,7 @@ use DateTime;
 
         private function description() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $ExpensesModal = new \Modal\Expense;
             $Childhelper = new ChildHelper();
             $children = $Childhelper->store_child();
@@ -357,7 +357,7 @@ use DateTime;
 
         public function graph() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $FeesModal = new \Modal\Fees;
             $Childhelper = new ChildHelper();
         
@@ -448,7 +448,7 @@ use DateTime;
 
         private function store_states(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $data = [];
             $FeesModal = new \Modal\Fees;
             $Childhelper = new ChildHelper();
@@ -504,7 +504,7 @@ use DateTime;
 
         public  function store_history(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
             $requestData = json_decode(file_get_contents("php://input"), true);
         
@@ -564,7 +564,7 @@ use DateTime;
 
         public function setchildsession(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
@@ -586,7 +586,7 @@ use DateTime;
 
         public function Logout(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \core\Session();
             $session->logout();
 

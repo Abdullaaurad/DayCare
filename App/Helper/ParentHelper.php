@@ -4,9 +4,7 @@
 
     class ParentHelper
     {
-        public function store_parent(){
-            $session = new \Core\Session;
-            $session->set("USERID", 1);
+        public function store_parent(){             
             $session = new \Core\Session;
             $UserID = $session->get('USERID');
         

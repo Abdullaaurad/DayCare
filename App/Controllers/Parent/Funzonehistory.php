@@ -9,7 +9,7 @@
         use MainController;
         public function index(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session->check_login();
     
             $data = [];
@@ -22,7 +22,7 @@
 
         public function lol() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $type = $requestData['type'] ?? 'All';
             $filterDate = $requestData['Date'] ?? null; // Date from request
             
@@ -108,7 +108,7 @@
 
         public function store_media() {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             header('Content-Type: application/json');
             $requestData = json_decode(file_get_contents("php://input"), true);
             
@@ -204,7 +204,7 @@
         public function setchildsession()
         {
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
@@ -226,7 +226,7 @@
 
         public function Logout(){
             $session = new \Core\Session;
-            $session->set("USERID", 1);
+             
             $session = new \core\Session();
             $session->logout();
 
