@@ -47,7 +47,7 @@
 
 .attendance-table tbody tr {
     display: table;
-    width: 100%;
+    width: 97%;
     table-layout: fixed;
 }
 
@@ -133,6 +133,156 @@
     border-radius: 50%;
 }
 
+.pickup-section {
+    background-color: var(--pickup);
+    border-radius: 10px;
+    padding: 5px 20px;
+    border: 2px solid var(--pickup-border);
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.pickup-section label {
+    display: block;
+    font-size: 16px;
+    color: #1e88e5;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.pickup-section p {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    box-shadow: 0 0 15px var(--popup-background);
+}
+
+.pickup-section img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1e88e5;
+}
+
+input[type="range"] {
+    width: 300px;
+}
+
+.pickup-section input:focus {
+    border-color: #1e88e5;
+    outline: none;
+}
+
+.person-section {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 15px var(--popup-background);
+}
+
+.person-section:hover {
+    background-color: #eef5ff;
+}
+
+.person-section img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border: 3px solid #1e88e5;
+    align-items: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease-in-out;
+
+}
+
+.pickup-popup {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px var(--popup-background);
+    padding: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    animation: popupSlideIn 0.5s ease;
+    position: relative;
+}
+
+.pickup-popup h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.top-con {
+    color: black;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -20px;
+}
+
+.back-con {
+    background-color: var(--button-blue);
+    z-index: 10000;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    margin-left: -21px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.refresh-con {
+    background-color: var(--button-blue);
+    z-index: 10000;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    margin-right: -21px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.fa-refresh {
+    margin-left: 10px;
+    cursor: pointer;
+    margin-top: -20px;
+    color: white !important;
+}
+
+.fa-chevron-left {
+    margin-left: 40px;
+    cursor: pointer;
+    color: white !important;
+}
+
     </style>
 </head>
 
@@ -174,7 +324,7 @@
                     </a>
                 </li>
                 <li class="hover-effect unselected">
-                    <a href="<?= ROOT ?>/Inventory/Dashboard">
+                    <a href="<?= ROOT ?>/Receptionist/Inventory">
                         <i class="fas fa-boxes"></i> <span>Inventory</span>
                     </a>
                 </li>
@@ -255,22 +405,27 @@
                         </div>
                         <div class="last_marked" style="height: 200px; overflow-y: auto;">
                             <span class="last_marked_topic">Previous Check-In</span>
-
-                            <?php foreach ($data['checkin'] as $child): ?>
-                                <div class="lastmarkedchilds">
-                                    <div class="profile_image">
-                                        <img alt="User profile picture"
-                                            height="50"
-                                            width="50"
-                                            src="<?= isset($child->Image) ? $child->Image : ROOT . '/assets/images/profilePic-1.png' ?>" />
+                            <?php if (!empty($data['checkin'])): ?>
+                                <?php foreach ($data['checkin'] as $child): ?>
+                                    <div class="lastmarkedchilds">
+                                        <div class="profile_image">
+                                            <img alt="User profile picture"
+                                                height="50"
+                                                width="50"
+                                                src="<?= isset($child->Image) ? $child->Image : ROOT . '/assets/images/profilePic-1.png' ?>" />
+                                        </div>
+                                        <div class="name_time">
+                                            <span class="lastmarkedname"><?= htmlspecialchars($child->ChildName) ?></span>
+                                            <span class="lastmarkedtime"><?= date('g:i A', strtotime($child->Start_Time)) ?></span>
+                                        </div>
                                     </div>
-                                    <div class="name_time">
-                                        <span class="lastmarkedname"><?= htmlspecialchars($child->ChildName) ?></span>
-                                        <span class="lastmarkedtime"><?= date('g:i A', strtotime($child->Start_Time)) ?></span>
-                                    </div>
+                                    <hr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <div class="lastmarkedchilds" style="text-align: center; justify-content: center; align-items: center;">
+                                    <p>No children have checked in yet.</p>
                                 </div>
-                                <hr>
-                            <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="second_part">
@@ -314,6 +469,33 @@
             </button>
             <button class="logout-button" onclick="logoutUser()">LogOut</button>
         </div>
+
+        <div class="modal" id="pickupModal">
+            <div class="pickup-popup">
+                <div class="top-con">
+                    <div class="back-con">
+                        <i class="fas fa-chevron-left" id="backforpickup"></i>
+                    </div>
+                </div>
+                <h1>pickup Schedule</h1>
+                <div class="pickup-section">
+                    <label for="Person">Person</label>
+                    <p id="Person">Parent</p>
+                </div>
+                <div class="pickup-section" id="OTPdiv">
+                    <label for="OTP">OTP</label>
+                    <p id="OTP">321456</p>
+                </div>
+                <div class="pickup-section">
+                    <label for="NID">NID</label>
+                    <p id="NID">200232901776</p>
+                </div>
+                <div class="pickup-section" style="display: flex; justify-content: center; align-items: center;">
+                    <img id="IMG" alt="User profile picture" height="50" width="50" src="<?=IMAGE?>/face.jpeg" />
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </body>
@@ -343,29 +525,31 @@
             const checkIn = row.Start_Time ? 
                 `<span>${row.Start_Time}</span>` :
                 `<form method="POST" action="<?= ROOT ?>/Receptionist/Attendance/markAttendance">
-                    <input type="hidden" name="childID" value="${row.ChildID}">
+                    <input type="hidden" name="ChildID" value="${row.ChildID}">
                     <button type="submit">Mark</button>
                 </form>`;
 
             const checkOut = row.End_Time ?
                 `<span>${row.End_Time}</span>` :
-                `<form method="POST" action="<?= ROOT ?>/Receptionist/Attendance/finAttendance">
-                    <input type="hidden" name="childID" value="${row.ChildID}">
+                `<form method="POST" action="<?= ROOT ?>/Receptionist/Attendance/markdeparture">
+                    <input type="hidden" name="ChildID" value="${row.ChildID}">
                     <button type="submit">Mark</button>
                 </form>`;
 
-            const pickup = row.PickupImage ?
+            const pickup = row.PickupScheduled ?
+                `
+                    <div class="pickup_info" onclick="viewPickupDetails(${row.ChildID})">
+                        <span><i class="fa fa-user"></i> View</span>
+                    </div>
+                ` :
                 `<div class="pickup_info">
-                    <img src="${row.PickupImage}" height="30" width="30">
-                    <span>${row.PickupOTP}</span>
-                    <span>${row.PickupNID}</span>
-                </div>` :
-                `<span>Parent</span>`;
+                    <span>Parent</span>
+                </div>`
 
             // Create a new row (tr) for each child and append it
             const tr = document.createElement('tr');
             tr.innerHTML = `
-                <td>${row.ChildID}</td>
+                <td>${row.ChildIDEdited}</td>
                 <td>
                     <img src="${image}" alt="Child Image" class="child-img">
                     <span>${row.ChildName}</span>
@@ -397,7 +581,37 @@
             .catch(error => console.error("Error:", error));
     }
 
+    function viewPickupDetails(childID) {
+        fetch('<?= ROOT ?>/Receptionist/Attendance/PickupDetails', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    ChildID: childID,
+                })
+            })
+            .then(response => response.json())
+            .then(res => {
+                console.log(res);
+                document.getElementById('pickupModal').style.display = 'flex';
+                if(res.OTP == null){
+                    document.getElementById('OTPdiv').style.display = "none";
+                }else{
+                    document.getElementById('OTP').innerText = res.OTP;
+                }
+                document.getElementById('NID').innerText = res.NID;
+                document.getElementById('Person').innerText = res.Person;
+                document.getElementById('IMG').src = res.Image ? res.Image : '<?= ROOT ?>/assets/images/profilePic-1.png';
+            })
+            .catch(error => console.error("Error:", error));
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
+
+        document.getElementById('backforpickup').addEventListener('click', function () {
+            document.getElementById('pickupModal').style.display = 'none';
+        });
 
         const Filter = document.getElementById('Filter');
 

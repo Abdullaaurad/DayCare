@@ -11,8 +11,38 @@
             $data['Recent'] = $this->RecentActivities();
             $data['Stock'] = $this->LowStock();
             $data = $data + $this->store_stats();
+            $data['Profile'] = $this->Profile();
 
             $this->view('Receptionist/Inventory', $data);
+        }
+
+        public function Logout(){
+            $session = new \core\Session();
+            $session->logout();
+    
+            echo json_encode(["success" => true]);
+            exit;
+        }
+
+        private function Profile(){
+            $session = new \core\Session;
+            $session->set('USERID', 24);
+            $UserID = $session->get('USERID');
+
+            $ReceptionistModal = new \Modal\Receptionist;
+            $data = $ReceptionistModal->first(["UserID" => $UserID]);
+            if(!empty($data)){
+                $imageData = $data->Image;
+                $imageType = $data->ImageType;
+                $base64Image = (!empty($imageData) && is_string($imageData)) 
+                    ? 'data:' . $imageType . ';base64,' . base64_encode($imageData) 
+                    : null
+                ;
+                $data->Image = $base64Image;
+                $data->EmployeeID = 'EMP' . str_pad($data->UserID, 5, '0', STR_PAD_LEFT);
+            }
+
+            return $data;
         }
 
         private function store_stats(){
@@ -44,14 +74,18 @@
             $lastdate = new \DateTime(date("Y-m-t"));
 
             $StockMonthIssued = $InventoryModal->findFutureDatesWithConditions($startdate, $lastdate, ["Activity" => "Issued"]);
-            foreach ($StockMonthIssued as $row){
-                $data['Issued'] += $row->Quantity;
+            if(!empty($StockMonthIssued)){
+                foreach ($StockMonthIssued as $row){
+                    $data['Issued'] += $row->Quantity;
+                }
             }
+        
             $StockMonthReturned = $InventoryModal->findFutureDatesWithConditions($startdate, $lastdate, ["Activity" => "Returned"]);
-            foreach ($StockMonthReturned as $row){
-                $data['Issued'] -= $row->Quantity;
+            if(!empty($StockMonthReturned)){
+                foreach ($StockMonthReturned as $row){
+                    $data['Issued'] -= $row->Quantity;
+                }
             }
-
             return $data;
         }
 
