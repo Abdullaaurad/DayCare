@@ -63,11 +63,6 @@
                     <i class="fas fa-utensils"></i> <span>Leave</span>
                 </a>
             </li>
-            <li class="hover-effect unselected">
-                <a href="<?= ROOT ?>/Receptionist/Leave">
-                    <i class="fas fa-dollar-sign"></i> <span>Salary</span>
-                </a>
-            </li>
         </ul>
     </div>
     <div class="main-content">
