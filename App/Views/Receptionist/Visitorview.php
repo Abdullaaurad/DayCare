@@ -238,7 +238,7 @@
 
     <script>
         function logoutUser() {
-            fetch("<?= ROOT ?>/Receptionist/Home/Logout", {
+            fetch("<?= ROOT ?>/Receptionist/Visitor/Logout", {
                     method: "POST",
                     credentials: "same-origin"
                 })

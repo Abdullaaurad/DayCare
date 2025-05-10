@@ -1,144 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="<?= IMAGE ?>/logo_light-remove.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=CSS?>/Receptionist/PaymentDashboard.css?v=<?= time() ?>">
-    <link rel="stylesheet" href="<?=CSS?>/Maid/studenprofile.css?v=<?= time() ?>">
-    <link rel="stylesheet" href="<?=CSS?>/Receptionist/maincss.css?v=<?= time() ?>">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="<?= CSS ?>/Receptionist/PaymentDashboard.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="<?= CSS ?>/Maid/studenprofile.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="<?= CSS ?>/Receptionist/main.css?v=<?= time() ?>">
+        <script src="<?= JS ?>/Child/Profile.js?v=<?= time() ?>"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <title>Receptionist Leaves</title>
 </head>
+
 <body>
     <div class="main">
         <div class="side_bar">
             <div class="userblock">
                 <div class="photo">
-                    <img alt="User profile picture" height="50" src="<?=IMAGE?>/female-receptionist-elegant-suit-work-hours.jpg" width="50"/>
+                    <img alt="User profile picture" height="50" src="<?= $data['Profile']->Image ?>" width="50" />
                 </div>
                 <div class="username">
                     <h3>
-                        Kayla Wood
-                       </h3>
-                       <p>
+                        <?= $data['Profile']->First_Name ?> <?= $data['Profile']->Last_Name ?>
+                    </h3>
+                    <p>
                         Receptionist
-                       </p>
+                    </p>
                 </div>
             </div>
-            <div class="directions">
-                <div class="direction-items">
-                  <a href="<?=ROOT?>/Receptionist/Home"><div class="dashboard">
-                    
-                        <i class="fas fa-tachometer-alt">
-                        </i>
-                        <span>&nbsp;&nbsp; Dashboard</span>
-                      
-                    </div> </a>
-                
-                     <a href="<?=ROOT?>/Receptionist/Attendance"><div class="mark_attendance">
-                        <i class="fas fa-check-circle">
-                        </i>
-                       <span>&nbsp;&nbsp; Attendance</span>
-                        
-                     </div></a>
-                     
-                     <a href="<?=ROOT?>/Receptionist/Payment"><div class="payment">
-                        <i class="fas fa-money-bill-wave">
-                        </i>
-                        <span>&nbsp;&nbsp; Payment</span>
-                    </div></a>
-                    <a href="<?=ROOT?>/Receptionist/Visitor"><div class="visitor">
-                        <i class="fas fa-users">
-                        </i>
-                        <span>&nbsp;&nbsp; visitort</span>
-                    </div></a>
-                    <a href="<?=ROOT?>/Receptionist/Leaves"><div class="leaves">
-                        <i class="fas fa-calendar-check">
-                        </i>
-                       <span>&nbsp;&nbsp; Leaves</span>
-                     </div></a>
-                    <hr>
-                    <div class="help">
-                        <i class="fas fa-question-circle">
-                        </i>
-                        <span>&nbsp;&nbsp; Help</span>
-                    </div>
-                </div>
-            </div>
+            <ul>
+                <li class="hover-effect unselected first">
+                    <a href="<?= ROOT ?>/Receptionist/Home">
+                        <i class="fas fa-home"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Attendance">
+                        <i class="fas fa-history"></i> <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Payment">
+                        <i class="fa fa-user-shield"></i> <span>Payment</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/visitor">
+                        <i class="fas fa-calendar-check"></i> <span>Visitor</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Inventory">
+                        <i class="fas fa-boxes"></i> <span>Inventory</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Restock">
+                        <i class="fas fa-truck-loading"></i> <span>Restock</span>
+                    </a>
+                </li>
+                <li class="selected">
+                    <a href="<?= ROOT ?>/Receptionist/Leave">
+                        <i class="fas fa-utensils"></i> <span>Leave</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Leave">
+                        <i class="fas fa-dollar-sign"></i> <span>Salary</span>
+                    </a>
+                </li>
+            </ul>
         </div>
         <div class="content">
             <div class="header">
                 <div class="header-title">
-                    <h2>
+                    <h2 style="font-size: 24px;">
                         Hey
-                       </h2>
-                       <p>
-                       Little stories, big imaginations !
-                       </p>
+                    </h2>
+                    <p>
+                        Start your day happy with little ones !
+                    </p>
                 </div>
-                
-                <div class="photo2">
-                    <img alt="User profile picture" height="50" src="<?=IMAGE?>/female-receptionist-elegant-suit-work-hours.jpg" width="50"/>
+                <div class="bell-con" id="bell-container" style="cursor: pointer;">
+                    <i class="fas fa-bell bell-icon" style="margin-left: -350px; color: white;"></i>
+                    <?php if (!empty($data['Notification'])): ?>
+                        <?php if ($data['Notification']['Seen'] != 0): ?>
+                            <div class="message-numbers" id="message-number">
+                                <p><?= $data['Notification']['Seen'] != 0 ? $data['Notification']['Seen'] : '' ?></p>
+                            </div>
+                        <?php endif; ?>
+                        <div class="message-dropdown" id="messageDropdown" style="display: none;">
+                            <ul>
+                                <?php foreach ($data['Notification']['data'] as $row): ?>
+                                    <li data-id="<?= $row->NotificationID ?>">
+                                        <p><?= htmlspecialchars($row->Description) ?></p>
+                                        <?php if ($row->Location != NULL): ?>
+                                            <a href="<?= ROOT ?>/Child/<?= $row->Location ?>">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </a>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <!-- Prodile btn -->
+                <div class="profile">
+                    <button class="profilebtn">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
                 </div>
             </div>
             <div class="detailed_content">
-                        <div class="make_background">
-                        <div class="second-content">
-                            
-                                <form class="container_3" method = "POST" action = "<?=ROOT?>/Receptionist/Leaveform/Requestleave">
-                                    <div class="form-head">
-                                        
-                                        <span>Request Leave</span>
-                                    </div>
-                                    <div class="form-group-date">
-                                        <label for="date">Start Date</label>
-                                        <div class="date_entry">
-                                            <input type="date" name="Start_Date"/>
-                                         </div>
-                                    </div>
-                                    <div class="form-group-date">
-                                        <label for="date">End Date</label>
-                                        <div class="date_entry">
-                                            <input type="date" name = "End_Date"/>
-                                         </div>
-                                    </div>
-                                
-                                    <div class="form-group-option">
-                                        <label for="type">Request Types</label>
-                                        <select id="type" name = "Leave_Type">
-                                            <option value="Annual Leave">Annual Leave</option>
-                                            <option value="Sick Leave">Sick Leave</option>
-                                            <option value="Compassionate">Compassionate</option>
-                                        </select>  
-                                    </div>
-                                    <div class="form-group-desp">
-                                        <label for="description">Description</label>
-                                        <textarea id="description" placeholder="Description about Leave" name= "Description"></textarea>
-                                    </div>
-                                  
-                                    <div class="buttons">
-                                        
-                                        <button class="submt_butto" type = "submit">Request</button>
-                                    </div>
-                                </form>
-                               
-                            </div>
-                          
+                <div class="make_background">
+                    <div class="second-content">
+                        
+
                     </div>
+
                 </div>
             </div>
         </div>
-        
-         
-        </div>
     </div>
-    <script src='./test.js' defer></script>
-    <script src = './receptionist_attendance.js' defer></script>
 </body>
+
 </html>
