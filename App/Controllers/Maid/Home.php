@@ -145,6 +145,7 @@ class Home
         // show($data['children']);
 
         if (is_array($data) && !empty($data)) {
+            $data['Profile'] = $this->Profile();
             $this->view('Maid/Profile', $data);
         }
     }
