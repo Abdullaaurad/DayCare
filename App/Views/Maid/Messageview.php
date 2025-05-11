@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Parent</title>
+<title>Parent</title>
     <link rel="icon" href="<?= IMAGE ?>/logo_light-remove.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="<?= CSS ?>/Child/Message.css?v=<?= time() ?>" /> -->
@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="<?= CSS ?>/Child/Sidebar.css?v=<?= time() ?>">
     <link rel="stylesheet" href="<?= CSS ?>/Child/Sidebar2.css?v=<?= time() ?>">
     <link rel="stylesheet" href="<?= CSS ?>/Child/Header.css?v=<?= time() ?>">
-    <link rel="stylesheet" href="<?= CSS ?>/Teacher/styles.css?v=<?= time() ?>">
     <script src="<?= JS ?>/Child/Upload-file.js?v=<?= time() ?>"></script>
     <!-- <script src="<?= JS ?>/Child/message.js?v=<?= time() ?>"></script> -->
     <script src="<?= JS ?>/Child/Navbar.js?v=<?= time() ?>"> </script>
@@ -24,67 +23,107 @@
     <div class="container">
         // minimized sidebar
         <div class="sidebar" id="sidebar1">
-            <div class="userblock">
-                <div class="photo">
-                    <img alt="User profile picture" height="50" src="<?= $data['Profile']->Image ?>" width="50" />
-                </div>
-                <div class="username">
-                    <h3>
-                        <?= $data['Profile']->First_Name ?> <?= $data['Profile']->Last_Name ?>
-                    </h3>
-                    <p>
-                        Maid
-                    </p>
-                </div>
+            <img src="<?= IMAGE ?>/logo_light.png" class="star" id="starImage">
+            <div class="logo-div">
+                <img src="<?= IMAGE ?>/logo_light.png" class="logo" id="sidebar-logo"> </img>
+                <h2 id="sidebar-kiddo">KIDDO VILLE </h2>
             </div>
             <ul>
-                <li class="hover-effect unselected first">
-                    <a href="<?= ROOT ?>/Teacher/Dashboard">
-                        <i class="fas fa-home"></i> <span>Dashboard</span>
+                <li class="hover-effect unselected" style="margin-top: -20px;">
+                    <a href="<?= ROOT ?>/Child/Home">
+                        <i class="fas fa-home"></i> <span>Home</span>
                     </a>
                 </li>
                 <li class="hover-effect unselected">
-                    <a href="<?= ROOT ?>/Teacher/Funzone">
-                        <i class="fas fa-puzzle-piece"></i> <span>Funzone</span>
+                    <a href="<?= ROOT ?>/Child/history">
+                        <i class="fas fa-history"></i> <span>History</span>
                     </a>
                 </li>
                 <li class="hover-effect unselected">
-                    <a href="<?= ROOT ?>/Teacher/Reports">
-                        <i class="fas fa-file-alt"></i> <span>Report</span>
+                    <a href="<?= ROOT ?>/Child/report">
+                        <i class="fa fa-user-shield"></i> <span>Report</span>
                     </a>
                 </li>
                 <li class="hover-effect unselected">
-                    <a href="<?= ROOT ?>/Teacher/Students">
-                        <i class="fas fa-users"></i> <span>Students</span>
+                    <a href="<?= ROOT ?>/Child/reservation">
+                        <i class="fas fa-calendar-check"></i> <span>Reservation</span>
                     </a>
                 </li>
                 <li class="hover-effect unselected">
-                    <a href="<?= ROOT ?>/Teacher/Inventory">
-                        <i class="fas fa-boxes"></i> <span>Inventory</span>
+                    <a href="<?= ROOT ?>/Child/meal">
+                        <i class="fas fa-utensils"></i> <span>Meal plan</span>
                     </a>
                 </li>
                 <li class="hover-effect unselected">
-                    <a href="<?= ROOT ?>/Teacher/Leaves">
-                        <i class="fas fa-calendar-alt"></i> <span>Leaves</span>
+                    <a href="<?= ROOT ?>/Child/event">
+                        <i class="fas fa-calendar-alt"></i> <span>Event</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Child/package">
+                        <i class="fas fa-box"></i> <span>Package</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Child/funzonehome">
+                        <i class="fas fa-gamepad"></i> <span>Fun Zone</span>
                     </a>
                 </li>
                 <li class="selected">
-                    <a href="<?= ROOT ?>/Teacher/Message">
-                        <i class="fas fa-comments"></i> <span>Messages</span>
+                    <a href="<?= ROOT ?>/Child/Message">
+                        <i class="fas fa-comment"></i> <span>Messager</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Child/payment">
+                        <i class="fas fa-credit-card"></i> <span>Payments</span>
                     </a>
                 </li>
             </ul>
             <hr>
         </div>
+        <!-- navigation to choose child -->
+        <div class="sidebar-2" id="sidebar2">
+            <div>
+                <h2>Familty Ties</h2>
+                <div class="family-section">
+                    <ul>
+                        <li class="hover-effect first"
+                            onclick="removechildsession();">
+                            <img src="<?php echo htmlspecialchars($data['parent']['image']); ?>">
+                            <h2>Family</h2>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Little Explorers</h2>
+                    <p>
+                        Explore your children's activities and progress!
+                    </p>
+                    <ul class="children-list">
+                        <?php foreach ($data['children'] as $child): ?>
+                            <li class="first
+                                <?php if ($child['name'] === $data['selectedchildren']['name']) {
+                                    echo "select-child";
+                                } ?>
+                            "
+                                onclick="setChildSession('<?= isset($child['Id']) ? $child['Id'] : '' ?>')">
+                                <img src="<?php echo htmlspecialchars($child['image']); ?>"
+                                    alt="Child Profile Image">
+                                <h2><?= isset($child['name']) ? $child['name'] : 'No name set'; ?></h2>
+                            </li>
+                            <hr>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <!-- Header -->
         <div class="header">
-            <div class="header-title">
-                <h2 style="font-size: 24px;">
-                    Hey
-                </h2>
-                <p>
-                    Start your day happy with little ones !
-                </p>
+            <i class="fa fa-bars" id="minimize-btn"></i>
+            <div class="name">
+                <h1><?= isset($data['parent']['fullname']) ? $data['parent']['fullname'] : 'No name set'; ?></h1>
+                <p>Let’s do some productive activities today</p>
             </div>
             <div class="search-bar">
                 <input type="text" placeholder="Search">
@@ -92,18 +131,18 @@
             <!-- message icon -->
             <div class="bell-con" id="bell-container">
                 <i class="fas fa-bell bell-icon"></i>
-                <?php if (!empty($data['Notification'])): ?>
-                    <?php if ($data['Notification']['Seen'] != 0): ?>
-                        <div class="message-numbers" id="message-number">
-                            <p><?= $data['Notification']['Seen'] != 0 ? $data['Notification']['Seen'] : '' ?></p>
-                        </div>
-                    <?php endif; ?>
-                    <div class="message-dropdown" id="messageDropdown" style="display: none;">
+                <?php if(!empty($data['Notification'])): ?>
+                        <?php if($data['Notification']['Seen'] != 0): ?>
+                            <div class="message-numbers" id="message-number">
+                                <p><?= $data['Notification']['Seen'] != 0 ? $data['Notification']['Seen'] : '' ?></p>
+                            </div>
+                        <?php endif; ?>
+                        <div class="message-dropdown" id="messageDropdown" style="display: none;">
                         <ul>
-                            <?php foreach ($data['Notification']['data'] as $row): ?>
+                            <?php foreach($data['Notification']['data'] as $row): ?>
                                 <li data-id="<?= $row->NotificationID ?>">
                                     <p><?= htmlspecialchars($row->Description) ?></p>
-                                    <?php if ($row->Location != NULL): ?>
+                                    <?php if($row->Location != NULL): ?>
                                         <a href="<?= ROOT ?>/Child/<?= $row->Location ?>">
                                             <i class="fas fa-paper-plane"></i>
                                         </a>
@@ -111,8 +150,8 @@
                                 </li>
                             <?php endforeach; ?>
                         </ul>
-                    </div>
-                <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
             </div>
             <!-- Prodile btn -->
             <div class="profile">
@@ -240,6 +279,7 @@
     </div>
 </body>
 <script>
+
     const SelectedUser = document.getElementById('Selected-User');
     const messageDropdown = document.getElementById('messageDropdown');
     const bellIcon = document.getElementById('bell-container');
@@ -248,24 +288,24 @@
     let messageDropdownTimeout;
 
     function toggleBellDropdown() {
-        if (messageDropdown) {
+        if(messageDropdown){
             if (messageDropdown.style.display === "none" || !messageDropdown.style.display) {
                 messageDropdown.style.display = "block";
                 fetch("<?= ROOT ?>/Child/Home/SeenNotification", {
-                        method: "POST",
-                        credentials: "same-origin"
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            console.log("Seen the notifications");
-                            messagenumber.style.display = 'none';
-                        } else {
-                            alert("Logout failed. Try again.");
-                        }
-                    })
-                    .catch(error => console.error("Error:", error));
-
+                    method: "POST",
+                    credentials: "same-origin"
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log("Seen the notifications");
+                        messagenumber.style.display = 'none';
+                    } else {
+                        alert("Logout failed. Try again.");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+                
             } else {
                 messageDropdown.style.display = "none";
             }
@@ -711,9 +751,9 @@
         const yesterday = new Date();
         yesterday.setDate(new Date().getDate() - 1);
 
-        const displayDate = messageDate === today ?
-            "Today" :
-            (messageDate === yesterday.toLocaleDateString() ? "Yesterday" : messageDate);
+        const displayDate = messageDate === today
+            ? "Today"
+            : (messageDate === yesterday.toLocaleDateString() ? "Yesterday" : messageDate);
 
         // Check if date heading already exists
         const existingDateHeadings = [...chatwindow.querySelectorAll('.date-heading')].map(el => el.textContent);
@@ -842,31 +882,29 @@
             if (!SelectedUserID) return;
 
             fetch("<?= ROOT ?>/Child/Message/NewMessage", {
-                    method: "POST",
-                    credentials: "same-origin",
-                    body: JSON.stringify({
-                        UserID: SelectedUserID
-                    })
+                method: "POST",
+                credentials: "same-origin",
+                body: JSON.stringify({
+                    UserID: SelectedUserID
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success && data.message.length > 0) {
-                        data.message.forEach(msg => {
-                            renderSingleMessage(msg);
-                        });
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.message.length > 0) {
+                    data.message.forEach(msg => {
+                        renderSingleMessage(msg);
+                    });
 
-                        const newAnchor = document.createElement("div");
-                        newAnchor.id = "scroll-anchor-new";
-                        chatwindow.appendChild(newAnchor);
-                        newAnchor.scrollIntoView({
-                            behavior: "smooth"
-                        });
-                        // Update UI here if needed
+                    const newAnchor = document.createElement("div");
+                    newAnchor.id = "scroll-anchor-new";
+                    chatwindow.appendChild(newAnchor);
+                    newAnchor.scrollIntoView({ behavior: "smooth" });
+                // Update UI here if needed
                     } else {
                         console.warn("Failed to fetch messages");
                     }
                 })
-                .catch(error => console.error("Error:", error));
+            .catch(error => console.error("Error:", error));
         }
 
         // Start checking every 5 seconds

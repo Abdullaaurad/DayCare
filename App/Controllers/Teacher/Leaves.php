@@ -75,10 +75,39 @@ class Leaves
 
 
         if (!empty($leaves)) {
-            $this->view('Teacher/Leaves', ['leaves' => $leaves, 'remains' => $remainings, 'result' => $result, 'rems' => $rems]);
+            $this->view('Teacher/Leaves', ['leaves' => $leaves, 'remains' => $remainings, 'result' => $result, 'rems' => $rems, "Profile" => $this->Profile()]);
         } else {
-            $this->view('Teacher/Leaves', ['message' => 'No leave records found for you.', 'result' => $result]);
+            $this->view('Teacher/Leaves', ['message' => 'No leave records found for you.', 'result' => $result, "Profile" => $this->Profile()]);
         }
+    }
+
+    private function Profile()
+    {
+        $session = new \core\Session;
+        $UserID = $session->get('USERID');
+
+        $TeacherModal = new \Modal\Teacher;
+        $data = $TeacherModal->first(["UserID" => $UserID]);
+        if (!empty($data)) {
+            $imageData = $data->Image;
+            $imageType = $data->ImageType;
+            $base64Image = (!empty($imageData) && is_string($imageData))
+                ? 'data:' . $imageType . ';base64,' . base64_encode($imageData)
+                : null;
+            $data->Image = $base64Image;
+            $data->EmployeeID = 'EMP' . str_pad($data->UserID, 5, '0', STR_PAD_LEFT);
+        }
+
+        return $data;
+    }
+
+    public function Logout()
+    {
+        $session = new \core\Session();
+        $session->logout();
+
+        echo json_encode(["success" => true]);
+        exit;
     }
 
     public function addLeave()
@@ -117,7 +146,7 @@ class Leaves
 
             if (!$TeacherID) {
                 // Redirect to login page if TeacherID is not found
-                $this->view('Teacher/Leaves', ['message' => 'Please log in to request a leave.', 'result' => $result]);
+                $this->view('Teacher/Leaves', ['message' => 'Please log in to request a leave.', 'result' => $result, "Profile" => $this->Profile()]);
                 return;
             }
             $arr = array_merge($arr, ['TeacherID' => $TeacherID]);
@@ -168,16 +197,16 @@ class Leaves
                     }
                 }
                 if (!($leave->insert($arr))) {
-                    $this->view('Teacher/Leaves', ['result' => $result, 'success' => "Request Sent Successfully"]);
+                    $this->view('Teacher/Leaves', ['result' => $result, 'success' => "Request Sent Successfully", "Profile" => $this->Profile()]);
                 } else {
-                    $this->view('Teacher/Leaves', ['message' => 'Failed to add leave. Please try again.', 'result' => $result]);
+                    $this->view('Teacher/Leaves', ['message' => 'Failed to add leave. Please try again.', 'result' => $result, "Profile" => $this->Profile()]);
                 }
             } else {
                 // Show validation errors
-                $this->view('Teacher/Leaves', ['errors' => $leave->errors, 'result' => $result]);
+                $this->view('Teacher/Leaves', ['errors' => $leave->errors, 'result' => $result, "Profile" => $this->Profile()]);
             }
         } else {
-            $this->view('Teacher/Leaves', ['result' => $result]);
+            $this->view('Teacher/Leaves', ['result' => $result, "Profile" => $this->Profile()]);
         }
     }
 
@@ -220,7 +249,7 @@ class Leaves
                 $valid  = $leave->validate($arr);
                 if (!$valid) {
 
-                    $this->view('Teacher/Leaves', ['errors' => $leave->errors, 'result' => $result]);
+                    $this->view('Teacher/Leaves', ['errors' => $leave->errors, 'result' => $result, "Profile" => $this->Profile()]);
                     return;
                 }
                 // show($arr);
@@ -271,22 +300,23 @@ class Leaves
                 $results = $leave->update_withid($arr['LeaveID'], $arr, 'LeaveID');
 
                 if (isset($results)) {
-                    $this->view('Teacher/Leaves', ['result' => $result, 'success' => 'Leave Updated Successfully']);
+                    $this->view('Teacher/Leaves', ['result' => $result, 'success' => 'Leave Updated Successfully', "Profile" => $this->Profile()]);
                 } else {
-                    $this->view('Teacher/Leaves', ['message' => 'Faild to Update ', 'result' => $result]);
+                    $this->view('Teacher/Leaves', ['message' => 'Faild to Update ', 'result' => $result, "Profile" => $this->Profile()]);
                 }
                 // }else{
                 //     $this->view('Teacher/Leaves', ['errors' => $leave->errors,'result' => $result]);
                 // }
 
             } else {
-                $this->view('Teacher/Leaves', ['message' => 'Faild to Update Due to Error', 'result' => $result]);
+                $this->view('Teacher/Leaves', ['message' => 'Faild to Update Due to Error', 'result' => $result, "Profile" => $this->Profile()]);
             }
         }
     }
 
 
-    public function findID(){
+    public function findID()
+    {
         $teacher = new \Modal\Teacher;
         $session = new \Core\Session;
 
@@ -298,7 +328,8 @@ class Leaves
         return $result;
     }
 
-    public function deleteLeave(){
+    public function deleteLeave()
+    {
         $leave = new \Modal\TeacherLeave;
         $rem = new \Modal\TeacherRem;
         $session = new \Core\Session;
@@ -326,9 +357,9 @@ class Leaves
             if ($leaves->Status == 'Pending') {
                 $leave->delete($arr['LeaveID'], 'LeaveID');
 
-                $this->view('Teacher/Leaves', ['message' => 'Deleted Successfully', 'result' => $result]);
+                $this->view('Teacher/Leaves', ['message' => 'Deleted Successfully', 'result' => $result, "Profile" => $this->Profile()]);
             } else {
-                $this->view('Teacher/Leaves', ['message' => 'Faild to Delete', 'result' => $result]);
+                $this->view('Teacher/Leaves', ['message' => 'Faild to Delete', 'result' => $result, "Profile" => $this->Profile()]);
             }
         }
     }

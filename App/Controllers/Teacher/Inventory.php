@@ -15,7 +15,7 @@ class Inventory
         $data['Borrowed'] = $this->Currently_Borrowed();
         $data = $data + $this->store_stats();
         $data['Profile'] = $this->profile();
-        $this->view('Maid/Inventory', $data);
+        $this->view('Teacher/Inventory', $data);
     }
 
     public function Usage_Report()
@@ -124,13 +124,12 @@ class Inventory
         redirect('Maid/Inventory');
     }
 
-    private function Profile()
-    {
+    private function Profile(){
         $session = new \core\Session;
         $UserID = $session->get('USERID');
 
-        $MaidModal = new \Modal\Maid;
-        $data = $MaidModal->first(["UserID" => $UserID]);
+        $TeacherModal = new \Modal\Teacher;
+        $data = $TeacherModal->first(["UserID" => $UserID]);
         if (!empty($data)) {
             $imageData = $data->Image;
             $imageType = $data->ImageType;

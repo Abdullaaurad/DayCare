@@ -25,30 +25,50 @@
                         <?= $data['Profile']->First_Name ?> <?= $data['Profile']->Last_Name ?>
                     </h3>
                     <p>
-                        Maid
+                        Teacher
                     </p>
                 </div>
             </div>
             <ul>
-                <li class="hover-effect unselected first">
-                    <a href="<?= ROOT ?>/Maid/Home">
-                        <i class="fas fa-home"></i> <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="selected">
-                    <a href="<?= ROOT ?>/Maid/Inventory">
-                        <i class="fas fa-boxes"></i> <span>Inventory</span>
-                    </a>
-                </li>
-                <li class="hover-effect unselected">
-                    <a href="<?= ROOT ?>/Maid/Leaves">
-                        <i class="fas fa-utensils"></i> <span>Leave</span>
-                    </a>
-                </li>
-            </ul>
+                    <li class="hover-effect unselected first">
+                        <a href="<?= ROOT ?>/Teacher/Dashboard">
+                            <i class="fas fa-home"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="hover-effect unselected">
+                        <a href="<?= ROOT ?>/Teacher/Funzone">
+                            <i class="fas fa-puzzle-piece"></i> <span>Funzone</span>
+                        </a>
+                    </li>
+                    <li class="hover-effect unselected">
+                        <a href="<?= ROOT ?>/Teacher/Reports">
+                            <i class="fas fa-file-alt"></i> <span>Report</span>
+                        </a>
+                    </li>
+                    <li class="hover-effect unselected">
+                        <a href="<?= ROOT ?>/Teacher/Students">
+                            <i class="fas fa-users"></i> <span>Students</span>
+                        </a>
+                    </li>
+                    <li class="selected">
+                        <a href="<?= ROOT ?>/Teacher/Inventory">
+                            <i class="fas fa-boxes"></i> <span>Inventory</span>
+                        </a>
+                    </li>
+                    <li class="hover-effect unselected">
+                        <a href="<?= ROOT ?>/Teacher/Leaves">
+                            <i class="fas fa-calendar-alt"></i> <span>Leaves</span>
+                        </a>
+                    </li>
+                    <li class="hover-effect unselected">
+                        <a href="<?= ROOT ?>/Teacher/Message">
+                            <i class="fas fa-comments"></i> <span>Messages</span>
+                        </a>
+                    </li>
+                </ul>
         </div>
     <div class="main-content">
-        <div class="header" style="margin-top:287px; height: 80px; margin-left: -10px; width: 102.45%;">
+        <div class="header" style="margin-top:345px; height: 80px; margin-left: -10px; width: 102.45%;">
             <div class="header-title">
                 <h2 style="font-size: 24px;">
                     Hey

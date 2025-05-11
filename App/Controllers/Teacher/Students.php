@@ -88,8 +88,37 @@ class Students {
         $this->view('Teacher/Students', [
             'students' => $students,
             'message' => empty($students) ? 'No students found.' : '',
-            'teacher' => $TeacherInfo
+            'teacher' => $TeacherInfo,
+            "Profile" => $this->Profile()
         ]);
+    }
+
+        private function Profile(){
+        $session = new \core\Session;
+        $UserID = $session->get('USERID');
+
+        $TeacherModal = new \Modal\Teacher;
+        $data = $TeacherModal->first(["UserID" => $UserID]);
+        if (!empty($data)) {
+            $imageData = $data->Image;
+            $imageType = $data->ImageType;
+            $base64Image = (!empty($imageData) && is_string($imageData))
+                ? 'data:' . $imageType . ';base64,' . base64_encode($imageData)
+                : null;
+            $data->Image = $base64Image;
+            $data->EmployeeID = 'EMP' . str_pad($data->UserID, 5, '0', STR_PAD_LEFT);
+        }
+
+        return $data;
+    }
+
+        public function Logout()
+    {
+        $session = new \core\Session();
+        $session->logout();
+
+        echo json_encode(["success" => true]);
+        exit;
     }
 
     function agecalculate($dob) {
@@ -238,21 +267,21 @@ class Students {
 
                 foreach ($students as $stud) {
                     $stud->DOB = $this->agecalculate($stud->DOB);
-                    if ($student->DOB >= 3 && $student->DOB <= 5) {
+                    if ($stud->DOB >= 3 && $stud->DOB <= 5) {
                         $group3_5[] = $student;
                         $this->view('Teacher/Students', [
                             'students' => $group3_5,
                             'message' => empty($group3_5) ? 'No students found.' : '',
                             'teacher' => $TeacherInfo
                         ]);
-                    } elseif ($student->DOB >= 6 && $student->DOB <= 9) {
+                    } elseif ($stud->DOB >= 6 && $stud->DOB <= 9) {
                         $group6_9[] = $student;
                         $this->view('Teacher/Students', [
                             'students' => $group6_9,
                             'message' => empty($group6_9) ? 'No students found.' : '',
                             'teacher' => $TeacherInfo
                         ]);
-                    } elseif ($student->DOB >= 10 && $student->DOB <= 13) {
+                    } elseif ($stud->DOB >= 10 && $stud->DOB <= 13) {
                         $group10_13[] = $student;
                         $this->view('Teacher/Students', [
                             'students' => $group10_13,

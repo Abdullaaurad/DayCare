@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="<?= IMAGE ?>/logo_light-remove.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher</title>
     <link rel="stylesheet" href="<?=CSS?>/Teacher/styles.css?v=<?= time() ?>">
     <link rel="stylesheet" href="<?=CSS?>/Teacher/variables.css?v=<?= time() ?>">
     <link rel="stylesheet" href="<?=CSS?>/Teacher/academic.css?v=<?= time() ?>">
+        <link rel="stylesheet" href="<?= CSS ?>/Child/Header.css?v=<?= time() ?>">
+    <script src="<?= JS ?>/Child/Profile.js?v=<?= time() ?>"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!--google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,49 +23,59 @@
 <body>
     <div class="wrapper">
         <div class="sidebar">
-            <div class="sidebar">
-                <div class="sidebar-header">
-                    <img src="<?=htmlspecialchars($teacherInfo['Image'])?> " alt="profile-pic">
-                    <div class="sidebar-header-content">
-                        <?php if(isset($teacherInfo)): ?>
-                        <h3><?=htmlspecialchars($teacherInfo['First_Name'])?> <?=htmlspecialchars($teacherInfo['Last_Name'])?></h3>
-                        <?php endif; ?>
-                        <h4>Teacher</h4>
+            <div class="side_bar">
+                <div class="userblock">
+                    <div class="photo">
+                        <img alt="User profile picture" height="50" src="<?= $data['Profile']->Image ?>" width="50" />
+                    </div>
+                    <div class="username">
+                        <h3>
+                            <?= $data['Profile']->First_Name ?> <?= $data['Profile']->Last_Name ?>
+                        </h3>
+                        <p>
+                            Maid
+                        </p>
                     </div>
                 </div>
-                <div class="sidebar-list">
-                    <a href="<?=ROOT?>/Teacher/Dashboard" class="sidebar-list-item" id="dashboard-link"> 
-                        <i class='bx bxs-dashboard'></i>
-                        <span class="text">Dashboard</span>
-                    </a>
-                    <a href="<?=ROOT?>/Teacher/Funzone" class="sidebar-list-item" id="home-link">
-                    <i class="fa-solid fa-puzzle-piece"></i>
-                        <span class="text">Funzone</span>
-                    </a>
-                    <a href="<?=ROOT?>/Teacher/Reports" class="sidebar-list-item" id="report-link">
-                        <i class='bx bxs-report' ></i>
-                        <span class="text"> Report </span>
-                    </a>
-                    <a href="<?=ROOT?>/Teacher/Students" class="sidebar-list-item" id="students-link">
-                        <i class='bx bxs-group' ></i>
-                        <span class="text">Students</span>
-                    </a>
-                    <a href="<?=ROOT?>/Teacher/Leaves" class="sidebar-list-item" id="leaves-link">
-                        <i class='bx bx-calendar' ></i>
-                        <span class="text">Leaves</span>
-                    </a>
-                    <a href="<?=ROOT?>/Teacher/Message" class="sidebar-list-item" id="chat-link" >
-                        <i class='bx bx-message-square-detail'></i>
-                        <span class="text">Messages</span>
-                    </a>
-                  
-        
-                </div>
+                <ul>
+                    <li class="selected first">
+                        <a href="<?= ROOT ?>/Teacher/Dashboard">
+                            <i class="fas fa-home"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="hover-effect unselected">
+                        <a href="<?= ROOT ?>/Teacher/Funzone">
+                            <i class="fas fa-puzzle-piece"></i> <span>Funzone</span>
+                        </a>
+                    </li>
+                    <li class="hover-effect unselected">
+                        <a href="<?= ROOT ?>/Teacher/Reports">
+                            <i class="fas fa-file-alt"></i> <span>Report</span>
+                        </a>
+                    </li>
+                    <li class="hover-effect unselected">
+                        <a href="<?= ROOT ?>/Teacher/Students">
+                            <i class="fas fa-users"></i> <span>Students</span>
+                        </a>
+                    </li>
+                    <li class="hover-effect unselected">
+                        <a href="<?= ROOT ?>/Teacher/Inventory">
+                            <i class="fas fa-boxes"></i> <span>Inventory</span>
+                        </a>
+                    </li>
+                    <li class="hover-effect unselected">
+                        <a href="<?= ROOT ?>/Teacher/Leaves">
+                            <i class="fas fa-calendar-alt"></i> <span>Leaves</span>
+                        </a>
+                    </li>
+                    <li class="hover-effect unselected">
+                        <a href="<?= ROOT ?>/Teacher/Message">
+                            <i class="fas fa-comments"></i> <span>Messages</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-
-
-
         
         <div class="wrapper-1">
 
