@@ -144,7 +144,7 @@
             </div>
             <div class="card-body">
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <a href="<?= ROOT ?>/Receptionist/Inventory" class="btn btn-primary"><i class="fas fa-plus"></i> Add New
+                    <a href="<?= ROOT ?>/Receptionist/AddItem" class="btn btn-primary"><i class="fas fa-plus"></i> Add New
                         Item</a>
                     <a href="<?= ROOT ?>/Receptionist/Restock" class="btn btn-secondary"><i class="fas fa-truck-loading"></i> Manage
                         Restocking</a>

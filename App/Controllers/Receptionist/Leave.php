@@ -45,26 +45,38 @@ class Leave
         return $data;
     }
 
-    public function RequestLeave(){
+    public function RequestLeave() {
         $repLeaveModel = new \Modal\ReceptionistLeave;
-        // $maidid = $this->findID();
-        $repid = 1;
+        $ReceptionistModal = new \Modal\Receptionist;
+        $session = new \core\session;
+        $UserID = $session->get("USERID");
+        $receptionist = $ReceptionistModal->first(["UserID" => $UserID]);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = [
-                'ReceotionistID' => $repid,
-                'Start_Date' => $_POST['Start_Date'],
-                'End_Date' => $_POST['End_Date'],
-                'Description' => $_POST['Description'],
-                'Leave_Type' => $_POST['Leave_Type'],
-                'Status' => 'Pending',
-            ];
-            $data['Duration'] = (strtotime($data['End_Date']) - strtotime($data['Start_Date'])) / (60 * 60 * 24) + 1;
-            if ($repLeaveModel->validate($data)) {
-                $repLeaveModel->insert($data);
+            $startDate = $_POST['Start_Date'];
+            $endDate = $_POST['End_Date'];
+            $description = $_POST['Description'];
+            $leaveType = $_POST['Leave_Type'];
 
-                redirect('Receptionist/Leaves');
+            // Validate dates
+            if (strtotime($startDate) > strtotime($endDate)) {
+                $_SESSION['error'] = "Start date cannot be after end date.";
+                redirect('Receptionist/RequestLeave');
+                return;
             }
+
+            $data = [
+                'ReceptionistID' => $receptionist->ReceptionistID,
+                'Start_Date' => $startDate,
+                'End_Date' => $endDate,
+                'Description' => $description,
+                'Leave_Type' => $leaveType,
+                'Status' => 'Pending',
+                'RecID' => $receptionist->ReceptionistID,
+            ];
+            $data['Duration'] = (strtotime($endDate) - strtotime($startDate)) / (60 * 60 * 24) + 1;
+            $repLeaveModel->insert($data);
+            redirect('Receptionist/Leave');
         }
     }
 

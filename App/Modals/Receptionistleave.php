@@ -10,13 +10,14 @@
         protected $table = 'receptionist_leave';
         protected $allowedColumns = [
             'LeaveID',
-            'ReceotionistID',
+            'ReceptionistID',
             'Duration',
             'Start_Date',
             'End_Date',
             'Description',
             'Leave_Type',
             'Status',
+            'RecID'
         ];
 
         public function validate($data){

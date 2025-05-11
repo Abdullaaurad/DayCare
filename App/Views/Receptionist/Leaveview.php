@@ -163,7 +163,6 @@
                             <?php if (!empty($leaves)): ?>
                                 <?php foreach ($leaves as $leave): ?>
                                     <?php
-                                    $isApproved = $leave->Status === 'Approved';
                                     $isPast = strtotime($leave->Start_Date) < strtotime(date('Y-m-d'));
                                     ?>
                                     <div class="table_column">
@@ -183,13 +182,6 @@
                                             <span><?= htmlspecialchars($leave->Status) ?></span>
                                         </div>
                                         <div class="colum action">
-                                            <?php if (!$isApproved && !$isPast): ?>
-                                                <form method='POST' action="<?= ROOT ?>/Receptionist/Leaveupdate">
-                                                    <input type='hidden' value='<?= htmlspecialchars($leave->LeaveID) ?>' name='leaveid'>
-                                                    <button><i class="fas fa-edit" type="submit"></i>Edit</button>
-                                                </form>
-                                            <?php endif; ?>
-
                                             <?php if (!$isPast): ?>
                                                 <form method='POST' action="<?= ROOT ?>/Receptionist/Leave/delrec">
                                                     <input type='hidden' value='<?= htmlspecialchars($leave->LeaveID) ?>' name='LeaveID'>
@@ -202,10 +194,7 @@
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
-
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -254,7 +243,7 @@
                     <select id="type" name="Leave_Type" style="width: 290px;">
                         <option value="Annual Leave">Annual Leave</option>
                         <option value="Sick Leave">Sick Leave</option>
-                        <option value="Compassionate">Compassionate</option>
+                        <option value="Compassionate Leave">Compassionate</option>
                     </select>
                 </div>
                 <div class="form-group-desp" style="margin-bottom: 10px; width: 290px;">
