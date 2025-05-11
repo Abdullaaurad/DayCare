@@ -178,37 +178,40 @@ use PDO;
             $StockModal = new \Modal\Stock;
             $InventoryModal = new \Modal\Inventory;
 
+            $Data = [];
             $firstday = date("Y-m-01");
             $lastday = date("Y-m-t");
             $Issued = $InventoryModal->findFutureDatesWithConditions($firstday, $lastday, ["Activity" => "Issued"]);
 
-            foreach($Issued as $row){
-                $uniqueItemIDs[$row->ItemID] = true;
-            }
-            $uniqueItemIDList = array_keys($uniqueItemIDs);
+            if(!empty($Issued)){
+                foreach($Issued as $row){
+                    $uniqueItemIDs[$row->ItemID] = true;
+                }
+                $uniqueItemIDList = array_keys($uniqueItemIDs);
 
-            foreach($uniqueItemIDList as $unique){
+                foreach($uniqueItemIDList as $unique){
 
-                $ItemData = [
-                    'ItemID'   => $unique,
-                    'Issued'   => 0
-                ];
+                    $ItemData = [
+                        'ItemID'   => $unique,
+                        'Issued'   => 0
+                    ];
 
-                $Transactions = $InventoryModal->where_order_desc(["ItemID" => $unique, "Activity"=> "Issued"],[], "Date");
-                foreach($Transactions as $tr){
-                    $ItemData['Issued'] += $tr->Quantity;
+                    $Transactions = $InventoryModal->where_order_desc(["ItemID" => $unique, "Activity"=> "Issued"],[], "Date");
+                    foreach($Transactions as $tr){
+                        $ItemData['Issued'] += $tr->Quantity;
+                    }
+
+                    $ItemDetails = $StockModal->first(["ItemID" => $unique]);
+                    $ItemData['Name'] = $ItemDetails->Item;
+                    $ItemData['Category'] = $ItemDetails->Category;
+                    $Data[] = $ItemData;
                 }
 
-                $ItemDetails = $StockModal->first(["ItemID" => $unique]);
-                $ItemData['Name'] = $ItemDetails->Item;
-                $ItemData['Category'] = $ItemDetails->Category;
-                $Data[] = $ItemData;
+                usort($Data, function($a, $b) {
+                    return $b['Issued'] <=> $a['Issued'];
+                });
+                $Data = array_slice($Data, 0, 5);
             }
-
-            usort($Data, function($a, $b) {
-                return $b['Issued'] <=> $a['Issued'];
-            });
-            $Data = array_slice($Data, 0, 5);
 
             return $Data;
         }
@@ -315,8 +318,10 @@ use PDO;
             $uniqueUserIDs = [];
             $rows = $InventoryModal->findFutureDates($firstday, $lastday);
         
-            foreach($rows as $row){
-                $uniqueUserIDs[$row->UserID] = true;
+            if(!empty($rows)){
+                foreach($rows as $row){
+                    $uniqueUserIDs[$row->UserID] = true;
+                }
             }
         
             $uniqueUserIDList = array_keys($uniqueUserIDs);

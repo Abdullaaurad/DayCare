@@ -44,12 +44,17 @@
             $lastdate = new \DateTime(date("Y-m-t"));
 
             $StockMonthIssued = $InventoryModal->findFutureDatesWithConditions($startdate, $lastdate, ["Activity" => "Issued"]);
-            foreach ($StockMonthIssued as $row){
-                $data['Issued'] += $row->Quantity;
+            if(!empty($StockMonthIssued)){
+                foreach ($StockMonthIssued as $row){
+                    $data['Issued'] += $row->Quantity;
+                }
             }
+
             $StockMonthReturned = $InventoryModal->findFutureDatesWithConditions($startdate, $lastdate, ["Activity" => "Returned"]);
-            foreach ($StockMonthReturned as $row){
-                $data['Issued'] -= $row->Quantity;
+            if(!empty($StockMonthReturned)){
+                foreach ($StockMonthReturned as $row){
+                    $data['Issued'] -= $row->Quantity;
+                }
             }
 
             return $data;

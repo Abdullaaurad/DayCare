@@ -7,16 +7,89 @@
     <link rel="icon" href="<?= IMAGE ?>/logo_light-remove.png" type="image/x-icon">
     <title>My Usage Summary - Inventory System</title>
     <link rel="stylesheet" href="<?= CSS ?>/Parent/deletepopup.css?v=<?= time() ?>">
+        <link rel="stylesheet" href="<?= CSS ?>/Maid/main.css?v=<?= time() ?>">
     <link rel="stylesheet" href="<?= CSS ?>/Parent/Alert.css?v=<?= time() ?>">
     <link rel="stylesheet" href="<?= CSS ?>/Inventory.css?v=<?= time() ?>">
+        <script src="<?= JS ?>/Child/Profile.js?v=<?= time() ?>"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+    <div class="side_bar">
+            <div class="userblock">
+                <div class="photo">
+                    <img alt="User profile picture" height="50" src="<?= $data['Profile']->Image ?>" width="50" />
+                </div>
+                <div class="username">
+                    <h3>
+                        <?= $data['Profile']->First_Name ?> <?= $data['Profile']->Last_Name ?>
+                    </h3>
+                    <p>
+                        Maid
+                    </p>
+                </div>
+            </div>
+            <ul>
+                <li class="hover-effect unselected first">
+                    <a href="<?= ROOT ?>/Maid/Home">
+                        <i class="fas fa-home"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="selected">
+                    <a href="<?= ROOT ?>/Maid/Inventory">
+                        <i class="fas fa-boxes"></i> <span>Inventory</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Maid/Leaves">
+                        <i class="fas fa-utensils"></i> <span>Leave</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     <div class="main-content">
-
+        <div class="header" style="margin-top:287px; height: 80px; margin-left: -10px; width: 102.45%;">
+            <div class="header-title">
+                <h2 style="font-size: 24px;">
+                    Hey
+                </h2>
+                <p>
+                    Start your day happy with little ones !
+                </p>
+            </div>
+            <div class="bell-con" id="bell-container" style="cursor: pointer;">
+                <i class="fas fa-bell bell-icon" style="margin-left: -350px; color: white;"></i>
+                <?php if (!empty($data['Notification'])): ?>
+                    <?php if ($data['Notification']['Seen'] != 0): ?>
+                        <div class="message-numbers" id="message-number">
+                            <p><?= $data['Notification']['Seen'] != 0 ? $data['Notification']['Seen'] : '' ?></p>
+                        </div>
+                    <?php endif; ?>
+                    <div class="message-dropdown" id="messageDropdown" style="display: none;">
+                        <ul>
+                            <?php foreach ($data['Notification']['data'] as $row): ?>
+                                <li data-id="<?= $row->NotificationID ?>">
+                                    <p><?= htmlspecialchars($row->Description) ?></p>
+                                    <?php if ($row->Location != NULL): ?>
+                                        <a href="<?= ROOT ?>/Child/<?= $row->Location ?>">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </a>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <!-- Prodile btn -->
+            <div class="profile">
+                <button class="profilebtn">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </div>
         <!-- Stats -->
-        <div class="stats-container">
+        <div class="stats-container" style="margin-top:20px;">
             <div class="stat-card">
                 <div class="stat-icon">
                     <i class="fas fa-box-open"></i>
@@ -260,6 +333,18 @@
                 </div>
             </form>
         </div>
+
+        <div class="profile-card" id="profileCard" style="top: 0 !important; position: fixed !important; z-index: 1000000; width: 21rem;">
+            <img src="<?= IMAGE ?>/back-arrow-2.svg" id="back-arrow-profile" style="width: 24px; height: 24px; fill:#233E8D !important;" class="back" />
+            <img alt="Profile picture of Thilina Perera" height="100" src="<?= $data['Profile']->Image; ?>" width="100" class="profile" />
+            <h2><?= $data['Profile']->First_Name ?> <?= $data['Profile']->Last_Name ?></h2>
+            <p><?= $data['Profile']->EmployeeID ?> </p>
+            <button class="profile-button"
+                onclick="window.location.href ='<?= ROOT ?>/Receptionist/Profile'">Profile
+            </button>
+            <button class="logout-button" onclick="logoutUser()">LogOut</button>
+        </div>
+
     </div>
 
     <script>
@@ -346,6 +431,22 @@
                 tableBody.appendChild(tr);
             });
         }
+
+        function logoutUser() {
+            fetch("<?= ROOT ?>/Maid/Inventory/Logout", {
+                    method: "POST",
+                    credentials: "same-origin"
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = "<?= ROOT ?>/Main/Login";
+                    } else {
+                        alert("Logout failed. Try again.");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            }
 
         function GetUsageReport(firstdate, lastdate, category, page = 1) {
             console.log(page);

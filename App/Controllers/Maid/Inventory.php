@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-class MyUsage
+class Inventory
 {
     use MainController;
 
@@ -14,7 +14,8 @@ class MyUsage
 
         $data['Borrowed'] = $this->Currently_Borrowed();
         $data = $data + $this->store_stats();
-        $this->view('Inventory/MyUsage', $data);
+        $data['Profile'] = $this->profile();
+        $this->view('Maid/Inventory', $data);
     }
 
     public function Usage_Report()
@@ -120,7 +121,36 @@ class MyUsage
         foreach ($activityIDs as $id) {
             $ActivityModal->update_withid($id, ["Returned" => 1], "ActivityID");
         }
-        redirect('Inventory/MyUsage');
+        redirect('Maid/Inventory');
+    }
+
+    private function Profile()
+    {
+        $session = new \core\Session;
+        $UserID = $session->get('USERID');
+
+        $MaidModal = new \Modal\Maid;
+        $data = $MaidModal->first(["UserID" => $UserID]);
+        if (!empty($data)) {
+            $imageData = $data->Image;
+            $imageType = $data->ImageType;
+            $base64Image = (!empty($imageData) && is_string($imageData))
+                ? 'data:' . $imageType . ';base64,' . base64_encode($imageData)
+                : null;
+            $data->Image = $base64Image;
+            $data->EmployeeID = 'EMP' . str_pad($data->UserID, 5, '0', STR_PAD_LEFT);
+        }
+
+        return $data;
+    }
+
+    public function Logout()
+    {
+        $session = new \core\Session();
+        $session->logout();
+
+        echo json_encode(["success" => true]);
+        exit;
     }
 
     public function store_stats()
@@ -135,7 +165,7 @@ class MyUsage
         ];
 
         $Borrowed = $InventoryModal->where_norder(["UserID" => $UserID, "Activity" => "Borrowed", "Returned" => 0]);
-        if(!empty($Borrowed)){
+        if (!empty($Borrowed)) {
             foreach ($Borrowed as $row) {
                 $row->ReturnDate = date('Y-m-d', strtotime($row->Date . ' +1 day'));
 

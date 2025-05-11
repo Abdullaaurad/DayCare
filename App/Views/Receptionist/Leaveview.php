@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="<?= IMAGE ?>/logo_light-remove.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= CSS ?>/Receptionist/PaymentDashboard.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="<?= CSS ?>/Receptionist/main.css?v=<?= time() ?>">
     <link rel="stylesheet" href="<?= CSS ?>/Maid/profile.css?v=<?= time() ?>">
     <script src="<?= JS ?>/Child/Profile.js?v=<?= time() ?>"></script>
-    <link rel="stylesheet" href="<?= CSS ?>/Maid/main.css?v=<?= time() ?>">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <title>Maid</title>
+    <title>Receptionist</title>
 </head>
 
 <body>
@@ -31,23 +32,43 @@
                         <?= $data['Profile']->First_Name ?> <?= $data['Profile']->Last_Name ?>
                     </h3>
                     <p>
-                        Maid
+                        Receptionist
                     </p>
                 </div>
             </div>
             <ul>
                 <li class="hover-effect unselected first">
-                    <a href="<?= ROOT ?>/Maid/Home">
+                    <a href="<?= ROOT ?>/Receptionist/Home">
                         <i class="fas fa-home"></i> <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="hover-effect unselected">
-                    <a href="<?= ROOT ?>/Maid/Inventory">
+                    <a href="<?= ROOT ?>/Receptionist/Attendance">
+                        <i class="fas fa-history"></i> <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Payment">
+                        <i class="fa fa-user-shield"></i> <span>Payment</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/visitor">
+                        <i class="fas fa-calendar-check"></i> <span>Visitor</span>
+                    </a>
+                </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Inventory">
                         <i class="fas fa-boxes"></i> <span>Inventory</span>
                     </a>
                 </li>
+                <li class="hover-effect unselected">
+                    <a href="<?= ROOT ?>/Receptionist/Restock">
+                        <i class="fas fa-truck-loading"></i> <span>Restock</span>
+                    </a>
+                </li>
                 <li class="selected">
-                    <a href="<?= ROOT ?>/Maid/Leaves">
+                    <a href="<?= ROOT ?>/Receptionist/Leave">
                         <i class="fas fa-utensils"></i> <span>Leave</span>
                     </a>
                 </li>
@@ -105,9 +126,12 @@
                         </div>
                         <hr>
                         <div class="table_filters">
-
-                            <form class="date_entry" method='POST' action="<?= ROOT ?>/Maid/Leaves/datefilter">
-                                <input type="date" name="Date" onchange="this.form.submit()" />
+                            <form class="date_entry" method="GET" action="<?= ROOT ?>/Receptionist/Leave/index">
+                                <input
+                                    type="date"
+                                    name="Date"
+                                    value="<?= isset($data['Date']) ? htmlspecialchars($data['Date']) : '' ?>"
+                                    onchange="this.form.submit()" />
                             </form>
                         </div>
                         <div class="table_topics">
@@ -172,12 +196,20 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
+        <div class="profile-card" id="profileCard" style="top: 0 !important; position: fixed !important; z-index: 1000000;">
+            <img src="<?= IMAGE ?>/back-arrow-2.svg" id="back-arrow-profile" style="width: 24px; height: 24px; fill:#233E8D !important;" class="back" />
+            <img alt="Profile picture of Thilina Perera" height="100" src="<?= $data['Profile']->Image; ?>" width="100" class="profile" />
+            <h2><?= $data['Profile']->First_Name ?> <?= $data['Profile']->Last_Name ?></h2>
+            <p><?= $data['Profile']->EmployeeID ?> </p>
+            <button class="profile-button"
+                onclick="window.location.href ='<?= ROOT ?>/Receptionist/Profile'">Profile
+            </button>
+            <button class="logout-button" onclick="logoutUser()">LogOut</button>
+        </div>
 
-        <form class="modal" style="display: none; width:" method="POST" action="<?= ROOT ?>/Maid/Leaves/Requestleave">
+        <form class="modal" style="display: none; width:" method="POST" action="<?= ROOT ?>/Receptionist/Leave/Requestleave">
             <div class="pickup-popup">
                 <div class="top-con">
                     <div class="back-con">
@@ -202,7 +234,7 @@
                     <div class="form-group-date">
                         <label for="date">End Date</label>
                         <div class="date_entry">
-                            <input type="date" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" name="End_Date" />
+                            <input type="date" min="<?= date('Y-m-d', strtotime('+1 day')) ?>"  name="End_Date" />
                         </div>
                     </div>
                 </div>
@@ -226,22 +258,24 @@
             </div>
         </form>
 
-        <div class="profile-card" id="profileCard" style="top: 0 !important; position: fixed !important; z-index: 1000000;">
-            <img src="<?= IMAGE ?>/back-arrow-2.svg" id="back-arrow-profile" style="width: 24px; height: 24px; fill:#233E8D !important;" class="back" />
-            <img alt="Profile picture of Thilina Perera" height="100" src="<?= $data['Profile']->Image; ?>" width="100" class="profile" />
-            <h2><?= $data['Profile']->First_Name ?> <?= $data['Profile']->Last_Name ?></h2>
-            <p><?= $data['Profile']->EmployeeID ?> </p>
-            <button class="profile-button"
-                onclick="window.location.href ='<?= ROOT ?>/Receptionist/Profile'">Profile
-            </button>
-            <button class="logout-button" onclick="logoutUser()">LogOut</button>
-        </div>
-
     </div>
 
     <script>
+        const url = new URL(window.location);
+        url.searchParams.delete('Date');
+        window.history.replaceState({}, document.title, url);
+
+        document.querySelector('input[name="Date"]').addEventListener('change', function() {
+            console.log(this.value);
+            if (this.value === '') {
+                window.location.href = "<?= ROOT ?>/Receptionist/Leave/index";
+            } else {
+                this.form.submit(); // Otherwise, submit normally
+            }
+        });
+
         function logoutUser() {
-            fetch("<?= ROOT ?>/Maid/Leaves/Logout", {
+            fetch("<?= ROOT ?>/Receptionist/Leave/Logout", {
                     method: "POST",
                     credentials: "same-origin"
                 })
@@ -264,7 +298,6 @@
             document.querySelector(".modal").reset();
         });
     </script>
-
 </body>
 
 </html>

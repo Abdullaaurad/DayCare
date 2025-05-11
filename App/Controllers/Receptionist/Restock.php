@@ -9,8 +9,38 @@
             $session = new \Core\Session;
             $session->check_login();
             $data = $this->store_stats();
+            $data['Profile'] = $this->Profile();
 
             $this->view('Receptionist/Restock', $data);
+        }
+
+        private function Profile(){
+            $session = new \core\Session;
+            $session->set('USERID', 24);
+            $UserID = $session->get('USERID');
+
+            $ReceptionistModal = new \Modal\Receptionist;
+            $data = $ReceptionistModal->first(["UserID" => $UserID]);
+            if(!empty($data)){
+                $imageData = $data->Image;
+                $imageType = $data->ImageType;
+                $base64Image = (!empty($imageData) && is_string($imageData)) 
+                    ? 'data:' . $imageType . ';base64,' . base64_encode($imageData) 
+                    : null
+                ;
+                $data->Image = $base64Image;
+                $data->EmployeeID = 'EMP' . str_pad($data->UserID, 5, '0', STR_PAD_LEFT);
+            }
+
+            return $data;
+        }
+
+        public function Logout(){
+            $session = new \core\Session();
+            $session->logout();
+    
+            echo json_encode(["success" => true]);
+            exit;
         }
 
         public function store_stats(){
