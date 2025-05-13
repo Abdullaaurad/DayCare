@@ -22,6 +22,8 @@ class Message
 
         $data['chat'] = $this->store_chats();
         $data['Profile'] = $this->Profile();
+        $data['Child'] = 1;
+        // show($data);
         $this->view('Teacher/message', $data);
     }
 
@@ -31,7 +33,7 @@ class Message
         $UserID = $session->get('USERID');
 
         $TeacherModal = new \Modal\Teacher;
-        $data = $TeacherModal->first(["UserID" => 1]);
+        $data = $TeacherModal->first(["UserID" => 14]);
         if (!empty($data)) {
             $imageData = $data->Image;
             $imageType = $data->ImageType;

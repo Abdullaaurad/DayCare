@@ -9,9 +9,6 @@
     class Blog{
         use MainController;
         public function index(){
-
-            $session = new \Core\Session;
-             
             $session = new \Core\Session;
             $session->check_login();
 

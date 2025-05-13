@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<?= CSS ?>/Teacher/styles.css?v=<?= time() ?>">
     <script src="<?= JS ?>/Child/Upload-file.js?v=<?= time() ?>"></script>
     <!-- <script src="<?= JS ?>/Child/message.js?v=<?= time() ?>"></script> -->
-    <script src="<?= JS ?>/Child/Navbar.js?v=<?= time() ?>"> </script>
+    <!-- <script src="<?= JS ?>/Child/Navbar.js?v=<?= time() ?>"> </script> -->
     <script src="<?= JS ?>/Child/MessageDropdown.js?v=<?= time() ?>"> </script>
     <script src="<?= JS ?>/Child/Profile.js?v=<?= time() ?>"></script>
 </head>
@@ -77,51 +77,46 @@
             <hr>
         </div>
         <!-- Header -->
-        <div class="header">
-            <div class="header-title">
-                <h2 style="font-size: 24px;">
-                    Hey
-                </h2>
-                <p>
-                    Start your day happy with little ones !
-                </p>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search">
-            </div>
-            <!-- message icon -->
-            <div class="bell-con" id="bell-container">
-                <i class="fas fa-bell bell-icon"></i>
-                <?php if (!empty($data['Notification'])): ?>
-                    <?php if ($data['Notification']['Seen'] != 0): ?>
-                        <div class="message-numbers" id="message-number">
-                            <p><?= $data['Notification']['Seen'] != 0 ? $data['Notification']['Seen'] : '' ?></p>
-                        </div>
-                    <?php endif; ?>
-                    <div class="message-dropdown" id="messageDropdown" style="display: none;">
-                        <ul>
-                            <?php foreach ($data['Notification']['data'] as $row): ?>
-                                <li data-id="<?= $row->NotificationID ?>">
-                                    <p><?= htmlspecialchars($row->Description) ?></p>
-                                    <?php if ($row->Location != NULL): ?>
-                                        <a href="<?= ROOT ?>/Child/<?= $row->Location ?>">
-                                            <i class="fas fa-paper-plane"></i>
-                                        </a>
-                                    <?php endif; ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
+        <div class="header" style="width: 1270px; margin-left: 260px; padding: 40px;">
+                    <div class="header-title">
+                        <h2 style="font-size: 24px;">
+                            Hey
+                        </h2>
+                        <p>
+                            Start your day happy with little ones !
+                        </p>
                     </div>
-                <?php endif; ?>
-            </div>
-            <!-- Prodile btn -->
-            <div class="profile">
-                <button class="profilebtn">
-                    <i class="fas fa-user-circle"></i>
-                </button>
-            </div>
-        </div>
-
+                    <div class="bell-con" id="bell-container" style="cursor: pointer;flex-grow: 0;">
+                        <i class="fas fa-bell bell-icon" style="margin-left: -350px; color: white;"></i>
+                        <?php if (!empty($data['Notification'])): ?>
+                            <?php if ($data['Notification']['Seen'] != 0): ?>
+                                <div class="message-numbers" id="message-number">
+                                    <p><?= $data['Notification']['Seen'] != 0 ? $data['Notification']['Seen'] : '' ?></p>
+                                </div>
+                            <?php endif; ?>
+                            <div class="message-dropdown" id="messageDropdown" style="display: none;">
+                                <ul>
+                                    <?php foreach ($data['Notification']['data'] as $row): ?>
+                                        <li data-id="<?= $row->NotificationID ?>">
+                                            <p><?= htmlspecialchars($row->Description) ?></p>
+                                            <?php if ($row->Location != NULL): ?>
+                                                <a href="<?= ROOT ?>/Child/<?= $row->Location ?>">
+                                                    <i class="fas fa-paper-plane"></i>
+                                                </a>
+                                            <?php endif; ?>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <!-- Prodile btn -->
+                    <div class="profile">
+                        <button class="profilebtn">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                    </div>
+                </div>
         <div class="sidebar3" id="sidebar3">
             <div class="search-bar">
                 <input placeholder="Search" type="text" id="persons" />
@@ -153,7 +148,7 @@
             </div>
         </div>
         <div class="chat-window">
-            <div class="header2" style="height: 40px;">
+            <div class="header2" style="height: 40px; width: 970px;">
                 <img alt="Profile picture of Deepti manohar" height="40" src=" " width="40" />
                 <div class="user-info">
                     <span class="name">
@@ -223,20 +218,16 @@
         </div>
 
         <!-- profile card -->
-        <div class="profile-card" id="profileCard" style="top: 0 !important; position: fixed !important; z-index: 1000000;">
-            <img src="<?= IMAGE ?>/back-arrow-2.svg" id="back-arrow-profile" class="back">
-            <img alt="Profile picture of Thilina Perera" height="100" src="<?php echo htmlspecialchars($data['selectedchildren']['image']); ?>" width="100"
-                class="profile" />
-            <h2><?= $data['selectedchildren']['fullname'] ?></h2>
-            <p>SRD<?= $data['selectedchildren']['id'] ?></p>
-            <button class="profile-button"
-                onclick="window.location.href ='<?= ROOT ?>/Child/ChildProfile'">Profile</button>
-            <button class="secondary-button" onclick="window.location.href ='<?= ROOT ?>/Child/ParentProfile'">Parent profile</button>
-            <button class="secondary-button" onclick="window.location.href ='<?= ROOT ?>/Child/GuardianProfile'">Guardian profile</button>
-            <button class="secondary-button" onclick="window.location.href ='<?= ROOT ?>/Child/ChildPackage'">Package</button>
-            <button class="secondary-button" onclick="window.location.href ='<?= ROOT ?>/Child/ChildID'">Id Card</button>
-            <button class="logout-button" onclick="logoutUser()">LogOut</button>
-        </div>
+            <div class="profile-card" id="profileCard" style="top: 0 !important; position: fixed !important; z-index: 1000000; width: 21rem;">
+                <img src="<?= IMAGE ?>/back-arrow-2.svg" id="back-arrow-profile" style="width: 24px; height: 24px; fill:#233E8D !important;" class="back" />
+                <img alt="Profile picture of Thilina Perera" height="100" src="<?= $data['Profile']->Image; ?>" width="100" class="profile" />
+                <h2><?= $data['Profile']->First_Name ?> <?= $data['Profile']->Last_Name ?></h2>
+                <p><?= $data['Profile']->EmployeeID ?> </p>
+                <button class="profile-button"
+                    onclick="window.location.href ='<?= ROOT ?>/Receptionist/Profile'">Profile
+                </button>
+                <button class="logout-button" onclick="logoutUser()">LogOut</button>
+            </div>
     </div>
 </body>
 <script>
